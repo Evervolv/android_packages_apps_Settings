@@ -4,9 +4,9 @@
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
-  
+
           http://www.apache.org/licenses/LICENSE-2.0
-  
+
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -26,8 +26,8 @@
             android:key="evparts_settings">
             <intent
                 android:action="android.intent.action.MAIN"
-                android:targetPackage="com.android.spare_parts"
-                android:targetClass="com.android.spare_parts.SpareParts" />
+                android:targetPackage="com.evervolv.EVParts"
+                android:targetClass="com.evervolv.EVParts.SpareParts" />
         </com.android.settings.IconPreferenceScreen>
 
         <com.android.settings.IconPreferenceScreen
@@ -120,7 +120,7 @@
 
         <!-- Storage -->
 
-        <com.android.settings.IconPreferenceScreen 
+        <com.android.settings.IconPreferenceScreen
             settings:icon="@drawable/ic_settings_storage"
             android:title="@string/storage_settings">
             <intent android:action="android.intent.action.MAIN"

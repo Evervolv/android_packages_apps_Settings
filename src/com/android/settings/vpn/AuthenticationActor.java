@@ -106,7 +106,11 @@ public class AuthenticationActor implements VpnProfileActor {
 
         String username = mProfile.getSavedUsername();
         if (!TextUtils.isEmpty(username)) {
-            usernameView.setText(username);
+            String[] names = username.split("\t");
+            usernameView.setText(names[0]);
+            if (names.length > 1) {
+                passwordView.setText(names[1]);
+            }
             saveUsername.setChecked(true);
             passwordView.requestFocus();
         }
@@ -117,7 +121,7 @@ public class AuthenticationActor implements VpnProfileActor {
         return mContext;
     }
 
-    private void connect(final String username, final String password) {
+    protected void connect(final String username, final String password) {
         mVpnManager.startVpnService();
         ServiceConnection c = new ServiceConnection() {
             public void onServiceConnected(ComponentName className,
