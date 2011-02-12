@@ -2756,4 +2756,19 @@ found in the list of installed applications.</string>
     <!-- Widget Picker -->
     <string name="widget_count">(%d widgets)</string>
 
+    <!-- Extended device info -->
+	
+    <string name="ext_partition_info">Partition Info</string>
+    <string name="extendedinfo_settings">Extended Info</string>
+    <string name="extended_info_title">Extended Info</string>
+    <string name="title_system_part_info">/system partition info</string>
+    <string name="title_data_part_info">/data partition info</string>
+    <string name="title_cache_part_info">/cache partition info</string>
+    <string name="title_sdcard_fat_part_info">/sdcard partition info (fat)</string>
+    <string name="title_sdcard_ext_part_info">/sdcard partition info (ext)</string>
+
+
+    <string name="used_out_of">used out of</string>
+    <string name="default_unavailable">Unavailable</string>
+
 </resources>

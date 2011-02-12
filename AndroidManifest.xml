@@ -69,6 +69,18 @@
             </intent-filter>
         </activity>
 
+        <!-- Extended Device Info -->
+
+        <activity android:name="ExtendedDeviceInfo"
+                android:label="@string/extended_info_title"
+                >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.VOICE_LAUNCH" />
+            </intent-filter>
+        </activity>
+
         <!-- Wireless Controls -->
 
         <activity android:name="WirelessSettings"

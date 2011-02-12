@@ -31,6 +31,16 @@
         </com.android.settings.IconPreferenceScreen>
 
         <com.android.settings.IconPreferenceScreen
+            settings:icon="@drawable/ic_settings_evparts"
+            android:title="@string/extendedinfo_settings"
+            android:key="extendedinfo_settings">
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.settings"
+                android:targetClass="com.android.settings.ExtendedDeviceInfo" />
+        </com.android.settings.IconPreferenceScreen>
+
+        <com.android.settings.IconPreferenceScreen
             android:title="@string/radio_controls_title"
             settings:icon="@drawable/ic_settings_wireless">
             <intent
