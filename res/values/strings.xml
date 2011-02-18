@@ -2757,7 +2757,10 @@ found in the list of installed applications.</string>
     <string name="widget_count">(%d widgets)</string>
 
     <!-- Extended device info -->
-	
+
+    <string name="ext_rom_device_info">Rom &amp; Device Info</string>
+
+
     <string name="ext_partition_info">Partition Info</string>
     <string name="extendedinfo_settings">Extended Info</string>
     <string name="extended_info_title">Extended Info</string>

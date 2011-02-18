@@ -17,6 +17,24 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         android:title="@string/extended_info_title">
 
+
+	<PreferenceCategory
+		android:title="@string/ext_rom_device_info"
+		>
+
+		<!-- Device name -->
+		<Preference android:key="system_part_info" 
+		        android:title="@string/title_system_part_info"
+		        android:summary="@string/default_unavailable"
+			/>
+		<!-- Rom version -->
+		<Preference android:key="system_part_info" 
+		        android:title="@string/title_system_part_info"
+		        android:summary="@string/default_unavailable"
+			/>
+
+	</PreferenceCategory>
+
 	<PreferenceCategory
 		android:title="@string/ext_partition_info"
 		>
