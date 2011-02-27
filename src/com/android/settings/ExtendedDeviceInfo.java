@@ -44,16 +44,23 @@ import java.util.regex.Pattern;
 
 public class ExtendedDeviceInfo extends PreferenceActivity {
 	private static final String TAG = "EVParts";
+	
     private static final String SYSTEM_PART_SIZE = "system_part_info";
-    private Preference mSystemPartSize;
     private static final String DATA_PART_SIZE = "data_part_info";
-    private Preference mDataPartSize;
     private static final String CACHE_PART_SIZE = "cache_part_info";
-    private Preference mCachePartSize;
     private static final String SDCARDFAT_PART_SIZE = "sdcard_part_info_fat";
+    private static final String SDCARDEXT_PART_SIZE = "ext_device_name";
+    private static final String DEVICE_NAME = "ext_device_name";
+    private static final String ROM_VERSION = "ext_rom_version";
+    
+    
+    private Preference mSystemPartSize;
+    private Preference mDataPartSize;
+    private Preference mCachePartSize;
     private Preference mSDCardPartFATSize;
-    private static final String SDCARDEXT_PART_SIZE = "sdcard_part_info_ext";
     private Preference mSDCardPartEXTSize;
+    private Preference mDeviceName;
+    private Preference mRomVersion;
     
     private boolean extfsIsMounted = false;
     
@@ -70,45 +77,56 @@ public class ExtendedDeviceInfo extends PreferenceActivity {
     	mCachePartSize         = (Preference) prefSet.findPreference(CACHE_PART_SIZE);
     	mSDCardPartFATSize     = (Preference) prefSet.findPreference(SDCARDFAT_PART_SIZE);
     	mSDCardPartEXTSize     = (Preference) prefSet.findPreference(SDCARDEXT_PART_SIZE);
-  
-	    if (fileExists("/dev/block/mmcblk0p2") == true) {
+    	mDeviceName		       = (Preference) prefSet.findPreference(DEVICE_NAME);
+    	mRomVersion		       = (Preference) prefSet.findPreference(ROM_VERSION);
+    	
+		if (fileExists("/dev/block/mmcblk0p2") == true) {
 			Log.i(TAG, "sd: ext partition mounted");
 			extfsIsMounted = true;
-		    } else {
+		} else {
 			Log.i(TAG, "sd: ext partition not mounted");
-		    }
+		}
     	
     	try {
     	    mSystemPartSize.setSummary(ObtainFSPartSize    ("/system"));
     	    mDataPartSize.setSummary(ObtainFSPartSize      ("/data"));
     	    mCachePartSize.setSummary(ObtainFSPartSize     ("/cache"));
     	    mSDCardPartFATSize.setSummary(ObtainFSPartSize ("/sdcard"));
-    	    if (extfsIsMounted == true)
-    		mSDCardPartEXTSize.setSummary(ObtainFSPartSize ("/system/sd"));
-    	    else
-    		mSDCardPartEXTSize.setEnabled(false);
+    	    
+    	    if (extfsIsMounted == true) {
+    	    	mSDCardPartEXTSize.setSummary(ObtainFSPartSize ("/system/sd"));
+    	    } else {
+    	    	mSDCardPartEXTSize.setEnabled(false);
+    	    }
+    	    
     	} catch (IllegalArgumentException e) {
-    	    e.printStackTrace();
+    		e.printStackTrace();
     	}
     	
-        
+    	//Todo~~~~~~~~~~~~~~~
+        //mRomVersion = *****
+    	//mDeviceName = *****
+    	
     }
 
     private String ObtainFSPartSize(String PartitionPath) {
     	String retstr;
     	File extraPath = new File(PartitionPath);
     	StatFs extraStat = new StatFs(extraPath.getPath());
+    	
     	long eBlockSize = extraStat.getBlockSize();
     	long eTotalBlocks = extraStat.getBlockCount();
+    	
     	retstr = Formatter.formatFileSize(this, (eTotalBlocks * eBlockSize) - (extraStat.getAvailableBlocks() * eBlockSize));
     	retstr += "  " + getResources().getString(R.string.used_out_of) + "  ";
     	retstr += Formatter.formatFileSize(this, eTotalBlocks * eBlockSize);
+    	
     	return retstr;
-        }
+    }
     
     public boolean fileExists(String filename) {
     	File f = new File(filename);
     	return f.exists();
-        }
+    }
     
 }

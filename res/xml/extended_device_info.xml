@@ -23,14 +23,14 @@
 		>
 
 		<!-- Device name -->
-		<Preference android:key="system_part_info" 
-		        android:title="@string/title_system_part_info"
-		        android:summary="@string/default_unavailable"
+		<Preference android:key="ext_device_name" 
+		        android:title="@string/title_ext_device_name"
+		        android:summary="@string/default_unimplemented"
 			/>
 		<!-- Rom version -->
-		<Preference android:key="system_part_info" 
-		        android:title="@string/title_system_part_info"
-		        android:summary="@string/default_unavailable"
+		<Preference android:key="ext_rom_version" 
+		        android:title="@string/title_ext_rom_version"
+		        android:summary="@string/default_unimplemented"
 			/>
 
 	</PreferenceCategory>
