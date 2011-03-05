@@ -161,8 +161,6 @@ public class BluetoothSettings extends PreferenceActivity
 
         // Repopulate (which isn't too bad since it's cached in the settings
         // bluetooth manager
-        mDevicePreferenceMap.clear();
-        mDeviceList.removeAll();
         addDevices();
 
         if (mScreenType == SCREEN_TYPE_SETTINGS) {
@@ -187,8 +185,12 @@ public class BluetoothSettings extends PreferenceActivity
     protected void onPause() {
         super.onPause();
 
-        mLocalManager.setForegroundActivity(null);
+        mDevicePreferenceMap.clear();
+        mDeviceList.removeAll();
 
+        mLocalManager.setForegroundActivity(null);
+        mDevicePreferenceMap.clear();
+        mDeviceList.removeAll();
         unregisterReceiver(mReceiver);
 
         mLocalManager.unregisterCallback(this);

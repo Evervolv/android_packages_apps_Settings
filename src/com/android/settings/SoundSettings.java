@@ -16,8 +16,6 @@
 
 package com.android.settings;
 
-import static android.provider.Settings.System.SCREEN_OFF_TIMEOUT;
-
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -320,8 +318,8 @@ public class SoundSettings extends PreferenceActivity implements
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         final String key = preference.getKey();
         if (KEY_EMERGENCY_TONE.equals(key)) {
-            int value = Integer.parseInt((String) objValue);
             try {
+                int value = Integer.parseInt((String) objValue);
                 Settings.System.putInt(getContentResolver(),
                         Settings.System.EMERGENCY_TONE, value);
             } catch (NumberFormatException e) {

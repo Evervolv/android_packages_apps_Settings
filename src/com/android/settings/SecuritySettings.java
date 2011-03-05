@@ -20,7 +20,6 @@ package com.android.settings;
 import java.util.Observable;
 import java.util.Observer;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.admin.DevicePolicyManager;
@@ -34,18 +33,15 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.SystemProperties;
 import android.preference.CheckBoxPreference;
-import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
-import android.preference.Preference.OnPreferenceChangeListener;
 import android.provider.Settings;
 import android.security.Credentials;
 import android.security.KeyStore;
 import android.telephony.TelephonyManager;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -56,9 +52,6 @@ import com.android.internal.widget.LockPatternUtils;
  * Gesture lock pattern settings.
  */
 public class SecuritySettings extends PreferenceActivity {
-	
-	public static final String GPS_STATUS_CHANGED="com.android.settings.GPS_STATUS_CHANGED";
-	
     private static final String KEY_UNLOCK_SET_OR_CHANGE = "unlock_set_or_change";
 
     // Lock Settings
@@ -270,11 +263,6 @@ public class SecuritySettings extends PreferenceActivity {
             boolean enabled = mGps.isChecked();
             Settings.Secure.setLocationProviderEnabled(getContentResolver(),
                     LocationManager.GPS_PROVIDER, enabled);
-
-            //{PIAF - Send update of GPS status
-            Intent gpsStatus = new Intent(GPS_STATUS_CHANGED);
-            this.sendBroadcast(gpsStatus);
-            //PIAF}
             if (mAssistedGps != null) {
                 mAssistedGps.setEnabled(enabled);
             }
