@@ -2872,4 +2872,6 @@ found in the list of installed applications.</string>
     <string name="default_unavailable">Unavailable</string>
     <string name="default_unimplemented">Not fully implemented yet.</string>
 
+    <!-- Wimax Widget -->
+    <string name="wimax_gadget_title">4G Toggle</string>
 </resources>
