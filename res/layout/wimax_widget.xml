@@ -43,7 +43,7 @@
 				   android:scaleType="center" />
 
         		<ImageView android:id="@+id/wimax_trigger"
-				   android:background="@drawable/wimax_switch_off"
+				   android:src="@drawable/wimax_switch_off"
 				   android:layout_width="24.0px"
 				   android:layout_height="74.0px"
 				   android:layout_marginLeft="78.0px"
