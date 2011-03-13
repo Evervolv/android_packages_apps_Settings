@@ -17,18 +17,18 @@
 <FrameLayout android:id="@+id/wimax_view" android:layout_width="fill_parent" android:layout_height="fill_parent"
   	     xmlns:android="http://schemas.android.com/apk/res/android">
 
-	<RelativeLayout android:layout_width="fill_parent" 
+	<RelativeLayout android:layout_width="fill_parent"
 			android:layout_height="fill_parent">
 			
-			<ImageView android:id="@+id/wimax_panel" 
-				   android:background="@drawable/wimax_panel" 
-				   android:layout_width="91.0px" 
-				   android:layout_height="94.0px" 
-				   android:layout_marginLeft="15.0px" 
+			<ImageView android:id="@+id/wimax_panel"
+				   android:background="@drawable/wimax_panel"
+				   android:layout_width="94.0px"
+				   android:layout_height="94.0px"
+				   android:layout_marginLeft="15.0px"
 				   android:layout_marginTop="12.0px" />
 
 			<ImageView android:id="@+id/wimax_press" 
-				   android:layout_width="91.0px" 
+				   android:layout_width="94.0px" 
 				   android:layout_height="94.0px" 
 				   android:layout_marginLeft="15.0px" 
 				   android:layout_marginTop="12.0px" 
@@ -36,18 +36,19 @@
 
         		<ImageView android:id="@+id/wimax_item"
 				   android:src="@drawable/wimax_widget_icon"
-				   android:layout_width="54.0px" 
-				   android:layout_height="81.0px" 
-				   android:layout_marginLeft="21.0px" 
-				   android:layout_marginTop="18.0px" 
+				   android:layout_width="72.0px"
+				   android:layout_height="72.0px"
+				   android:layout_marginLeft="25.0px"
+				   android:layout_marginTop="10.0px"
 				   android:scaleType="center" />
 
         		<ImageView android:id="@+id/wimax_trigger"
 				   android:src="@drawable/wimax_switch_off"
-				   android:layout_width="24.0px"
-				   android:layout_height="74.0px"
-				   android:layout_marginLeft="78.0px"
-				   android:layout_marginTop="21.0px" />
+				   android:layout_width="94.0px"
+				   android:layout_height="17.0px"
+				   android:layout_marginLeft="15.0px"
+				   android:layout_marginTop="80.0px"
+				   android:scaleType="center" />
 
         		<RelativeLayout android:gravity="center" 
 					android:id="@+id/label_layout" 
@@ -58,6 +59,7 @@
 					android:layout_marginRight="2.0px">
 
             			<TextView android:textSize="13.0dip" 
+					  android:text="@string/wimax_gadget_caption"
 					  android:textColor="#ffffffff" 
 					  android:ellipsize="marquee" 
 					  android:gravity="center_horizontal" 
