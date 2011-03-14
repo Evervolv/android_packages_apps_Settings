@@ -14,36 +14,35 @@
      limitations under the License.
 -->
 
-<FrameLayout android:id="@+id/wimax_view" android:layout_width="fill_parent" android:layout_height="fill_parent"
+<FrameLayout android:id="@+id/power_view" android:layout_width="fill_parent" android:layout_height="fill_parent"
   	     xmlns:android="http://schemas.android.com/apk/res/android">
 
 	<RelativeLayout android:layout_width="fill_parent"
 			android:layout_height="fill_parent">
 			
-			<ImageView android:id="@+id/wimax_panel"
-				   android:background="@drawable/wimax_panel"
+			<ImageView android:id="@+id/power_panel"
+				   android:background="@drawable/power_panel"
 				   android:layout_width="94.0px"
 				   android:layout_height="94.0px"
 				   android:layout_marginLeft="15.0px"
 				   android:layout_marginTop="12.0px" />
 
-			<ImageView android:id="@+id/wimax_press" 
+			<ImageView android:id="@+id/power_press" 
 				   android:layout_width="94.0px" 
 				   android:layout_height="94.0px" 
 				   android:layout_marginLeft="15.0px" 
 				   android:layout_marginTop="12.0px" 
 				   android:src="@drawable/panel_selector" />
 
-        		<ImageView android:id="@+id/wimax_item"
-				   android:src="@drawable/wimax_widget_icon"
-				   android:layout_width="72.0px"
-				   android:layout_height="72.0px"
+        		<ImageView android:id="@+id/power_item"
+				   android:layout_width="76.0px"
+				   android:layout_height="76.0px"
 				   android:layout_marginLeft="25.0px"
 				   android:layout_marginTop="10.0px"
 				   android:scaleType="center" />
 
-        		<ImageView android:id="@+id/wimax_trigger"
-				   android:src="@drawable/wimax_switch_off"
+        		<ImageView android:id="@+id/power_trigger"
+				   android:src="@drawable/power_switch_off"
 				   android:layout_width="94.0px"
 				   android:layout_height="17.0px"
 				   android:layout_marginLeft="15.0px"
@@ -59,12 +58,11 @@
 					android:layout_marginRight="2.0px">
 
             			<TextView android:textSize="13.0dip" 
-					  android:text="@string/wimax_gadget_caption"
 					  android:textColor="#ffffffff" 
 					  android:ellipsize="marquee" 
 					  android:gravity="center_horizontal" 
 					  android:layout_gravity="center_horizontal" 
-					  android:id="@+id/wimax_label" 
+					  android:id="@+id/power_label" 
 					  android:paddingLeft="4.0dip" 
 					  android:paddingTop="1.0px" 
 					  android:paddingRight="4.0dip" 

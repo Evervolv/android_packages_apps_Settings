@@ -23,8 +23,6 @@ public class WimaxWidgetProvider extends AppWidgetProvider {
     public static final int STATE_TURNING_OFF = 3;
     public static final int STATE_UNKNOWN = 4;
     public static final int STATE_INTERMEDIATE = 5;
-    public static final int STATE_DISABLED_RED = 10;
-    public static final int STATE_ENABLED_RED = 11;
     // Intent Actions
     public static String WIMAX_ENABLED_CHANGED = "com.htc.net.wimax.WIMAX_ENABLED_CHANGED";
     public static String WIMAX_CHANGED = "com.evervolv.widget.WIMAX_CLICKED";
@@ -76,32 +74,32 @@ public class WimaxWidgetProvider extends AppWidgetProvider {
 		// We need to update the Widget GUI
 		if (state == STATE_DISABLED){
 			RemoteViews views = new RemoteViews(context.getPackageName(),
-					R.layout.wimax_widget);
-			views.setImageViewResource(R.id.wimax_trigger,R.drawable.wimax_switch_off);
+					R.layout.power_widget);
+			views.setImageViewResource(R.id.power_trigger,R.drawable.power_switch_off);
 			ComponentName cn = new ComponentName(context, WimaxWidgetProvider.class);  
             AppWidgetManager.getInstance(context).updateAppWidget(cn, views);
 		} else if (state == STATE_ENABLED) {
 			RemoteViews views = new RemoteViews(context.getPackageName(),
-					R.layout.wimax_widget);
-			views.setImageViewResource(R.id.wimax_trigger,R.drawable.wimax_switch_on);
+					R.layout.power_widget);
+			views.setImageViewResource(R.id.power_trigger,R.drawable.power_switch_on);
 			ComponentName cn = new ComponentName(context, WimaxWidgetProvider.class);  
             AppWidgetManager.getInstance(context).updateAppWidget(cn, views);
 		} else if (state == STATE_TURNING_ON) {
 			RemoteViews views = new RemoteViews(context.getPackageName(),
-					R.layout.wimax_widget);
-			views.setImageViewResource(R.id.wimax_trigger,R.drawable.wimax_switch_tween);
+					R.layout.power_widget);
+			views.setImageViewResource(R.id.power_trigger,R.drawable.power_switch_tween);
 			ComponentName cn = new ComponentName(context, WimaxWidgetProvider.class);  
             AppWidgetManager.getInstance(context).updateAppWidget(cn, views);
 		} else if (state == STATE_TURNING_OFF) {
 			RemoteViews views = new RemoteViews(context.getPackageName(),
-					R.layout.wimax_widget);
-			views.setImageViewResource(R.id.wimax_trigger,R.drawable.wimax_switch_tween);
+					R.layout.power_widget);
+			views.setImageViewResource(R.id.power_trigger,R.drawable.power_switch_tween);
 			ComponentName cn = new ComponentName(context, WimaxWidgetProvider.class);  
             AppWidgetManager.getInstance(context).updateAppWidget(cn, views);
 		} else if (state == STATE_UNKNOWN) {
 			RemoteViews views = new RemoteViews(context.getPackageName(),
-					R.layout.wimax_widget);
-			views.setImageViewResource(R.id.wimax_trigger,R.drawable.wimax_switch_off);
+					R.layout.power_widget);
+			views.setImageViewResource(R.id.power_trigger,R.drawable.power_switch_off);
 			ComponentName cn = new ComponentName(context, WimaxWidgetProvider.class);  
             AppWidgetManager.getInstance(context).updateAppWidget(cn, views);
 		}
@@ -121,12 +119,13 @@ public class WimaxWidgetProvider extends AppWidgetProvider {
 			intent.setAction(WIMAX_CHANGED);
 		    PendingIntent pendingIntent = PendingIntent.getBroadcast(context,0,intent,0);
 		    RemoteViews views = new RemoteViews(context.getPackageName(),
-						R.layout.wimax_widget);
-		    views.setOnClickPendingIntent(R.id.wimax_panel,pendingIntent);
-			views.setOnClickPendingIntent(R.id.wimax_press,pendingIntent);
-			views.setOnClickPendingIntent(R.id.wimax_item,pendingIntent);
-			views.setOnClickPendingIntent(R.id.wimax_trigger,pendingIntent);
-
+						R.layout.power_widget);
+		    	views.setOnClickPendingIntent(R.id.power_panel,pendingIntent);
+			views.setOnClickPendingIntent(R.id.power_press,pendingIntent);
+			views.setOnClickPendingIntent(R.id.power_item,pendingIntent);
+			views.setOnClickPendingIntent(R.id.power_trigger,pendingIntent);
+			views.setImageViewResource(R.id.power_item,R.drawable.wimax_widget_icon);
+			views.setTextViewText(R.id.power_label,context.getString(R.string.wimax_gadget_caption));
 			ComponentName cn = new ComponentName(context, WimaxWidgetProvider.class);  
 			AppWidgetManager.getInstance(context).updateAppWidget(cn, views); 
 			

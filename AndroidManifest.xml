@@ -885,5 +885,15 @@
             </intent-filter>
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/wimax_widget_info" />
         </receiver>
+		<!-- Wifi standalone widget -->
+        <receiver android:name=".widget.WifiWidgetProvider"
+                android:label="@string/wifi_gadget_title">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+                <action android:name="com.evervolv.widget.WIFI_CLICKED"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/wifi_widget_info" />
+        </receiver>
     </application>
 </manifest>
