@@ -16,13 +16,7 @@ import com.android.wimax.WimaxSettingsHelper;
 public class WimaxWidgetProvider extends AppWidgetProvider {
     // TAG
     public static final String TAG = "Evervolv_WimaxWidget";
-    // States
-	public static final int STATE_DISABLED = 0;
-    public static final int STATE_ENABLED = 1;
-    public static final int STATE_TURNING_ON = 2;
-    public static final int STATE_TURNING_OFF = 3;
-    public static final int STATE_UNKNOWN = 4;
-    public static final int STATE_INTERMEDIATE = 5;
+
     // Intent Actions
     public static String WIMAX_ENABLED_CHANGED = "com.htc.net.wimax.WIMAX_ENABLED_CHANGED";
     public static String WIMAX_CHANGED = "com.evervolv.widget.WIMAX_CLICKED";
@@ -51,9 +45,9 @@ public class WimaxWidgetProvider extends AppWidgetProvider {
     	super.onReceive(context, intent);
     	if (WIMAX_CHANGED.equals(intent.getAction())){
 	    	int result = sWimaxState.getActualState(context);
-	    	if (result == STATE_DISABLED){
+	    	if (result == StateTracker.STATE_DISABLED){
     	    	sWimaxState.requestStateChange(context,true);
-    	    } else if (result == STATE_ENABLED){
+    	    } else if (result == StateTracker.STATE_ENABLED){
     	    	sWimaxState.requestStateChange(context,false);
     	    } else {
     	        // we must be between on and off so we do nothing
@@ -72,31 +66,31 @@ public class WimaxWidgetProvider extends AppWidgetProvider {
 	*/
 	private void updateWidgetView(Context context,int state){
 		// We need to update the Widget GUI
-		if (state == STATE_DISABLED){
+		if (state == StateTracker.STATE_DISABLED){
 			RemoteViews views = new RemoteViews(context.getPackageName(),
 					R.layout.power_widget);
 			views.setImageViewResource(R.id.power_trigger,R.drawable.power_switch_off);
 			ComponentName cn = new ComponentName(context, WimaxWidgetProvider.class);  
             AppWidgetManager.getInstance(context).updateAppWidget(cn, views);
-		} else if (state == STATE_ENABLED) {
+		} else if (state == StateTracker.STATE_ENABLED) {
 			RemoteViews views = new RemoteViews(context.getPackageName(),
 					R.layout.power_widget);
 			views.setImageViewResource(R.id.power_trigger,R.drawable.power_switch_on);
 			ComponentName cn = new ComponentName(context, WimaxWidgetProvider.class);  
             AppWidgetManager.getInstance(context).updateAppWidget(cn, views);
-		} else if (state == STATE_TURNING_ON) {
+		} else if (state == StateTracker.STATE_TURNING_ON) {
 			RemoteViews views = new RemoteViews(context.getPackageName(),
 					R.layout.power_widget);
 			views.setImageViewResource(R.id.power_trigger,R.drawable.power_switch_tween);
 			ComponentName cn = new ComponentName(context, WimaxWidgetProvider.class);  
             AppWidgetManager.getInstance(context).updateAppWidget(cn, views);
-		} else if (state == STATE_TURNING_OFF) {
+		} else if (state == StateTracker.STATE_TURNING_OFF) {
 			RemoteViews views = new RemoteViews(context.getPackageName(),
 					R.layout.power_widget);
 			views.setImageViewResource(R.id.power_trigger,R.drawable.power_switch_tween);
 			ComponentName cn = new ComponentName(context, WimaxWidgetProvider.class);  
             AppWidgetManager.getInstance(context).updateAppWidget(cn, views);
-		} else if (state == STATE_UNKNOWN) {
+		} else if (state == StateTracker.STATE_UNKNOWN) {
 			RemoteViews views = new RemoteViews(context.getPackageName(),
 					R.layout.power_widget);
 			views.setImageViewResource(R.id.power_trigger,R.drawable.power_switch_off);
@@ -120,7 +114,7 @@ public class WimaxWidgetProvider extends AppWidgetProvider {
 		    PendingIntent pendingIntent = PendingIntent.getBroadcast(context,0,intent,0);
 		    RemoteViews views = new RemoteViews(context.getPackageName(),
 						R.layout.power_widget);
-		    	views.setOnClickPendingIntent(R.id.power_panel,pendingIntent);
+		    views.setOnClickPendingIntent(R.id.power_panel,pendingIntent);
 			views.setOnClickPendingIntent(R.id.power_press,pendingIntent);
 			views.setOnClickPendingIntent(R.id.power_item,pendingIntent);
 			views.setOnClickPendingIntent(R.id.power_trigger,pendingIntent);
@@ -150,7 +144,7 @@ public class WimaxWidgetProvider extends AppWidgetProvider {
             if (helper.isWimaxSupported()) {
                 return wimaxStateToFiveState(helper.getWimaxState());
             }
-            return WimaxWidgetProvider.STATE_UNKNOWN;
+            return StateTracker.STATE_UNKNOWN;
         }
         
         /**
@@ -195,15 +189,15 @@ public class WimaxWidgetProvider extends AppWidgetProvider {
         private static int wimaxStateToFiveState(int wimaxState) {
             switch (wimaxState) {
                 case WimaxConstants.WIMAX_ENABLED_STATE_DISABLED:
-                    return WimaxWidgetProvider.STATE_DISABLED;
+                    return StateTracker.STATE_DISABLED;
                 case WimaxConstants.WIMAX_ENABLED_STATE_ENABLED:
-                    return WimaxWidgetProvider.STATE_ENABLED;
+                    return StateTracker.STATE_ENABLED;
                 case WimaxConstants.WIMAX_ENABLED_STATE_ENABLING:
-                    return WimaxWidgetProvider.STATE_TURNING_ON;
+                    return StateTracker.STATE_TURNING_ON;
                 case WimaxConstants.WIMAX_ENABLED_STATE_DISABLING:
-                    return WimaxWidgetProvider.STATE_TURNING_OFF;
+                    return StateTracker.STATE_TURNING_OFF;
                 default:
-                    return WimaxWidgetProvider.STATE_UNKNOWN;
+                    return StateTracker.STATE_UNKNOWN;
             }
         }
     }

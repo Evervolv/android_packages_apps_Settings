@@ -11,6 +11,14 @@ import android.util.Log;
  * (turning on &amp; off radio drivers), compared to user's expectations.
  */
 public abstract class StateTracker {
+	
+    // States
+	public static final int STATE_DISABLED = 0;
+    public static final int STATE_ENABLED = 1;
+    public static final int STATE_TURNING_ON = 2;
+    public static final int STATE_TURNING_OFF = 3;
+    public static final int STATE_UNKNOWN = 4;
+    public static final int STATE_INTERMEDIATE = 5;
     // Is the state in the process of changing?
     private boolean mInTransition = false;
 
@@ -33,13 +41,13 @@ public abstract class StateTracker {
         int currentState = getTriState(context);
         boolean newState = false;
         switch (currentState) {
-            case WimaxWidgetProvider.STATE_ENABLED:
+            case STATE_ENABLED:
                 newState = false;
                 break;
-            case WimaxWidgetProvider.STATE_DISABLED:
+            case STATE_DISABLED:
                 newState = true;
                 break;
-            case WimaxWidgetProvider.STATE_INTERMEDIATE:
+            case STATE_INTERMEDIATE:
                 if (mIntendedState != null) {
                     newState = !mIntendedState;
                 }
@@ -72,19 +80,19 @@ public abstract class StateTracker {
     protected final void setCurrentState(Context context, int newState) {
         final boolean wasInTransition = mInTransition;
         switch (newState) {
-            case WimaxWidgetProvider.STATE_DISABLED:
+            case STATE_DISABLED:
                 mInTransition = false;
                 mActualState = false;
                 break;
-            case WimaxWidgetProvider.STATE_ENABLED:
+            case STATE_ENABLED:
                 mInTransition = false;
                 mActualState = true;
                 break;
-            case WimaxWidgetProvider.STATE_TURNING_ON:
+            case STATE_TURNING_ON:
                 mInTransition = true;
                 mActualState = false;
                 break;
-            case WimaxWidgetProvider.STATE_TURNING_OFF:
+            case STATE_TURNING_OFF:
                 mInTransition = true;
                 mActualState = true;
                 break;
@@ -129,15 +137,15 @@ public abstract class StateTracker {
             // during UI refresh post-toggle if the underlying
             // service state accessor has coarse locking on its
             // state (to be fixed separately).
-            return WimaxWidgetProvider.STATE_INTERMEDIATE;
+            return STATE_INTERMEDIATE;
         }
         switch (getActualState(context)) {
-            case WimaxWidgetProvider.STATE_DISABLED:
-                return WimaxWidgetProvider.STATE_DISABLED;
-            case WimaxWidgetProvider.STATE_ENABLED:
-                return WimaxWidgetProvider.STATE_ENABLED;
+            case STATE_DISABLED:
+                return STATE_DISABLED;
+            case STATE_ENABLED:
+                return STATE_ENABLED;
             default:
-                return WimaxWidgetProvider.STATE_INTERMEDIATE;
+                return STATE_INTERMEDIATE;
         }
     }
 
