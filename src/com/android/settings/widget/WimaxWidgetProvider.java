@@ -6,6 +6,7 @@ import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.RemoteViews;
@@ -13,7 +14,6 @@ import com.android.settings.R;
 import com.android.wimax.WimaxConstants;
 import android.os.AsyncTask;
 import com.android.wimax.WimaxSettingsHelper;
-import android.content.pm.PackageManager;
 
 public class WimaxWidgetProvider extends AppWidgetProvider {
     // TAG
@@ -121,14 +121,19 @@ public class WimaxWidgetProvider extends AppWidgetProvider {
 		// set the trigger according to the state of the wimax radio
 		if (state == StateTracker.STATE_DISABLED){
 			views.setImageViewResource(R.id.power_trigger,R.drawable.power_switch_off);
+			views.setImageViewResource(R.id.power_item,R.drawable.widget_wimax_icon_03);
 		} else if (state == StateTracker.STATE_ENABLED) {
 			views.setImageViewResource(R.id.power_trigger,R.drawable.power_switch_on);
+			views.setImageViewResource(R.id.power_item,R.drawable.widget_wimax_icon);
 		} else if (state == StateTracker.STATE_TURNING_ON) {
 			views.setImageViewResource(R.id.power_trigger,R.drawable.power_switch_tween);
+			views.setImageViewResource(R.id.power_item,R.drawable.widget_wimax_icon_02);
 		} else if (state == StateTracker.STATE_TURNING_OFF) {
 			views.setImageViewResource(R.id.power_trigger,R.drawable.power_switch_tween);
+			views.setImageViewResource(R.id.power_item,R.drawable.widget_wimax_icon_02);
 		} else if (state == StateTracker.STATE_UNKNOWN) {
 			views.setImageViewResource(R.id.power_trigger,R.drawable.power_switch_off);
+			views.setImageViewResource(R.id.power_item,R.drawable.widget_wimax_icon_03);
 		}
 		// update the widget
     	ComponentName cn = new ComponentName(context, WimaxWidgetProvider.class);  
