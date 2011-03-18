@@ -1,39 +1,36 @@
 package com.android.settings.widget;
 
+import com.android.settings.R;
+import com.android.settings.bluetooth.LocalBluetoothManager;
+
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
+import android.bluetooth.BluetoothAdapter;
 import android.content.ComponentName;
-import android.content.pm.PackageManager;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
-import android.os.AsyncTask;
+import android.content.pm.PackageManager;
 import android.net.wifi.WifiManager;
+import android.os.AsyncTask;
+import android.util.Log;
 import android.widget.RemoteViews;
-import com.android.settings.R;
 
-public class WifiWidgetProvider extends AppWidgetProvider {
+public class BluetoothWidgetProvider extends AppWidgetProvider  {
     // TAG
-    public static final String TAG = "Evervolv_WifiWidget";
-    // States
-	public static final int STATE_DISABLED = 0;
-    public static final int STATE_ENABLED = 1;
-    public static final int STATE_TURNING_ON = 2;
-    public static final int STATE_TURNING_OFF = 3;
-    public static final int STATE_UNKNOWN = 4;
-    public static final int STATE_INTERMEDIATE = 5;
+    public static final String TAG = "Evervolv_BTWidget";
     // Intent Actions
-    public static String WIFI_STATE_CHANGED = "android.net.wifi.WIFI_STATE_CHANGED";
-    public static String WIFI_CHANGED = "com.evervolv.widget.WIFI_CLICKED";
+    public static String BLUETOOTH_STATE_CHANGED = "android.bluetooth.adapter.action.STATE_CHANGED";
+    public static String BLUETOOTH_CHANGED = "com.evervolv.widget.BLUETOOTH_CLICKED";
     
-    private static final StateTracker sWifiState = new WifiStateTracker();
+    private static final StateTracker sBluetoothState = new BluetoothStateTracker();
+    private static LocalBluetoothManager sLocalBluetoothManager = null;
     
     @Override
     public void onEnabled(Context context){
 		PackageManager pm = context.getPackageManager();
         pm.setComponentEnabledSetting(new ComponentName("com.android.settings",
-                ".widget.WifiWidgetProvider"),
+                ".widget.BluetoothWidgetProvider"),
                 PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
     }
     
@@ -42,7 +39,7 @@ public class WifiWidgetProvider extends AppWidgetProvider {
         Log.d(TAG,"Received request to remove last widget");
         PackageManager pm = context.getPackageManager();
         pm.setComponentEnabledSetting(new ComponentName("com.android.settings",
-                ".widget.WifiWidgetProvider"),
+                ".widget.BluetoothWidgetProvider"),
                 PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
     }
     
@@ -70,30 +67,46 @@ public class WifiWidgetProvider extends AppWidgetProvider {
     public void onReceive(Context context, Intent intent){
     	Log.d(TAG, "onReceive - " + intent.toString());
     	super.onReceive(context, intent);
-    	if (WIFI_CHANGED.equals(intent.getAction())){
-	    	int result = sWifiState.getActualState(context);
+    	if (BLUETOOTH_CHANGED.equals(intent.getAction())){
+	    	int result = sBluetoothState.getActualState(context);
 	    	if (result == StateTracker.STATE_DISABLED){
-    	    	sWifiState.requestStateChange(context,true);
+    	    	sBluetoothState.requestStateChange(context,true);
     	    } else if (result == StateTracker.STATE_ENABLED){
-    	    	sWifiState.requestStateChange(context,false);
+    	    	sBluetoothState.requestStateChange(context,false);
     	    } else {
     	        // we must be between on and off so we do nothing
     	    }
     	}
-        if (WIFI_STATE_CHANGED.equals(intent.getAction())){
-            int wifiState = intent.getIntExtra(WifiManager.EXTRA_WIFI_STATE, -1);
-            updateWidgetView(context,WifiStateTracker.wifiStateToFiveState(wifiState));    
-            sWifiState.onActualStateChange(context,intent);                                             
+        if (BLUETOOTH_STATE_CHANGED.equals(intent.getAction())){
+        	int bluetoothState = intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, -1);
+            updateWidgetView(context,BluetoothStateTracker.bluetoothStateToFiveState(bluetoothState));    
+            sBluetoothState.onActualStateChange(context,intent);       
         }
+    }
+    
+	/**
+	* this method is called when the widget is added to the home
+	* screen, and so it contains the initial setup of the widget.
+	*/
+    public void updateWidget(Context context,
+    			 AppWidgetManager appWidgetManager,
+    			 int[] appWidgetIds){
+    	for (int i=0;i<appWidgetIds.length;++i){
+		
+	    	int appWidgetId = appWidgetIds[i];
+			
+			int bluetoothState = sBluetoothState.getActualState(context);
+    		updateWidgetView(context,bluetoothState);
+		}
     }
     
 	/**
 	* Method to update the widgets GUI
 	*/
 	private void updateWidgetView(Context context,int state){
-	
-	    Intent intent = new Intent(context, WifiWidgetProvider.class);
-		intent.setAction(WIFI_CHANGED);
+		
+	    Intent intent = new Intent(context, BluetoothWidgetProvider.class);
+		intent.setAction(BLUETOOTH_CHANGED);
 	    PendingIntent pendingIntent = PendingIntent.getBroadcast(context,0,intent,0);
 	    RemoteViews views = new RemoteViews(context.getPackageName(),
 						R.layout.power_widget);
@@ -101,8 +114,8 @@ public class WifiWidgetProvider extends AppWidgetProvider {
 		views.setOnClickPendingIntent(R.id.power_press,pendingIntent);
 		views.setOnClickPendingIntent(R.id.power_item,pendingIntent);
 		views.setOnClickPendingIntent(R.id.power_trigger,pendingIntent);
-		views.setImageViewResource(R.id.power_item,R.drawable.widget_wifi_icon);
-		views.setTextViewText(R.id.power_label,context.getString(R.string.wifi_gadget_caption));
+		views.setImageViewResource(R.id.power_item,R.drawable.widget_bluetooth_icon);
+		views.setTextViewText(R.id.power_label,context.getString(R.string.bluetooth_gadget_caption));
 		// We need to update the Widget GUI
 		if (state == StateTracker.STATE_DISABLED){
 			views.setImageViewResource(R.id.power_trigger,R.drawable.power_switch_off);
@@ -116,72 +129,40 @@ public class WifiWidgetProvider extends AppWidgetProvider {
 			views.setImageViewResource(R.id.power_trigger,R.drawable.power_switch_off);
 		}
 		
-		ComponentName cn = new ComponentName(context, WifiWidgetProvider.class);  
+		ComponentName cn = new ComponentName(context, BluetoothWidgetProvider.class);  
 		AppWidgetManager.getInstance(context).updateAppWidget(cn, views); 
 	}
     
-	/**
-	* this method is called when the widget is added to the home
-	* screen, and so it contains the initial setup of the widget.
-	*/
-    public void updateWidget(Context context,
-    			 AppWidgetManager appWidgetManager,
-    			 int[] appWidgetIds){
-    	for (int i=0;i<appWidgetIds.length;++i){
-		
-	    	int appWidgetId = appWidgetIds[i];
-			
-			int wifiState = sWifiState.getActualState(context);
-    		updateWidgetView(context,wifiState);
-		}
-    }
-    
     /**
-     * Subclass of StateTracker to get/set WiFistate.
+     * Subclass of StateTracker to get/set Bluetooth state.
      */
-    private static final class WifiStateTracker extends StateTracker {
+    private static final class BluetoothStateTracker extends StateTracker {
 
-        /**
-        * Uses the WifiManager to get the actual state
-        */
         @Override
         public int getActualState(Context context) {
-        	WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
-            if (wifiManager != null) {
-                return wifiStateToFiveState(wifiManager.getWifiState());
+            if (sLocalBluetoothManager == null) {
+                sLocalBluetoothManager = LocalBluetoothManager.getInstance(context);
+                if (sLocalBluetoothManager == null) {
+                    return STATE_UNKNOWN;  // On emulator?
+                }
             }
-            return STATE_UNKNOWN;
+            return bluetoothStateToFiveState(sLocalBluetoothManager.getBluetoothState());
         }
-        
-        /**
-        * Request the change of the wifi between on/off
-        */
+
         @Override
         protected void requestStateChange(Context context, final boolean desiredState) {
-            final WifiManager wifiManager =
-                    (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
-            if (wifiManager == null) {
-                Log.d(TAG, "No wifiManager.");
+            if (sLocalBluetoothManager == null) {
+                Log.d(TAG, "No LocalBluetoothManager");
                 return;
             }
-
-            // Actually request the wifi change and persistent
+            // Actually request the Bluetooth change and persistent
             // settings write off the UI thread, as it can take a
             // user-noticeable amount of time, especially if there's
             // disk contention.
             new AsyncTask<Void, Void, Void>() {
                 @Override
                 protected Void doInBackground(Void... args) {
-                    /**
-                     * Disable tethering if enabling Wifi
-                     */
-                    int wifiApState = wifiManager.getWifiApState();
-                    if (desiredState && ((wifiApState == WifiManager.WIFI_AP_STATE_ENABLING) ||
-                                         (wifiApState == WifiManager.WIFI_AP_STATE_ENABLED))) {
-                        wifiManager.setWifiApEnabled(null, false);
-                    }
-
-                    wifiManager.setWifiEnabled(desiredState);
+                    sLocalBluetoothManager.setBluetoothEnabled(desiredState);
                     return null;
                 }
             }.execute();
@@ -189,31 +170,30 @@ public class WifiWidgetProvider extends AppWidgetProvider {
 
         @Override
         public void onActualStateChange(Context context, Intent intent) {
-            if (!WifiManager.WIFI_STATE_CHANGED_ACTION.equals(intent.getAction())) {
+            if (!BluetoothAdapter.ACTION_STATE_CHANGED.equals(intent.getAction())) {
                 return;
             }
-            int wifiState = intent.getIntExtra(WifiManager.EXTRA_WIFI_STATE, -1);
-            setCurrentState(context, wifiStateToFiveState(wifiState));
+            int bluetoothState = intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, -1);
+            setCurrentState(context, bluetoothStateToFiveState(bluetoothState));
         }
 
         /**
-         * Converts WifiManager's state values into our
-         * WiFi-common state values.
+         * Converts BluetoothAdapter's state values into our
+         * Wifi/Bluetooth-common state values.
          */
-        private static int wifiStateToFiveState(int wifiState) {
-            switch (wifiState) {
-                case WifiManager.WIFI_STATE_DISABLED:
+        private static int bluetoothStateToFiveState(int bluetoothState) {
+            switch (bluetoothState) {
+                case BluetoothAdapter.STATE_OFF:
                     return STATE_DISABLED;
-                case WifiManager.WIFI_STATE_ENABLED:
+                case BluetoothAdapter.STATE_ON:
                     return STATE_ENABLED;
-                case WifiManager.WIFI_STATE_DISABLING:
-                    return STATE_TURNING_OFF;
-                case WifiManager.WIFI_STATE_ENABLING:
+                case BluetoothAdapter.STATE_TURNING_ON:
                     return STATE_TURNING_ON;
+                case BluetoothAdapter.STATE_TURNING_OFF:
+                    return STATE_TURNING_OFF;
                 default:
                     return STATE_UNKNOWN;
             }
         }
     }
-    
 }

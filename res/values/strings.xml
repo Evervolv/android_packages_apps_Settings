@@ -2880,4 +2880,7 @@ found in the list of installed applications.</string>
     <string name="wifi_gadget_title">WiFi Toggle</string>
     <string name="wifi_gadget_caption">WiFi</string>
 
+    <!-- Bluetooth Widget -->
+    <string name="bluetooth_gadget_title">Bluetooth Toggle</string>
+    <string name="bluetooth_gadget_caption">Bluetooth</string>
 </resources>
