@@ -16,13 +16,6 @@ import com.android.settings.R;
 public class WifiWidgetProvider extends AppWidgetProvider {
     // TAG
     public static final String TAG = "Evervolv_WifiWidget";
-    // States
-	public static final int STATE_DISABLED = 0;
-    public static final int STATE_ENABLED = 1;
-    public static final int STATE_TURNING_ON = 2;
-    public static final int STATE_TURNING_OFF = 3;
-    public static final int STATE_UNKNOWN = 4;
-    public static final int STATE_INTERMEDIATE = 5;
     // Intent Actions
     public static String WIFI_STATE_CHANGED = "android.net.wifi.WIFI_STATE_CHANGED";
     public static String WIFI_CHANGED = "com.evervolv.widget.WIFI_CLICKED";
