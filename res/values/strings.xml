@@ -2887,4 +2887,8 @@ found in the list of installed applications.</string>
     <!-- GPS Widget -->
     <string name="gps_gadget_title">GPS Toggle</string>
     <string name="gps_gadget_caption">GPS</string>
+
+    <!-- Sync Widget -->
+    <string name="sync_gadget_title">Sync Toggle</string>
+    <string name="sync_gadget_caption">Sync</string>
 </resources>

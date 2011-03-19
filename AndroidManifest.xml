@@ -916,5 +916,15 @@
             </intent-filter>
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/gps_widget_info" />
         </receiver>
+		<!-- Sync standalone widget -->
+        <receiver android:name=".widget.SyncWidgetProvider"
+                android:label="@string/sync_gadget_title">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.evervolv.widget.SYNC_CLICKED"/>
+                 <action android:name="com.android.sync.SYNC_CONN_STATUS_CHANGED" />
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/sync_widget_info" />
+        </receiver>
     </application>
 </manifest>
