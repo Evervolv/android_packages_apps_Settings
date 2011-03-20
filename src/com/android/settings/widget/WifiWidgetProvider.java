@@ -148,7 +148,7 @@ public class WifiWidgetProvider extends AppWidgetProvider {
             if (wifiManager != null) {
                 return wifiStateToFiveState(wifiManager.getWifiState());
             }
-            return STATE_UNKNOWN;
+            return StateTracker.STATE_UNKNOWN;
         }
         
         /**
@@ -201,15 +201,15 @@ public class WifiWidgetProvider extends AppWidgetProvider {
         private static int wifiStateToFiveState(int wifiState) {
             switch (wifiState) {
                 case WifiManager.WIFI_STATE_DISABLED:
-                    return STATE_DISABLED;
+                    return StateTracker.STATE_DISABLED;
                 case WifiManager.WIFI_STATE_ENABLED:
-                    return STATE_ENABLED;
+                    return StateTracker.STATE_ENABLED;
                 case WifiManager.WIFI_STATE_DISABLING:
-                    return STATE_TURNING_OFF;
+                    return StateTracker.STATE_TURNING_OFF;
                 case WifiManager.WIFI_STATE_ENABLING:
-                    return STATE_TURNING_ON;
+                    return StateTracker.STATE_TURNING_ON;
                 default:
-                    return STATE_UNKNOWN;
+                    return StateTracker.STATE_UNKNOWN;
             }
         }
     }
