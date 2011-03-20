@@ -2891,4 +2891,9 @@ found in the list of installed applications.</string>
     <!-- Sync Widget -->
     <string name="sync_gadget_title">Sync Toggle</string>
     <string name="sync_gadget_caption">Sync</string>
+
+    <!-- Brightness Widget -->
+    <string name="brightness_gadget_title">Brightness Toggle</string>
+    <string name="brightness_gadget_caption">Brightness</string>
+
 </resources>

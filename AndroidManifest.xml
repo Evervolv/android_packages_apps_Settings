@@ -926,5 +926,14 @@
             </intent-filter>
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/sync_widget_info" />
         </receiver>
+        <!-- Brightness standalone widget -->
+        <receiver android:name=".widget.BrightnessWidgetProvider"
+                android:label="@string/brightness_gadget_title">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.evervolv.widget.BRIGHTNESS_CLICKED"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/brightness_widget_info" />
+        </receiver>
     </application>
 </manifest>
