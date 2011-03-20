@@ -57,7 +57,7 @@ public class SyncWidgetProvider extends AppWidgetProvider{
     }
     
     /**
-	* this method will receive all Intents that it register fors in
+	* this method will receive all Intents that it registers for in
 	* the android manifest file.
 	*/
     @Override
