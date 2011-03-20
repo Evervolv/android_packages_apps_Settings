@@ -875,6 +875,7 @@
             </intent-filter>
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/appwidget_info" />
         </receiver>
+
 		<!-- Wimax standalone widget -->
         <receiver android:name=".widget.WimaxWidgetProvider"
                 android:label="@string/wimax_gadget_title">
@@ -895,6 +896,16 @@
             </intent-filter>
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/wifi_widget_info" />
         </receiver>
+		<!-- Tether standalone widget -->
+        <receiver android:name=".widget.TetherWidgetProvider"
+                android:label="@string/wifiap_gadget_title">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="android.net.wifi.WIFI_AP_STATE_CHANGED" />
+                <action android:name="com.evervolv.widget.WIFIAP_CLICKED"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/wifiap_widget_info" />
+        </receiver>
 		<!-- Bluetooth standalone widget -->
         <receiver android:name=".widget.BluetoothWidgetProvider"
                 android:label="@string/bluetooth_gadget_title">
@@ -902,7 +913,6 @@
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
                 <action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
                 <action android:name="com.evervolv.widget.BLUETOOTH_CLICKED"/>
-                <action android:name="android.location.PROVIDERS_CHANGED" />
             </intent-filter>
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/bluetooth_widget_info" />
         </receiver>
@@ -926,7 +936,7 @@
             </intent-filter>
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/sync_widget_info" />
         </receiver>
-        <!-- Brightness standalone widget -->
+        	<!-- Brightness standalone widget -->
         <receiver android:name=".widget.BrightnessWidgetProvider"
                 android:label="@string/brightness_gadget_title">
             <intent-filter>

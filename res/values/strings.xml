@@ -2896,4 +2896,7 @@ found in the list of installed applications.</string>
     <string name="brightness_gadget_title">Brightness Toggle</string>
     <string name="brightness_gadget_caption">Brightness</string>
 
+    <!-- Tether Widget -->
+    <string name="wifiap_gadget_title">Tethering Toggle</string>
+    <string name="wifiap_gadget_caption">Tethering</string>
 </resources>
