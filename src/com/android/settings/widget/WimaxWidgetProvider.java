@@ -15,6 +15,11 @@ import com.android.wimax.WimaxConstants;
 import android.os.AsyncTask;
 import com.android.wimax.WimaxSettingsHelper;
 
+/**
+ * Author: milesje,preludedrew
+ * This class is used to create a widget to toggle the Wimax Settings
+ */
+
 public class WimaxWidgetProvider extends AppWidgetProvider {
     // TAG
     public static final String TAG = "Evervolv_WimaxWidget";
