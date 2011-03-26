@@ -884,7 +884,7 @@
                 <action android:name="com.htc.net.wimax.WIMAX_ENABLED_CHANGED" />
                 <action android:name="com.evervolv.widget.WIMAX_CLICKED"/>
             </intent-filter>
-            <meta-data android:name="android.appwidget.provider" android:resource="@xml/wimax_widget_info" />
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_info" />
         </receiver>
 		<!-- Wifi standalone widget -->
         <receiver android:name=".widget.WifiWidgetProvider"
@@ -894,17 +894,17 @@
                 <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
                 <action android:name="com.evervolv.widget.WIFI_CLICKED"/>
             </intent-filter>
-            <meta-data android:name="android.appwidget.provider" android:resource="@xml/wifi_widget_info" />
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_info" />
         </receiver>
 		<!-- Tether standalone widget -->
-        <receiver android:name=".widget.TetherWidgetProvider"
-                android:label="@string/wifiap_gadget_title">
+        <receiver android:name=".widget.HotspotWidgetProvider"
+                android:label="@string/hotspot_gadget_title">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
                 <action android:name="android.net.wifi.WIFI_AP_STATE_CHANGED" />
                 <action android:name="com.evervolv.widget.WIFIAP_CLICKED"/>
             </intent-filter>
-            <meta-data android:name="android.appwidget.provider" android:resource="@xml/wifiap_widget_info" />
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_info" />
         </receiver>
 		<!-- Bluetooth standalone widget -->
         <receiver android:name=".widget.BluetoothWidgetProvider"
@@ -914,7 +914,7 @@
                 <action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
                 <action android:name="com.evervolv.widget.BLUETOOTH_CLICKED"/>
             </intent-filter>
-            <meta-data android:name="android.appwidget.provider" android:resource="@xml/bluetooth_widget_info" />
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_info" />
         </receiver>
 		<!-- GPS standalone widget -->
         <receiver android:name=".widget.GpsWidgetProvider"
@@ -924,7 +924,7 @@
                 <action android:name="com.evervolv.widget.GPS_CLICKED"/>
                 <action android:name="android.location.PROVIDERS_CHANGED" />
             </intent-filter>
-            <meta-data android:name="android.appwidget.provider" android:resource="@xml/gps_widget_info" />
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_info" />
         </receiver>
 		<!-- Sync standalone widget -->
         <receiver android:name=".widget.SyncWidgetProvider"
@@ -934,7 +934,7 @@
                 <action android:name="com.evervolv.widget.SYNC_CLICKED"/>
                  <action android:name="com.android.sync.SYNC_CONN_STATUS_CHANGED" />
             </intent-filter>
-            <meta-data android:name="android.appwidget.provider" android:resource="@xml/sync_widget_info" />
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_info" />
         </receiver>
         	<!-- Brightness standalone widget -->
         <receiver android:name=".widget.BrightnessWidgetProvider"
@@ -943,7 +943,7 @@
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
                 <action android:name="com.evervolv.widget.BRIGHTNESS_CLICKED"/>
             </intent-filter>
-            <meta-data android:name="android.appwidget.provider" android:resource="@xml/brightness_widget_info" />
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_info" />
         </receiver>
     </application>
 </manifest>

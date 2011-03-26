@@ -14,7 +14,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.RemoteViews;
 
-public class TetherWidgetProvider extends AppWidgetProvider {
+public class HotspotWidgetProvider extends AppWidgetProvider {
     // TAG
     public static final String TAG = "Evervolv_WifiApWidget";
     // Intent Actions
@@ -85,7 +85,7 @@ public class TetherWidgetProvider extends AppWidgetProvider {
 	*/
 	private void updateWidgetView(Context context,int state){
 	
-	    Intent intent = new Intent(context, TetherWidgetProvider.class);
+	    Intent intent = new Intent(context, HotspotWidgetProvider.class);
 		intent.setAction(WIFIAP_CHANGED);
 	    PendingIntent pendingIntent = PendingIntent.getBroadcast(context,0,intent,0);
 	    RemoteViews views = new RemoteViews(context.getPackageName(),
@@ -94,27 +94,27 @@ public class TetherWidgetProvider extends AppWidgetProvider {
 		views.setOnClickPendingIntent(R.id.power_press,pendingIntent);
 		views.setOnClickPendingIntent(R.id.power_item,pendingIntent);
 		views.setOnClickPendingIntent(R.id.power_trigger,pendingIntent);
-		views.setImageViewResource(R.id.power_item,R.drawable.widget_wifiap_icon);
-		views.setTextViewText(R.id.power_label,context.getString(R.string.wifiap_gadget_caption));
+		views.setImageViewResource(R.id.power_item,R.drawable.widget_hotspot_icon);
+		views.setTextViewText(R.id.power_label,context.getString(R.string.hotspot_gadget_caption));
 		// We need to update the Widget GUI
 		if (state == StateTracker.STATE_DISABLED){
 			views.setImageViewResource(R.id.power_trigger,R.drawable.power_switch_off);
-			views.setImageViewResource(R.id.power_item,R.drawable.widget_wifiap_icon_03);
+			views.setImageViewResource(R.id.power_item,R.drawable.widget_hotspot_icon_03);
 		} else if (state == StateTracker.STATE_ENABLED) {
 			views.setImageViewResource(R.id.power_trigger,R.drawable.power_switch_on);
-			views.setImageViewResource(R.id.power_item,R.drawable.widget_wifiap_icon);
+			views.setImageViewResource(R.id.power_item,R.drawable.widget_hotspot_icon);
 		} else if (state == StateTracker.STATE_TURNING_ON) {
 			views.setImageViewResource(R.id.power_trigger,R.drawable.power_switch_tween);
-			views.setImageViewResource(R.id.power_item,R.drawable.widget_wifiap_icon_02);
+			views.setImageViewResource(R.id.power_item,R.drawable.widget_hotspot_icon_02);
 		} else if (state == StateTracker.STATE_TURNING_OFF) {
 			views.setImageViewResource(R.id.power_trigger,R.drawable.power_switch_tween);
-			views.setImageViewResource(R.id.power_item,R.drawable.widget_wifiap_icon_02);
+			views.setImageViewResource(R.id.power_item,R.drawable.widget_hotspot_icon_02);
 		} else if (state == StateTracker.STATE_UNKNOWN) {
 			views.setImageViewResource(R.id.power_trigger,R.drawable.power_switch_off);
-			views.setImageViewResource(R.id.power_item,R.drawable.widget_wifiap_icon_03);
+			views.setImageViewResource(R.id.power_item,R.drawable.widget_hotspot_icon_03);
 		}
 		
-		ComponentName cn = new ComponentName(context, TetherWidgetProvider.class);  
+		ComponentName cn = new ComponentName(context, HotspotWidgetProvider.class);  
 		AppWidgetManager.getInstance(context).updateAppWidget(cn, views); 
 	}
     
