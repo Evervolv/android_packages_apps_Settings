@@ -24,7 +24,7 @@ public class BrightnessWidgetProvider extends AppWidgetProvider {
     public static final String TAG = "Evervolv_BrightnessWidget";
     // Intent Actions
     public static String BRIGHTNESS_CHANGED = "com.evervolv.widget.BRIGHTNESS_CLICKED";
-    
+
     /**
      * Minimum and maximum brightnesses.  Don't go to 0 since that makes the display unusable
      */
@@ -33,6 +33,11 @@ public class BrightnessWidgetProvider extends AppWidgetProvider {
     private static final int DEFAULT_BACKLIGHT = (int) (android.os.Power.BRIGHTNESS_ON * 0.4f);
     private static final int BUTTON_BRIGHTNESS = 1;
     
+    private int mBrightnessMode = 1;
+    private static final int BRIGHTNESS_AUTO = 1;
+    private static final int BRIGHTNESS_DEFAULT = 2;
+    private static final int BRIGHTNESS_MAXIMUM = 3;
+    private static final int BRIGHTNESS_MINIMUM = 4;
     
     @Override
     public void onEnabled(Context context){
@@ -113,30 +118,26 @@ public class BrightnessWidgetProvider extends AppWidgetProvider {
 						R.string.brightness_gadget_caption));
 		
 		// We need to update the Widget GUI
-		if (getBrightnessMode(context)) {
-		    Log.d(TAG,"updateWidgetView - getBrightnessMode - true");
+		if (mBrightnessMode == BRIGHTNESS_AUTO)  {
 			views.setImageViewResource(R.id.power_trigger,
 							R.drawable.brightness_switch_auto);
 			views.setImageViewResource(R.id.power_item,
 							R.drawable.widget_brightness_icon);
-		} else if (getBrightness(context)) {
-			try {
-				int brightness = Settings.System.getInt(context.getContentResolver(),
-                        		Settings.System.SCREEN_BRIGHTNESS);
-			    Log.d(TAG,"updateWidgetView - getBrightness - true - brightness = "+brightness);
-				views.setImageViewResource(R.id.power_trigger,
-								R.drawable.brightness_switch_auto);
-				views.setImageViewResource(R.id.power_item,
-								R.drawable.widget_brightness_icon_02);
-	        } catch (Settings.SettingNotFoundException e) {
-	            Log.d(TAG, "toggleBrightness: " + e);
-	        }
-		} else {
-		    Log.d(TAG,"updateWidgetView - getBrightness - false");
+		} else if (mBrightnessMode == BRIGHTNESS_MINIMUM) {
 			views.setImageViewResource(R.id.power_trigger,
-							R.drawable.brightness_switch_auto);
+							R.drawable.brightness_switch_min);
+			views.setImageViewResource(R.id.power_item,
+							R.drawable.widget_brightness_icon_02);
+		} else if (mBrightnessMode == BRIGHTNESS_MAXIMUM) {
+			views.setImageViewResource(R.id.power_trigger,
+							R.drawable.brightness_switch_max);
 			views.setImageViewResource(R.id.power_item,
 							R.drawable.widget_brightness_icon_03);
+		} else if (mBrightnessMode == BRIGHTNESS_DEFAULT) {
+			views.setImageViewResource(R.id.power_trigger,
+							R.drawable.brightness_switch_default);
+			views.setImageViewResource(R.id.power_item,
+							R.drawable.widget_brightness_icon_04);
 		}
 		
 		ComponentName cn = new ComponentName(context, BrightnessWidgetProvider.class);  
@@ -226,13 +227,17 @@ public class BrightnessWidgetProvider extends AppWidgetProvider {
                 if (brightnessMode == Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC) {
                     brightness = MINIMUM_BACKLIGHT;
                     brightnessMode = Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL;
+                    mBrightnessMode = BRIGHTNESS_MINIMUM;
                 } else if (brightness < DEFAULT_BACKLIGHT) {
                     brightness = DEFAULT_BACKLIGHT;
+                    mBrightnessMode = BRIGHTNESS_DEFAULT;
                 } else if (brightness < MAXIMUM_BACKLIGHT) {
                     brightness = MAXIMUM_BACKLIGHT;
+                    mBrightnessMode = BRIGHTNESS_MAXIMUM;
                 } else {
                     brightnessMode = Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC;
                     brightness = MINIMUM_BACKLIGHT;
+                    mBrightnessMode = BRIGHTNESS_AUTO;
                 }
 
                 if (context.getResources().getBoolean(
