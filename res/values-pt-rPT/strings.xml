@@ -584,6 +584,7 @@
     <string name="apn_auth_type_chap" msgid="3369626283789068360">"CHAP"</string>
     <string name="apn_auth_type_pap_chap" msgid="9102343063036134541">"PAP ou CHAP"</string>
     <string name="apn_type" msgid="469613123902220544">"Tipo APN"</string>
+    <string name="apn_protocol" msgid="3272222921649348640">"Protocolo APN"</string>
     <string name="menu_delete" msgid="6981294422841124659">"Eliminar APN"</string>
     <string name="menu_new" msgid="3014205883303921729">"Novo APN"</string>
     <string name="menu_save" msgid="8109345640668285399">"Guardar"</string>
@@ -798,8 +799,8 @@
     <string name="service_started_by_app" msgid="6575184738671598131">"Iniciado pela aplicação."</string>
     <!-- no translation found for service_client_name (4037193625611815517) -->
     <skip />
-    <string name="service_background_processes" msgid="6844156253576174488">"<xliff:g id="MEMORY">%1$s</xliff:g> gratuito"</string>
-    <string name="service_foreground_processes" msgid="7583975676795574276">"<xliff:g id="MEMORY">%1$s</xliff:g> utiliz."</string>
+    <string name="service_background_processes" msgid="6844156253576174488">"<xliff:g id="MEMORY">%1$s</xliff:g> livres"</string>
+    <string name="service_foreground_processes" msgid="7583975676795574276">"<xliff:g id="MEMORY">%1$s</xliff:g> utilizados"</string>
     <string name="memory" msgid="6609961111091483458">"RAM"</string>
     <!-- no translation found for service_process_name (4098932168654826656) -->
     <skip />
@@ -910,9 +911,9 @@
     <string name="battery_stats_duration" msgid="7464501326709469282">"<xliff:g id="TIME">%1$s</xliff:g> desde que foi desligado"</string>
     <string name="battery_stats_charging_label" msgid="4223311142875178785">"A carregar"</string>
     <string name="battery_stats_screen_on_label" msgid="7150221809877509708">"Ecrã activo"</string>
-    <string name="battery_stats_gps_on_label" msgid="1193657533641951256">"GPS activado"</string>
+    <string name="battery_stats_gps_on_label" msgid="1193657533641951256">"GPS activo"</string>
     <string name="battery_stats_wifi_running_label" msgid="3093545080361658269">"Wi-Fi"</string>
-    <string name="battery_stats_wake_lock_label" msgid="1908942681902324095">"Despertar"</string>
+    <string name="battery_stats_wake_lock_label" msgid="1908942681902324095">"Activo"</string>
     <string name="battery_stats_phone_signal_label" msgid="6822042940376636775">"Sinal telefónico"</string>
     <!-- no translation found for battery_stats_last_duration (1535831453827905957) -->
     <skip />
@@ -1159,4 +1160,7 @@
     <string name="sound_category_calls_title" msgid="3688531959256239012">"Chamadas recebidas"</string>
     <string name="sound_category_notification_title" msgid="3502115998790286943">"Notificações"</string>
     <string name="sound_category_feedback_title" msgid="4399742321363475393">"Comentários"</string>
+    <string name="wimax_settings" msgid="1574837328738396794">"Definições de 4G"</string>
+    <string name="wimax_settings_summary" msgid="3207355006084135453">"Configurar e gerir modem e rede 4G"</string>
+    <string name="status_wimax_mac_address" msgid="8390791848661413416">"Endereço MAC de 4G"</string>
 </resources>

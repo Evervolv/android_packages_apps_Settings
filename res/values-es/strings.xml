@@ -87,7 +87,7 @@
     <string name="battery_info_health_dead" msgid="1725917445762829059">"Agotada"</string>
     <string name="battery_info_health_over_voltage" msgid="2420269351664490121">"Sobretensión"</string>
     <string name="battery_info_health_unspecified_failure" msgid="6347021103185471590">"Error desconocido"</string>
-    <string name="bluetooth" msgid="5549625000628014477">"Ajustes de Bluetooth"</string>
+    <string name="bluetooth" msgid="5549625000628014477">"Bluetooth"</string>
     <string name="bluetooth_visibility" msgid="2930835434091839916">"Visible"</string>
     <string name="bluetooth_is_discoverable" msgid="1205694503775884903">"Visible durante <xliff:g id="DISCOVERABLE_TIME_PERIOD">%1$s</xliff:g> segundos..."</string>
     <string name="bluetooth_not_discoverable" msgid="128269993123955177">"Hacer visible el dispositivo"</string>
@@ -282,7 +282,7 @@
     <string name="device_admin_title" msgid="3562216873644263804">"Administración de dispositivos"</string>
     <string name="manage_device_admin" msgid="3864120111085199551">"Seleccionar administradores de dispositivos"</string>
     <string name="manage_device_admin_summary" msgid="915390201809231575">"Añadir o eliminar administradores de dispositivos"</string>
-    <string name="bluetooth_quick_toggle_title" msgid="1037056952714061893">"Ajustes de Bluetooth"</string>
+    <string name="bluetooth_quick_toggle_title" msgid="1037056952714061893">"Bluetooth"</string>
     <string name="bluetooth_quick_toggle_summary" msgid="5293641680139873341">"Activar Bluetooth"</string>
     <string name="bluetooth_settings" msgid="2725796451253089609">"Ajustes de Bluetooth"</string>
     <string name="bluetooth_settings_title" msgid="2824020086246268296">"Ajustes de Bluetooth"</string>
@@ -584,6 +584,7 @@
     <string name="apn_auth_type_chap" msgid="3369626283789068360">"CHAP"</string>
     <string name="apn_auth_type_pap_chap" msgid="9102343063036134541">"PAP o CHAP"</string>
     <string name="apn_type" msgid="469613123902220544">"Tipo de APN"</string>
+    <string name="apn_protocol" msgid="3272222921649348640">"Protocolo APN"</string>
     <string name="menu_delete" msgid="6981294422841124659">"Eliminar APN"</string>
     <string name="menu_new" msgid="3014205883303921729">"APN nuevo"</string>
     <string name="menu_save" msgid="8109345640668285399">"Guardar"</string>
@@ -1099,7 +1100,7 @@
     <string name="credentials_access_summary" msgid="319662078718574168">"Permitir que las aplicaciones accedan a los certificados seguros y a otras credenciales"</string>
     <string name="credentials_unlock" msgid="1463040326264133844">"Introducir contraseña"</string>
     <string name="credentials_unlock_hint" msgid="594679530407918031">"Introduce la contraseña de almacenamiento de credenciales."</string>
-    <string name="credentials_install_certificates" product="nosdcard" msgid="619171634797689906">"Instalar desde USB"</string>
+    <string name="credentials_install_certificates" product="nosdcard" msgid="619171634797689906">"Instalar desde almacenamiento USB"</string>
     <string name="credentials_install_certificates" product="default" msgid="177337517568022236">"Instalar desde la tarjeta SD"</string>
     <string name="credentials_install_certificates_summary" product="nosdcard" msgid="8920330112631198575">"Instalar certificados desde USB"</string>
     <string name="credentials_install_certificates_summary" product="default" msgid="7737001268684193093">"Instalar certificados encriptados de tarjeta SD"</string>
@@ -1159,4 +1160,74 @@
     <string name="sound_category_calls_title" msgid="3688531959256239012">"Llamadas entrantes"</string>
     <string name="sound_category_notification_title" msgid="3502115998790286943">"Notificaciones"</string>
     <string name="sound_category_feedback_title" msgid="4399742321363475393">"Respuesta del teléfono"</string>
+    <string name="cm_settings_title">Ajustes CyanogenMod</string>
+
+    <string name="profile_settings_title">Perfiles</string>
+    <string name="profile_title">Configuración de perfiles</string>
+    <string name="profile_appgroup_list_title">Configurar grupos de aplicaciones</string>
+    <string name="sound_mode">Modo de sonido</string>
+    <string name="ringer_mode">Modo de llamada</string>
+    <string name="lights_mode">Modo de Luz</string>
+    <string name="vibrate_mode">Modo de vibración</string>
+    <string name="choose_soundtone">Tono del teléfono</string>
+    <string name="choose_ringtone">Tono de llamada</string>
+    <string name="profile_settings">Configuración del perfil</string>
+    <string name="profile_name">Nombre del perfil</string>
+    <string name="profile_summary">Pulse para configurar su perfil</string>
+    <string name="profile_appgroup_title">Grupo de aplicaciones: %s</string>
+    <string name="profile_appgroups_title">Grupos de aplicaciones</string>
+    <string name="profile_applist_title">Aplicaciones - haga clic para quitar del grupo</string>
+    <string name="profile_appgroup_name_prompt">Escriba el nombre del grupo de aplicaciones</string>
+    <string name="profile_delete">Eliminar Perfil</string>
+    <string name="profile_delete_confirm">¿Está seguro que desea eliminar este perfil?</string>
+    <string name="profile_app_delete_confirm">¿Está seguro que desea eliminar esta aplicación?</string>
+    <string name="profile_choose_app">Seleccione la aplicación</string>
+    <string name="profile_settings_header">Configuración del perfil: %s</string>
+    <string name="profile_group_header">Perfil: %1$s Categoría: %2$s</string>
+    <string name="menu_appgroups">Administrar grupos de aplicaciones</string>
+    <string name="menu_new_profile">Nuevo perfil</string>
+    <string name="menu_new_profile_summary">Agregar y configurar un nuevo perfil</string>
+    <string name="profile_menu_delete">Quitar</string>
+    <string name="profile_new_appgroup">Nuevo grupo de aplicaciones</string>
+    <string name="profile_delete_appgroup">Eliminar este grupo de aplicaciones</string>
+    <string name="profile_add_app">Agregar aplicación</string>
+    <string name="profile_manage">Administración de perfiles</string>
+    <string name="profile_appgroups_manage">Administrar grupos de aplicaciones</string>
+    <string name="profile_applist_manage">Gestión de lista de aplicaciones</string>
+
+    <string name="kill_app_longpress_back">Cierre la aplicación con pulsación larga</string>
+    <string name="kill_app_longpress_back_summary">Mantenga pulsado el botón VOLVER para cerrar la aplicación activa.</string>
+
+    <string name="device_hostname">Nombre del dispositivo</string>
+
+    <string name="battery_history_details_for">Detalles de la UID <xliff:g id="number" example="1234">%d</xliff:g></string>
+    <string name="battery_history_uid">UID <xliff:g id="user_id">%1$d</xliff:g></string>
+    <string name="battery_history_network_usage">Red de información de uso de <xliff:g id="app_name">%1$s</xliff:g>:</string>
+    <string name="battery_history_bytes_received">Recibido bytes: <xliff:g id="bytes">%1$d</xliff:g></string>
+    <string name="battery_history_bytes_sent">Enviado bytes: <xliff:g id="bytes">%1$d</xliff:g></string>
+    <string name="battery_history_bytes_total">Número total de bytes: <xliff:g id="bytes">%1$d</xliff:g></string>
+    <string name="battery_history_cpu_usage">CPU-detalles uso <xliff:g id="app_name">%1$s</xliff:g>:</string>
+    <string name="battery_history_user_time">Tiempo usuario: </string>
+    <string name="battery_history_system_time">Tiempo sistema: </string>
+    <string name="battery_history_total_time">Tiempo Total: </string>
+    <string name="battery_history_starts">Iniciado: <xliff:g id="starts">%1$d</xliff:g></string>
+    <string name="battery_history_packages_sharing_this_uid">Paquetes distribuidos por este UID:</string>
+    <string name="battery_history_no_data">No hay datos con el uso de las baterías disponibles</string>
+    <string name="battery_history_sensor">Sensor:</string>
+    <string name="battery_history_wakelock">Bloqueo:</string>
+    <string name="battery_history_used_by_packages">Sensor de uso de paquetes:</string>
+    <string name="battery_history_sensor_usage">Uso <xliff:g id="count">%1$d</xliff:g> tiempo de <xliff:g id="package">%2$s</xliff:g></string>
+    <string name="battery_history_sensor_usage_multi">Uso <xliff:g id="count">%1$d</xliff:g> veces de cada uno de:</string>
+    <string name="battery_history_awake_label">Ejecutar</string>
+    <string name="battery_history_screen_on_label">En pantalla</string>
+    <string name="battery_history_phone_on_label">En teléfono</string>
+    <string name="battery_history_awake">Tiempo en espera:</string>
+    <string name="battery_history_screen_on">Tiempo con pantalla encendida:</string>
+    <string name="battery_history_phone_on">Tiempo usado con teléfono:</string>
+    <string name="battery_history_screen_on_battery">Con bateria:</string>
+    <string name="battery_history_screen_on_plugged">A la red:</string>
+
+    <string name="wimax_settings" msgid="1574837328738396794">"Ajustes de 4G"</string>
+    <string name="wimax_settings_summary" msgid="3207355006084135453">"Configurar y gestionar módem y red 4G"</string>
+    <string name="status_wimax_mac_address" msgid="8390791848661413416">"Dirección MAC 4G"</string>
 </resources>

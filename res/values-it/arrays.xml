@@ -44,6 +44,7 @@
     <item msgid="8881760709354815449">"30 secondi"</item>
     <item msgid="7589406073232279088">"1 minuto"</item>
     <item msgid="7001195990902244174">"2 minuti"</item>
+    <item>5 minuti</item>
     <item msgid="5721688686241190620">"10 minuti"</item>
     <item msgid="7156442995039264948">"30 minuti"</item>
   </string-array>
@@ -115,6 +116,14 @@
     <item msgid="1549288661423279207">"Mai quando collegato"</item>
     <item msgid="1986753720941888596">"Mai"</item>
   </string-array>
+  <string-array name="battery_history_type_spinner">
+    <item msgid="2193799199027871385">"Utilizzo CPU"</item>
+    <item msgid="6401018715947316517">"Utilizzo della rete"</item>
+    <item msgid="188092590354892392">"Utilizzo GPS"</item>
+    <item msgid="8414109131222049141">"Utilizzo sensore"</item>
+    <item msgid="1327904325081257093">"Utilizzo riattivazione parziale"</item>
+    <item msgid="4832254146664706277">"Altro utilizzo"</item>
+  </string-array>
   <string-array name="usage_stats_display_order_types">
     <item msgid="9077371706468756228">"Tempo di utilizzo"</item>
     <item msgid="1908750532762193304">"Conteggio avvii"</item>
@@ -143,6 +152,9 @@
     <item msgid="535934025797984365">"CHAP"</item>
     <item msgid="8383098660619805783">"PAP o CHAP"</item>
   </string-array>
+    <!-- no translation found for apn_protocol_entries:0 (4852355456199302715) -->
+    <!-- no translation found for apn_protocol_entries:1 (4394161344888484571) -->
+    <!-- no translation found for apn_protocol_entries:2 (8084938354605535381) -->
   <string-array name="app_install_location_entries">
     <item msgid="8151497958991952759">"Memorizzazione su dispositivo interno"</item>
     <item msgid="3738430123799803530">"Scheda SD rimovibile"</item>
@@ -154,4 +166,16 @@
     <item msgid="1276641209451816572">"Solo in mod. silenziosa"</item>
     <item msgid="8418930333779132418">"Solo se mod. silenziosa non attiva"</item>
   </string-array>
+
+  <!-- Profile mode options. -->
+    <string-array name="profile_entries">
+        <item>On</item>
+        <item>Off</item>
+        <item>Usa impostazioni predefinite</item>
+    </string-array>
+
+  <string-array name="backgroundWidget">
+        <item>Grigio</item>
+        <item>Trasparente</item>
+    </string-array>
 </resources>

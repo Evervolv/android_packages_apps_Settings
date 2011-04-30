@@ -20,6 +20,15 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string-array name="incorrect_delay_entries">
+        <item>Sense retard</item>
+        <item>0.5 segon</item>
+        <item>1 segon</item>
+        <item>1.5 segons</item>
+        <item>2 segons</item>
+    </string-array>
+
   <string-array name="timezone_filters">
     <item msgid="5296756001147094692">"Amèrica"</item>
     <item msgid="3005562397632768392">"Europa"</item>
@@ -35,35 +44,36 @@
     <item msgid="3856065399819979491">"Totes les animacions"</item>
   </string-array>
   <string-array name="animations_summaries">
-    <item msgid="4569165952409350897">"No es mostra cap animació de finestres"</item>
-    <item msgid="4460915688877708508">"Es mostren algunes animacions de finestres"</item>
-    <item msgid="488968798204105119">"Es mostren totes les animacions de finestres"</item>
+    <item msgid="4569165952409350897">"No es mostrarà cap animació."</item>
+    <item msgid="4460915688877708508">"Es mostren algunes animacions."</item>
+    <item msgid="488968798204105119">"Es mostren totes les animacions"</item>
   </string-array>
   <string-array name="screen_timeout_entries">
-    <item msgid="3342301044271143016">"15 segons"</item>
-    <item msgid="8881760709354815449">"30 segons"</item>
-    <item msgid="7589406073232279088">"1 minut"</item>
-    <item msgid="7001195990902244174">"2 minuts"</item>
-    <item msgid="5721688686241190620">"10 minuts"</item>
-    <item msgid="7156442995039264948">"30 minuts"</item>
+    <item msgid="3342301044271143016">"15 segons"</item>
+    <item msgid="8881760709354815449">"30 segons"</item>
+    <item msgid="7589406073232279088">"1 minut"</item>
+    <item msgid="7001195990902244174">"2 minuts"</item>
+    <item>"5 minuts"</item>
+    <item msgid="5721688686241190620">"10 minuts"</item>
+    <item msgid="7156442995039264948">"30 minuts"</item>
   </string-array>
   <string-array name="tts_rate_entries">
-    <item msgid="6041212618892492920">"Molt lenta"</item>
-    <item msgid="2361722960903353554">"Lenta"</item>
+    <item msgid="6041212618892492920">"Molt lent"</item>
+    <item msgid="2361722960903353554">"Lent"</item>
     <item msgid="1145554631248513562">"Normal"</item>
-    <item msgid="7553665153391107454">"Ràpida"</item>
+    <item msgid="7553665153391107454">"Ràpid"</item>
     <item msgid="2538100882620724753">"Molt ràpid"</item>
   </string-array>
   <string-array name="tts_pitch_entries">
-    <item msgid="7526050907652687351">"Molt baix"</item>
-    <item msgid="2692137425242433765">"Baixa"</item>
+    <item msgid="7526050907652687351">"Molt greu"</item>
+    <item msgid="2692137425242433765">"Greu"</item>
     <item msgid="3332408460740717754">"Normal"</item>
-    <item msgid="4907380534957572531">"Alta"</item>
-    <item msgid="4699640516390840297">"Molt alt"</item>
+    <item msgid="4907380534957572531">"Agut"</item>
+    <item msgid="4699640516390840297">"Molt agut"</item>
   </string-array>
   <string-array name="tts_lang_entries">
-    <item msgid="478030717868306353">"Anglès nord-americà"</item>
-    <item msgid="5192284521396794598">"Anglès britànic"</item>
+    <item msgid="478030717868306353">"Anglès (EUA)"</item>
+    <item msgid="5192284521396794598">"Anglès (Regne Unit)"</item>
     <item msgid="3000262452051711991">"Francès"</item>
     <item msgid="9214080387341763401">"Alemany"</item>
     <item msgid="5972100016440094433">"Italià"</item>
@@ -115,6 +125,19 @@
     <item msgid="1549288661423279207">"Mai mentre estigui connectada"</item>
     <item msgid="1986753720941888596">"Mai"</item>
   </string-array>
+  <string-array name="battery_history_type_spinner">
+    <item msgid="2193799199027871385">"Ús de CPU"</item>
+    <item msgid="6401018715947316517">"Ús de xarxa"</item>
+    <item msgid="188092590354892392">"Ús del GPS"</item>
+    <item msgid="8414109131222049141">"Ús del sensor"</item>
+    <item msgid="1327904325081257093">"Ús d\'activitat parcial"</item>
+    <item msgid="4832254146664706277">"Altres usos"</item>
+  </string-array>
+  <string-array name="battery_history_which_spinner">
+    <item msgid="3451981114763440074">"Des de la darrera desendollada"</item>
+    <item msgid="166936313535197598">"Total des de l\'arrancada"</item>
+    <item msgid="4793941382744963893">"Total de tots els períodes"</item>
+  </string-array>
   <string-array name="usage_stats_display_order_types">
     <item msgid="9077371706468756228">"Temps d\'ús"</item>
     <item msgid="1908750532762193304">"Recompte d\'inicis"</item>
@@ -143,6 +166,9 @@
     <item msgid="535934025797984365">"CHAP"</item>
     <item msgid="8383098660619805783">"PAP o CHAP"</item>
   </string-array>
+    <!-- no translation found for apn_protocol_entries:0 (4852355456199302715) -->
+    <!-- no translation found for apn_protocol_entries:1 (4394161344888484571) -->
+    <!-- no translation found for apn_protocol_entries:2 (8084938354605535381) -->
   <string-array name="app_install_location_entries">
     <item msgid="8151497958991952759">"Emmagatzematge intern del dispositiu"</item>
     <item msgid="3738430123799803530">"Targeta SD extraïble"</item>
@@ -154,4 +180,9 @@
     <item msgid="1276641209451816572">"Només en mode silenciós"</item>
     <item msgid="8418930333779132418">"Només quan no és en mode silenciós"</item>
   </string-array>
+
+    <string-array name="backgroundWidget">
+        <item>Gris</item>
+        <item>Transparent</item>
+    </string-array>
 </resources>

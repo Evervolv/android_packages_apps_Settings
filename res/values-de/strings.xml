@@ -190,7 +190,7 @@
     <string name="sdcard_settings_mass_storage_status" product="default" msgid="4786433969313661655">"SD-Karte wird als Massenspeichergerät verwendet"</string>
     <string name="sdcard_settings_unmounted_status" product="nosdcard" msgid="7503300818792750913">"USB-Speicher kann nun entfernt werden"</string>
     <string name="sdcard_settings_unmounted_status" product="default" msgid="3812022095683863087">"Die SD-Karte kann jetzt entfernt werden."</string>
-    <string name="sdcard_settings_bad_removal_status" product="nosdcard" msgid="7761390725880773697">"USB-Speicher wurde während Verw. entfernt."</string>
+    <string name="sdcard_settings_bad_removal_status" product="nosdcard" msgid="7761390725880773697">"USB-Speicher während Verwendung entfernt"</string>
     <string name="sdcard_settings_bad_removal_status" product="default" msgid="5145797653495907970">"Die SD-Karte wurde während der Verwendung entfernt!"</string>
     <string name="sdcard_settings_used_bytes_label" msgid="8820289486001170836">"Verwendete Bytes:"</string>
     <string name="sdcard_settings_scanning_status" product="nosdcard" msgid="7503429447676219564">"USB-Sp. auf Medien scannen"</string>
@@ -204,7 +204,7 @@
     <string name="device_info_label" msgid="6551553813651711205">"Geräteinfo"</string>
     <string name="battery_info_label" msgid="4132685016148679403">"Akkuinfo"</string>
     <string name="display_label" msgid="7403874003169865762">"Display"</string>
-    <string name="phone_info_label" msgid="2127552523124277664">"Telefoninfo"</string>
+    <string name="phone_info_label" msgid="2127552523124277664">"Über das Telefon"</string>
     <string name="sd_card_settings_label" product="nosdcard" msgid="8101475181301178428">"USB-Speicher"</string>
     <string name="sd_card_settings_label" product="default" msgid="5743100901106177102">"SD-Karte"</string>
     <string name="proxy_settings_label" msgid="3271174136184391743">"Proxy-Einstellungen"</string>
@@ -214,6 +214,7 @@
     <string name="settings_shortcut" msgid="3672145147925639262">"Einstellungen"</string>
     <string name="airplane_mode" msgid="8837269988154128601">"Flugmodus"</string>
     <string name="airplane_mode_summary" msgid="3154817401368780988">"Alle drahtlosen Verbindungen deaktivieren"</string>
+    <string name="device_hostname">Gerätename</string>
     <string name="airplane_mode_turning_on" msgid="8871739222526957255">"Drahtlosverbindungen werden deaktiviert..."</string>
     <string name="airplane_mode_turning_off" msgid="3393168549611505996">"Drahtlosverbindungen werden aktiviert..."</string>
     <string name="radio_controls_title" msgid="5868688473587168882">"Drahtlos &amp; Netzwerke"</string>
@@ -317,6 +318,7 @@
     <string name="bluetooth_summary_connected_to_a2dp" msgid="510833839847758664">"Verbunden mit  Audiosystem von Medien"</string>
     <string name="bluetooth_summary_connected_to_headset" msgid="4876496372728623918">"Verbunden mit Audiosystem des Telefons"</string>
     <string name="bluetooth_summary_connected_to_a2dp_headset" msgid="3045032710457800891">"Verbunden mit Audiosystem von Telefon und Medien"</string>
+    <string name="bluetooth_summary_connected_to_hid">Verbunden mit HID-Gerät</string>
     <string name="bluetooth_device_advanced_title" msgid="528816860793581131">"Optionen von <xliff:g id="DEVICE_NAME">%1$s</xliff:g>"</string>
     <string name="bluetooth_device_advanced_online_mode_title" msgid="3689050071425683114">"Verbinden"</string>
     <string name="bluetooth_device_advanced_online_mode_summary" msgid="1204424107263248336">"Mit Bluetooth-Gerät verbinden"</string>
@@ -328,6 +330,8 @@
     <string name="bluetooth_a2dp_profile_summary_use_for" msgid="4630849022250168427">"Für Audiosystem von Medien verwenden"</string>
     <string name="bluetooth_headset_profile_summary_use_for" msgid="8705753622443862627">"Für Audiosystem des Telefons verwenden"</string>
     <string name="bluetooth_opp_profile_summary_use_for" msgid="1255674547144769756">"Für Dateiübertragung verwenden"</string>
+    <string name="bluetooth_hid_profile_summary_connected">Verbunden mit HID-Gerät</string>
+    <string name="bluetooth_hid_profile_summary_use_for">Für HID-Gerät nutzen</string>
     <string name="bluetooth_dock_settings" msgid="3218335822716052885">"Dock-Einstellungen"</string>
     <string name="bluetooth_dock_settings_title" msgid="5543069893044375188">"Dock für Audio verwenden"</string>
     <string name="bluetooth_dock_settings_headset" msgid="1001821426078644650">"Als Lautsprechertelefon"</string>
@@ -336,6 +340,14 @@
     <string name="nfc_quick_toggle_title" msgid="6769159366307299004">"NFC"</string>
     <string name="nfc_quick_toggle_summary" msgid="1988408027741447231">"Nahfeldkommunikation zum Lesen und Austauschen von Tags verwenden"</string>
     <string name="nfc_toggle_error" msgid="2233172102497535522">"Ein Fehler ist aufgetreten."</string>
+    <skip />
+
+    <!-- Hostname Settings -->
+    <!-- Button when saving a device hostname -->
+    <string name="hostname_save">Speichern</string>
+    <!-- Button when cancelling hostname change -->
+    <string name="hostname_cancel">Abbrechen</string>
+
     <string name="wifi_quick_toggle_title" msgid="874495178395350104">"WLAN"</string>
     <string name="wifi_quick_toggle_summary" msgid="1047950931623694366">"WLAN aktivieren"</string>
     <string name="wifi_settings" msgid="4746946030627213196">"WLAN-Einstellungen"</string>
@@ -408,7 +420,58 @@
     <string name="wifi_tether_configure_ap_text" msgid="3474995108398156258">"WLAN-Hotspot konfigurieren"</string>
     <string name="wifi_tether_configure_subtext" msgid="1927454307836232128">"<xliff:g id="NETWORK_SSID">%1$s</xliff:g> <xliff:g id="NETWORK_SECURITY">%2$s</xliff:g> mobiler WLAN-Hotspot"</string>
     <string name="wifi_tether_configure_ssid_default" msgid="8467525402622138547">"AndroidHotspot"</string>
+
+    <!-- Wimax settings -->
+    <string name="wimax_quick_toggle_title">WiMAX</string>
+    <string name="wimax_quick_toggle_summary">WiMAX einschalten</string>
+    <string name="wimax_starting">Aktivierung\u2026</string>
+    <string name="wimax_stopping">Wird beendet\u2026</string>
+    <string name="wimax_error">Fehler</string>
+    <string name="error_wimax_starting">WiMAX kann nicht gestartet werden</string>
+    <string name="error_wimax_stopping">WiMAX kann nicht ausgeschaltet werden</string>
+
+    <string name="wimax_settings_title">WiMAX-Einstellungen</string>
+
+    <string name="wimax_settings_category">WiMAX-Einstellungen</string>
+    <string name="wimax">WiMAX</string>
+    <string name="scan_wimax">Scan</string>
+    <string name="wimax_menu_advanced">Erweitert</string>
+    <string name="wimax_networks">WiMAX-Netzwerke</string>
+    <string name="wimax_scan_networks">WiMAX-Netzwerke scannen</string>
+    <string name="error_wimax_scanning">Netzwerke können nicht gescannt werden</string>
+
+    <string name="wimax_auto_connect">Automatisch verbinden</string>
+    <string name="wimax_auto_connect_summary">Mit zuletzt verbundenem Netzwerk automatisch verbinden, wenn wieder verfügbar</string>
+    <string name="wimax_context_menu_connect">Verbinde mit Netzwerk</string>
+    <string name="wimax_context_menu_disconnect">Trenne Netzwerk</string>
+    <string name="error_wimax_connecting">Fehler beim Verbinden mit Netzwerk</string>
+
+    <string name="wimax_signal_3">Ausgezeichnet</string>
+    <string name="wimax_signal_2">Gut</string>
+    <string name="wimax_signal_1">Schwach</string>
+    <string name="wimax_signal_0">Schlecht</string>
+
+    <string name="wimax_advanced_titlebar">Erweitert</string>
+    <string name="wimax_advanced_mac_address_title">MAC-Adresse</string>
+    <string name="wimax_advanced_hw_version_title">Hardware-Version</string>
+    <string name="wimax_advanced_sw_version_title">Firmware-Version</string>
+    <string name="wimax_advanced_signal_strength_rssi_title">Signalstärke (RSSI)</string>
+    <string name="wimax_advanced_signal_strength_simple_title">Signalstärke (einfach)</string>
+    <string name="wimax_ip_settings_titlebar">IP-Einstellungen</string>
+    <string name="wimax_ip_address">IP-Adresse</string>
+    <string name="wimax_gateway">Gateway</string>
+
+    <string name="wimax_status_scanning">Scan\u2026</string>
+    <string name="wimax_status_connecting">Verbinde\u2026</string>
+    <string name="wimax_status_connecting_to">Verbinde mit <xliff:g id="network_name">%1$s</xliff:g>\u2026</string>
+    <string name="wimax_status_connected">Verbunden</string>
+    <string name="wimax_status_connected_to">Verbunden mit <xliff:g id="network_name">%1$s</xliff:g></string>
+    <string name="wimax_status_disconnecting">Trennen\u2026</string>
+    <string name="wimax_status_disconnecting_from">Trenne von <xliff:g id="network_name">%1$s</xliff:g>\u2026</string>
+    <string name="wimax_status_disconnected">Getrennt</string>
+
     <string name="sound_settings_title" msgid="8735891486683305886">"Töne"</string>
+    <string name="profile_settings_title">Profile</string>
     <string name="display_settings_title" msgid="1708697328627382561">"Display"</string>
     <string name="sound_settings" msgid="5007659014828162881">"Toneinstellungen"</string>
     <string name="silent_mode_title" msgid="3181479108593217704">"Lautlosmodus"</string>
@@ -416,6 +479,8 @@
     <string name="silent_mode_incl_alarm_summary" msgid="2088830834182228458">"Alle Sounds außer Medien sind stumm geschaltet"</string>
     <string name="ringtone_title" msgid="5379026328015343686">"Klingelton"</string>
     <string name="ringtone_summary" msgid="2630023412632683493"></string>
+    <string name="soundtone_title">Benachrichtigungston</string>
+    <string name="soundtone_summary"></string>
     <string name="all_volume_title" msgid="8741571721868253103">"Lautstärke"</string>
     <string name="ring_volume_title" msgid="7938706566797464165">"Klingeltonlautstärke"</string>
     <string name="ring_volume_summary" msgid="7055497624193116879"></string>
@@ -427,6 +492,12 @@
     <string name="notification_sound_summary" msgid="2953599929394109819"></string>
     <string name="notification_pulse_title" msgid="1247988024534030629">"Benachrichtigungslicht"</string>
     <string name="notification_pulse_summary" msgid="6899220780534617152">"Bei neuen Benachrichtigungen Trackball-Licht wiederholt pulsieren"</string>
+    <string name="notification_blink_title">Blinkend</string>
+    <string name="notification_blink_summary">Grünes Benachrichtigungslicht blinkt wiederholt</string>
+    <string name="notification_always_on_title">Immer an</string>
+    <string name="notification_always_on_summary">Grünes Benachrichtigungslicht bleibt auch bei eingeschaltetem Bildschirm an</string>
+    <string name="notification_charging_title">Ladeanzeige</string>
+    <string name="notification_charging_summary">Oranges Licht wird beim Laden aktiviert</string>
     <string name="incoming_call_volume_title" msgid="8073714801365904099">"Klingelton"</string>
     <string name="notification_volume_title" msgid="2012640760341080408">"Benachrichtigung"</string>
     <string name="checkbox_notification_same_as_incoming_call" msgid="1073644356290338921">"Lautstärke für eingehende Anrufe für Benachrichtigungen verwenden"</string>
@@ -439,11 +510,11 @@
     <string name="dtmf_tone_enable_summary_on" msgid="3028201873989887327">"Töne bei Telefonwahl"</string>
     <string name="dtmf_tone_enable_summary_off" msgid="7791065951268525678">"Töne bei Telefonwahl"</string>
     <string name="sound_effects_enable_title" msgid="3197313718929122833">"Akustische Auswahl"</string>
-    <string name="sound_effects_enable_summary_on" msgid="6154141289879491329">"Ton bei Auswahl auf Bildschirm"</string>
-    <string name="sound_effects_enable_summary_off" msgid="3447739581759560125">"Ton bei Auswahl auf Bildschirm"</string>
+    <string name="sound_effects_enable_summary_on" msgid="6154141289879491329">"Ton bei Auswahl auf Display"</string>
+    <string name="sound_effects_enable_summary_off" msgid="3447739581759560125">"Ton bei Auswahl auf Display"</string>
     <string name="lock_sounds_enable_title" msgid="1575990840389107141">"Display-Sperre"</string>
-    <string name="lock_sounds_enable_summary_on" msgid="145741024028391473">"Ton beim Sperren und Entsperren des Bildschirms"</string>
-    <string name="lock_sounds_enable_summary_off" msgid="8481243116223542804">"Ton beim Sperren und Entsperren des Bildschirms"</string>
+    <string name="lock_sounds_enable_summary_on" msgid="145741024028391473">"Ton beim Sperren und Entsperren des Displays"</string>
+    <string name="lock_sounds_enable_summary_off" msgid="8481243116223542804">"Ton beim Sperren und Entsperren des Displays"</string>
     <string name="haptic_feedback_enable_title" msgid="6311736559245411290">"Haptisches Feedback"</string>
     <string name="haptic_feedback_enable_summary_on" msgid="1875779656524793053">"Vibration beim Drücken von Softkeys und bei bestimmten UI-Interaktionen"</string>
     <string name="haptic_feedback_enable_summary_off" msgid="7287885436963105314">"Vibration beim Drücken von Softkeys und bei bestimmten UI-Interaktionen"</string>
@@ -501,11 +572,15 @@
     <string name="device_info_settings" msgid="475872867864762157">"Telefonstatus"</string>
     <string name="system_update_settings_list_item_title" msgid="3342887311059985961">"Systemaktualisierungen"</string>
     <string name="system_update_settings_list_item_summary" msgid="3853057315907710747"></string>
+    <string name="cpu_info">CPU-Information</string>
+    <string name="mem_info">Speicher (verfüg./insg.)</string>
     <string name="firmware_version" msgid="4801135784886859972">"Android-Version"</string>
     <string name="model_number" msgid="3765737700545384794">"Modellnummer"</string>
     <string name="baseband_version" msgid="1848990160763524801">"Baseband-Version"</string>
     <string name="kernel_version" msgid="9192574954196167602">"Kernel-Version"</string>
     <string name="build_number" msgid="3075795840572241758">"Build-Nummer"</string>
+    <string name="mod_version">Mod-Version</string>
+    <string name="mod_version_default">Unbekannt</string>
     <string name="device_info_not_available" msgid="8062521887156825182">"Nicht verfügbar"</string>
     <string name="device_status_activity_title" msgid="1411201799384697904">"Status"</string>
     <string name="device_status" msgid="607405385799807324">"Status"</string>
@@ -530,6 +605,7 @@
     <string name="status_up_time" msgid="7294859476816760399">"Betriebszeit"</string>
     <string name="status_awake_time" msgid="2393949909051183652">"Aktivzeit"</string>
     <string name="internal_memory" msgid="9129595691484260784">"Interner Speicher"</string>
+    <string name="additional_memory">Zusätzlicher Speicher</string>
     <string name="sd_memory" product="nosdcard" msgid="2510246194083052841">"USB-Speicher"</string>
     <string name="sd_memory" product="default" msgid="151871913888051515">"SD-Karte"</string>
     <string name="memory_available" msgid="418542433817289474">"Verfügbarer Speicher"</string>
@@ -584,6 +660,7 @@
     <string name="apn_auth_type_chap" msgid="3369626283789068360">"CHAP"</string>
     <string name="apn_auth_type_pap_chap" msgid="9102343063036134541">"PAP oder CHAP"</string>
     <string name="apn_type" msgid="469613123902220544">"APN-Typ"</string>
+    <string name="apn_protocol" msgid="3272222921649348640">"APN-Protokoll"</string>
     <string name="menu_delete" msgid="6981294422841124659">"APN löschen"</string>
     <string name="menu_new" msgid="3014205883303921729">"Neuer APN"</string>
     <string name="menu_save" msgid="8109345640668285399">"Speichern"</string>
@@ -652,7 +729,7 @@
     <string name="assisted_gps" msgid="4649317129586736885">"Unterstütztes GPS verwenden"</string>
     <string name="assisted_gps_enabled" msgid="8751899609589792803">"Server zur Unterstützung von GPS verwenden (zur Verringerung der Netzwerkauslastung nicht auswählen)"</string>
     <string name="assisted_gps_disabled" msgid="6982698333968010748">"Server zur Unterstützung von GPS verwenden (zur Verbesserung der GPS-Leistung deaktivieren)"</string>
-    <string name="about_settings" msgid="1743378368185371685">"Telefoninfo"</string>
+    <string name="about_settings" msgid="1743378368185371685">"Über das Telefon"</string>
     <string name="about_settings_summary" msgid="3302263393543848667">"Rechtliche Hinweise, Telefonstatus und Softwareversion anzeigen"</string>
     <string name="legal_information" msgid="5769301644270604095">"Rechtliche Hinweise"</string>
     <string name="contributors_title" msgid="5917703088825286504">"Mitwirkende"</string>
@@ -741,7 +818,7 @@
     <string name="sort_order_alpha" msgid="1410278099123670628">"Nach Namen sortieren"</string>
     <string name="sort_order_size" msgid="7024513286636502362">"Nach Größe sortieren"</string>
     <string name="show_running_services" msgid="5736278767975544570">"Aktive Dienste anzeigen"</string>
-    <string name="show_background_processes" msgid="2009840211972293429">"Prozesse im Cache anz."</string>
+    <string name="show_background_processes" msgid="2009840211972293429">"Prozesse im Cache anzeigen"</string>
     <string name="manage_space_text" msgid="8852711522447794676">"Speicherplatz verwalten"</string>
     <string name="filter" msgid="2018011724373033887">"Filter"</string>
     <string name="filter_dlg_title" msgid="6507663329723966854">"Filteroptionen auswählen"</string>
@@ -871,10 +948,14 @@
     <string name="development_settings_summary" msgid="2151320488701538355">"Optionen zur Anwendungsentwicklung festlegen"</string>
     <string name="enable_adb" msgid="7982306934419797485">"USB-Debugging"</string>
     <string name="enable_adb_summary" msgid="4881186971746056635">"Debugmodus bei Anschluss über USB"</string>
+    <string name="adb_notify">USB-Debugging Benachrichtigung</string>
+    <string name="adb_notify_summary">Zeige Benachrichtigung, wenn USB-Debugging verbunden ist</string>
     <string name="keep_screen_on" msgid="1146389631208760344">"Aktiv lassen"</string>
     <string name="keep_screen_on_summary" msgid="2173114350754293009">"Display wird beim Laden nie in den Ruhezustand versetzt"</string>
     <string name="allow_mock_location" msgid="2787962564578664888">"Falsche Standorte"</string>
     <string name="allow_mock_location_summary" msgid="317615105156345626">"Falsche Standorte zulassen"</string>
+    <string name="kill_app_longpress_back">App beenden</string>
+    <string name="kill_app_longpress_back_summary">Gedrückthalten der Zurück-Taste beendet die Anwendung im Vordergrund.</string>
     <string name="adb_warning_title" msgid="6234463310896563253">"USB-Debugging zulassen?"</string>
     <string name="adb_warning_message" msgid="5352555112049663033">"USB-Debugging ist nur für Entwicklungszwecke vorgesehen. Damit können Sie Daten zwischen Ihrem Computer und Ihrem Gerät kopieren, Anwendungen auf Ihrem Gerät ohne Benachrichtigung installieren und Protokolldaten lesen."</string>
     <string name="gadget_picker_title" msgid="98374951396755811">"Gadget auswählen"</string>
@@ -1074,6 +1155,30 @@
     <string name="vpn_a_l2tp_secret" msgid="6612042930810981845">"ein L2TP-Schlüssel"</string>
     <string name="vpn_pptp_encryption_title" msgid="2236795167467896499">"Verschlüsselung"</string>
     <string name="vpn_pptp_encryption" msgid="2602329949737259686">"PPTP-Verschlüsselung"</string>
+
+    <string name="vpn_openvpn_port">Server-Port</string>
+    <string name="vpn_openvpn_protocol">Protokoll</string>
+    <string name="vpn_openvpn_device">Gerät</string>
+    <string name="vpn_openvpn_userauth">Authentifizierung</string>
+    <string name="vpn_openvpn_userauth_summary">Eingeben, wenn zusätzliche Username/Passwort Authentifizierung benötigt wird</string>
+    <string name="vpn_openvpn_advanced_titlebar">Erweiterte Optionen</string>
+    <string name="vpn_openvpn_comp_lzo">LZO-Kompression</string>
+    <string name="vpn_openvpn_comp_lzo_summary">LZO-Kompression erzwingen</string>
+    <string name="vpn_openvpn_redirect_gateway_title">Redirect-Gateway</string>
+    <string name="vpn_openvpn_redirect_gateway_summary">Gesamten Verkehr durch den VPN-Tunnel routen</string>
+    <string name="vpn_openvpn_set_addr">Remote setzt Adressen</string>
+    <string name="vpn_openvpn_set_addr_summary">Abwählen um Tunnel-Adressen manuell einzustellen</string>
+    <string name="vpn_openvpn_set_local_addr">Lokale IP-Adresse</string>
+    <string name="vpn_openvpn_set_remote_addr">Remote IP-Adresse</string>
+    <string name="vpn_openvpn_set_cipher">Chiffrier-Algorithmus</string>
+    <string name="vpn_openvpn_set_cipher_message">Leer lassen für Standard</string>
+    <string name="vpn_openvpn_set_cipher_default">Standard</string>
+    <string name="vpn_openvpn_set_keysize">Größe des Chiffrier-Schlüssels</string>
+    <string name="vpn_openvpn_set_keysize_message">Leer lassen für Standard</string>
+    <string name="vpn_openvpn_set_keysize_default">Standard</string>
+    <string name="vpn_openvpn_set_extra">Extra Argumente</string>
+    <string name="vpn_openvpn_set_extra_message">Extra Kommandozeilenargumente eingeben</string>
+
     <string name="vpn_ipsec_presharedkey_title" msgid="2184060087690539175">"Vorinstallierten IPSec-Schlüssel festlegen"</string>
     <string name="vpn_ipsec_presharedkey" msgid="5434316521616673741">"Vorinstallierter IPSec-Schlüssel"</string>
     <string name="vpn_a_ipsec_presharedkey" msgid="1255301923217898418">"ein vorinstallierter IPSec-Schlüssel"</string>
@@ -1134,6 +1239,41 @@
     <string name="encrypted_fs_alert_dialog_title" msgid="583462447886934755">"Encrypted File Systems-Warnung"</string>
     <string name="emergency_tone_title" msgid="1055954530111587114">"Notfallsignal"</string>
     <string name="emergency_tone_summary" msgid="722259232924572153">"Verhalten bei einem Notruf festlegen"</string>
+
+    <string name="profile_title">Profile verwalten</string>
+    <string name="profile_appgroup_list_title">Anwendungsgruppen verwalten</string>
+    <string name="sound_mode">Benachrichtigungsmodus</string>
+    <string name="ringer_mode">Klingelmodus</string>
+    <string name="lights_mode">Lichtermodus</string>
+    <string name="vibrate_mode">Vibrationsmodus</string>
+    <string name="choose_soundtone">Benachrichtigungston wählen</string>
+    <string name="choose_ringtone">Klingelton wählen</string>
+    <string name="profile_settings">Profileinstellungen</string>
+    <string name="profile_name">Profilname</string>
+    <string name="new_profile_name">&lt;Neues Profil&gt;</string>
+    <string name="profile_summary">Berühren zum Profil ändern</string>
+    <string name="profile_appgroup_title">Anwendungsgruppe: %s</string>
+    <string name="profile_appgroups_title">Anwendungsgruppen</string>
+    <string name="profile_applist_title">Anwendungen - Klicken zum Entfernen von Gruppe</string>
+    <string name="profile_appgroup_name_prompt">Name für Gruppe eingeben</string>
+    <string name="profile_delete">Profil löschen</string>
+    <string name="profile_delete_confirm">Löschen dieses Profils bestätigen</string>
+    <string name="profile_app_delete_confirm">Löschen dieser Anwendung bestätigen</string>
+    <string name="profile_choose_app">Anwendung wählen</string>
+    <string name="profile_settings_header">Profileinstellungen: %s</string>
+    <string name="profile_group_header">Profil: %1$s Kategorie: %2$s</string>
+    <string name="menu_appgroups">App-Gruppen verwalten</string>
+    <string name="menu_new_profile">Neues Profil</string>
+    <string name="menu_new_profile_summary">Neues Profil hinzufügen und bearbeiten</string>
+    <string name="profile_menu_delete">Löschen</string>
+    <string name="profile_cannot_delete">Das aktive Profil kann nicht gelöscht werden.</string>
+    <string name="profile_new_appgroup">Neue Anwendungsgruppe</string>
+    <string name="profile_delete_appgroup">Diese Anwendungsgruppe löschen</string>
+    <string name="profile_add_app">Anwendung hinzufügen</string>
+    <string name="profile_manage">Profile verwalten</string>
+    <string name="profile_appgroups_manage">Anwendungsgruppen verwalten</string>
+    <string name="profile_applist_manage">Anwednungslisten verwalten</string>
+
     <string name="privacy_settings" msgid="9206631214140954954">"Datenschutz"</string>
     <string name="privacy_settings_title" msgid="1987089301293213705">"Datenschutzeinstellungen"</string>
     <string name="backup_section_title" msgid="8856083167469467588">"Sicherung und Wiederherstellung"</string>
@@ -1159,4 +1299,95 @@
     <string name="sound_category_calls_title" msgid="3688531959256239012">"Eingehende Anrufe"</string>
     <string name="sound_category_notification_title" msgid="3502115998790286943">"Benachrichtigungen"</string>
     <string name="sound_category_feedback_title" msgid="4399742321363475393">"Feedback"</string>
+
+    <string name="possibleButtons">Schaltflächen</string>
+    <string name="toggleWifi">WLAN</string>
+    <string name="toggleWifiAp">WLAN-Hotspot</string>
+    <string name="toggleBluetooth">Bluetooth</string>
+    <string name="toggleGPS">GPS</string>
+    <string name="toggleData">Mobilfunk-Daten</string>
+    <string name="toggleSync">Synchronisierung</string>
+    <string name="toggle2g3g">2G/3G</string>
+    <string name="toggleSound">Klingelmodus</string>
+    <string name="toggleBrightness">Helligkeit</string>
+    <string name="toggleAutoRotate">Ausrichtung</string>
+    <string name="toggleScreenTimeout">Bildschirm-Zeitlimit</string>
+    <string name="toggleAirplane">Flugmodus</string>
+    <string name="toggleFlashlight">Taschenlampe</string>
+    <string name="toggleLockScreen">Gesperrter Bildschirm</string>
+    <string name="toggleWimax">WiMAX</string>
+
+    <string name="toggleWifiDescription">WLAN ein/ausschalten</string>
+    <string name="toggleWifiApDescription">Verwendung als WLAN-Hotspot ein/ausschalten</string>
+    <string name="toggleBluetoothDescription">Bluetooth ein/ausschalten</string>
+    <string name="toggleGPSDescription">GPS ein/ausschalten</string>
+    <string name="toggleDataDescription">Datenübertragung über das Mobilfunknetz ein/ausschalten</string>
+    <string name="toggleSyncDescription">Synchronisierung ein/ausschalten</string>
+    <string name="toggle2g3gDescription">Zwischen 2G and 3G umschalten</string>
+    <string name="toggleSoundDescription">Zwischen Klingelton und Vibration umschalten</string>
+    <string name="toggleBrightnessDescription">Helligkeitsstufe ändern</string>
+    <string name="toggleAutoRotateDescription">Orientierungssensor ein/ausschalten</string>
+    <string name="toggleScreenTimeoutDescription">Zeitlimits für Bildschirmabschaltung einstellen</string>
+    <string name="toggleAirplaneDescription">Flugmodus ein/ausschalten</string>
+    <string name="toggleFlashlightDescription">Taschenlampenmodus ein/ausschalten</string>
+    <string name="toggleLockScreenDescription">Bildschirmsperre ein/ausschalten</string>
+    <string name="toggleWimaxDescription">WiMAX ein/ausschalten</string>
+
+    <string name="widgetSettings">Widget-Einstellungen</string>
+    <string name="wifiSettings">WLAN-Einstellungen</string>
+    <string name="dataSettings">Daten-Einstellungen</string>
+    <string name="powerSettings">Energie-Einstellungen</string>
+
+    <string name="generalSettings">Allgemeine Einstellungen</string>
+
+    <string name="autoDisable3G">Daten deaktiviert 3G</string>
+    <string name="autoEnable3G">Daten aktiviert 3G</string>
+    <string name="autoDisable3GWithWifi">WLAN deaktiviert 3G</string>
+    <string name="autoEnable3GWithWifi">WLAN aktiviert 3G</string>
+    <string name="useRoundCorners">Abgerundete Ecken</string>
+    <string name="useVertical">Vertikale Anordnung</string>
+    <string name="useTransparent">Transparentes Widget</string>
+    <string name="autoEnableSyncWithWifi">WLAN aktiviert Synchronisierung</string>
+    <string name="autoDisableSyncWithWifi">WLAN deaktiviert Synchronisierung</string>
+    <string name="ringModeVibrateAsOn">Vibrieren als EIN zeigen</string>
+    <string name="monitorDataRoaming">Daten-Roaming überwachen</string>
+    <string name="autoEnableBluetoothWithPower">Netzteil aktiviert Bluetooth</string>
+    <string name="autoDisableBluetoothWithPower">Netzteil deaktiviert Bluetooth</string>
+    <string name="autoEnableWifiWithPower">Netzteil aktiviert WLAN</string>
+    <string name="autoDisableWifiWithPower">Netzteil deaktiviert WLAN</string>
+
+    <string name="autoDisable3GDescription">2G wenn mobile Daten deaktiviert ist</string>
+    <string name="autoEnable3GDescription">3G wenn mobile Daten aktiviert ist</string>
+    <string name="autoDisable3GWithWifiDescription">2G wenn WLAN deaktiviert ist</string>
+    <string name="autoEnable3GWithWifiDescription">3G wenn WLAN deaktiviert ist</string>
+    <string name="useRoundCornersDescription">Nutze abgerundete Ecken für das Widget</string>
+    <string name="useTransparentDescription">Hintergrund für das Widget ausblenden</string>
+    <string name="useVerticalDescription">In vertikaler Ausrichtung anzeigen</string>
+    <string name="autoEnableSyncWithWifiDescription">Synchronisierung wenn WLAN ein</string>
+    <string name="autoDisableSyncWithWifiDescription">Keine Synchronisierung wenn WLAN aus</string>
+    <string name="ringModeVibrateAsOnDescription">Zeige \'Ton ein\', wenn auf nur Vibration gestellt</string>
+    <string name="monitorDataRoamingDescription">Datenstatus rot, wenn Daten-Roaming eingeschaltet ist</string>
+    <string name="autoEnableBluetoothWithPowerDescription">Bluetooth aktivieren, wenn Netzteil angeschlossen wird</string>
+    <string name="autoDisableBluetoothWithPowerDescription">Bluetooth deaktivieren, wenn Netzteil entfernt wird</string>
+    <string name="autoEnableWifiWithPowerDescription">WLAN aktivieren, wenn Netzteil angeschlossen wird</string>
+    <string name="autoDisableWifiWithPowerDescription">WLAN deaktivieren, wenn Netzteil entfernt wird</string>
+
+    <string name="networkModeSpinner">Netzwerkmodus wählen</string>
+    <string name="brightnessSpinner">Helligkeitsstufen wählen</string>
+    <string name="ringModeSpinner">Klingelmodus wählen</string>
+    <string name="screenTimeoutSpinner">Bildschirm-Zeitlimit wählen</string>
+    <string name="backgroundImageSpinner">Hintergrund auswählen</string>
+
+    <string name="notConfigured">Nicht konfiguriert</string>
+
+    <string name="ok">Ok</string>
+
+    <!-- Widget Picker -->
+    <string name="widget_count">(%d Widgets)</string>
+
+    <string name="cm_settings_title">CyanogenMod</string>
+
+    <string name="wimax_settings" msgid="1574837328738396794">"4G-Einstellungen"</string>
+    <string name="wimax_settings_summary" msgid="3207355006084135453">"4G-Netzwerk einrichten &amp; verwalten"</string>
+    <string name="status_wimax_mac_address" msgid="8390791848661413416">"4G-MAC-Adresse"</string>
 </resources>

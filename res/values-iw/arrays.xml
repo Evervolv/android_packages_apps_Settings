@@ -28,7 +28,7 @@
     <item msgid="956915953069815961">"אוסטרליה"</item>
     <item msgid="5345178126174698955">"פסיפי"</item>
     <item msgid="8392017019801393511">"הכל"</item>
-  </string-array>
+	 </string-array>
   <string-array name="animations_entries">
     <item msgid="207790005475613429">"ללא הנפשות"</item>
     <item msgid="6291186755504776720">"חלק מההנפשות"</item>
@@ -41,7 +41,7 @@
   </string-array>
   <string-array name="screen_timeout_entries">
     <item msgid="3342301044271143016">"15 שניות"</item>
-    <item msgid="8881760709354815449">"שניות"</item>
+    <item msgid="8881760709354815449">"30 שניות"</item>
     <item msgid="7589406073232279088">"דקה אחת"</item>
     <item msgid="7001195990902244174">"2 דקות"</item>
     <item msgid="5721688686241190620">"10 דקות"</item>
@@ -115,6 +115,19 @@
     <item msgid="1549288661423279207">"לעולם לא כאשר מחובר"</item>
     <item msgid="1986753720941888596">"אף פעם"</item>
   </string-array>
+   <string-array name="battery_history_type_spinner">
+    <item>ניצול מעבד</item>
+    <item>ניצול רשת</item>
+    <item>ניצול GPS</item>
+    <item>ניצול חיישנים</item>
+    <item>שימוש חלקי בהתעוררות</item>
+    <item>שימושים אחרים</item>
+  </string-array>
+  <string-array name="battery_history_which_spinner">
+    <item>מאז ניתוק אחרון</item>
+    <item>סך הכל מאז אתחול</item>
+    <item>סך הכל כולל</item>
+  </string-array>
   <string-array name="usage_stats_display_order_types">
     <item msgid="9077371706468756228">"זמן השימוש"</item>
     <item msgid="1908750532762193304">"הפעל ספירה"</item>
@@ -143,6 +156,9 @@
     <item msgid="535934025797984365">"CHAP"</item>
     <item msgid="8383098660619805783">"PAP או CHAP"</item>
   </string-array>
+    <!-- no translation found for apn_protocol_entries:0 (4852355456199302715) -->
+    <!-- no translation found for apn_protocol_entries:1 (4394161344888484571) -->
+    <!-- no translation found for apn_protocol_entries:2 (8084938354605535381) -->
   <string-array name="app_install_location_entries">
     <item msgid="8151497958991952759">"אחסון פנימי במכשיר"</item>
     <item msgid="3738430123799803530">"כרטיס SD נשלף"</item>
@@ -153,5 +169,26 @@
     <item msgid="6293147072807231256">"אף פעם"</item>
     <item msgid="1276641209451816572">"במצב \'שקט\' בלבד"</item>
     <item msgid="8418930333779132418">"רק כאשר אינו במצב \'שקט\'"</item>
+  </string-array>
+  <string-array name="brightnessWidget" formatted="false">
+    <item>אוטומטי/מעומעם/40%/100%</item>
+    <item>אוטומטי/מעומעם/25%/75%/100%</item>
+    <item>אוטומטי/25%/100%</item>
+    <item>מעומעם/100%</item>
+  </string-array>
+  <string-array name="networkModesWidget">
+    <item>2G/3G בלבד</item>
+    <item>2G/3G בלבד/3G+2G</item>
+  </string-array>
+  <string-array name="ringModeWidget">
+    <item>צליל+רטט/רטט</item>
+    <item>צליל/רטט</item>
+    <item>צליל/שקט</item>
+    <item>צליל+רטט/רטט/שקט</item>
+    <item>צליל/רטט/שקט</item>
+  </string-array>
+  <string-array name="backgroundWidget">
+    <item>אפור</item>
+    <item>שקיפות</item>
   </string-array>
 </resources>

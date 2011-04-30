@@ -143,6 +143,9 @@
     <item msgid="535934025797984365">"CHAP"</item>
     <item msgid="8383098660619805783">"PAP vagy CHAP"</item>
   </string-array>
+    <!-- no translation found for apn_protocol_entries:0 (4852355456199302715) -->
+    <!-- no translation found for apn_protocol_entries:1 (4394161344888484571) -->
+    <!-- no translation found for apn_protocol_entries:2 (8084938354605535381) -->
   <string-array name="app_install_location_entries">
     <item msgid="8151497958991952759">"Belső tárhely"</item>
     <item msgid="3738430123799803530">"Eltávolítható SD-kártya"</item>
@@ -153,5 +156,23 @@
     <item msgid="6293147072807231256">"Soha"</item>
     <item msgid="1276641209451816572">"Csak Néma üzemmódban"</item>
     <item msgid="8418930333779132418">"Csak akkor, ha nem Néma üzemmódban van"</item>
+  </string-array>
+
+  <string-array name="battery_history_type_spinner">
+    <item>CPU használat</item>
+    <item>HÁlózat használat</item>
+    <item>GPS használat</item>
+    <item>Szenzor használat</item>
+    <item>Részleges használat</item>
+    <item>Egyéb használat</item>
+  </string-array>
+  <string-array name="battery_history_which_spinner">
+    <item>Az USB kihúzása óta</item>
+    <item>A rendszer indításától</item>
+    <item>Összesen</item>
+  </string-array>
+  <string-array name="backgroundWidget">
+    <item>Szürke</item>
+    <item>Átlátszó</item>
   </string-array>
 </resources>
