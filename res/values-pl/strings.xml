@@ -214,7 +214,6 @@
     <string name="settings_shortcut" msgid="3672145147925639262">"Ustawienia"</string>
     <string name="airplane_mode" msgid="8837269988154128601">"Tryb samolotowy"</string>
     <string name="airplane_mode_summary" msgid="3154817401368780988">"Wyłącz wszystkie połączenia bezprzewodowe"</string>
-    <string name="device_hostname">Nazwa hosta</string>
     <string name="airplane_mode_turning_on" msgid="8871739222526957255">"Wyłączanie połączeń bezprzewodowych..."</string>
     <string name="airplane_mode_turning_off" msgid="3393168549611505996">"Włączanie połączeń bezprzewodowych..."</string>
     <string name="radio_controls_title" msgid="5868688473587168882">"Sieci zwykłe i bezprzewodowe"</string>
@@ -502,15 +501,11 @@
     <string name="device_info_settings" msgid="475872867864762157">"Stan telefonu"</string>
     <string name="system_update_settings_list_item_title" msgid="3342887311059985961">"Aktualizacje systemowe"</string>
     <string name="system_update_settings_list_item_summary" msgid="3853057315907710747"></string>
-    <string name="cpu_info">Informacje o procesorze</string>
-    <string name="mem_info">Pamięć RAM (dost./całk.)</string>
     <string name="firmware_version" msgid="4801135784886859972">"Wersja systemu Android"</string>
     <string name="model_number" msgid="3765737700545384794">"Numer modelu"</string>
     <string name="baseband_version" msgid="1848990160763524801">"Wersja pasma podstawowego"</string>
     <string name="kernel_version" msgid="9192574954196167602">"Wersja jądra"</string>
     <string name="build_number" msgid="3075795840572241758">"Numer kompilacji"</string>
-    <string name="mod_version">Wersja modyfikacji</string>
-    <string name="mod_version_default">Nieznana</string>
     <string name="device_info_not_available" msgid="8062521887156825182">"Niedostępna"</string>
     <string name="device_status_activity_title" msgid="1411201799384697904">"Informacje o telefonie"</string>
     <string name="device_status" msgid="607405385799807324">"Informacje o telefonie"</string>
@@ -877,14 +872,10 @@
     <string name="development_settings_summary" msgid="2151320488701538355">"Ustaw opcje związane z programowaniem aplikacji"</string>
     <string name="enable_adb" msgid="7982306934419797485">"Debugowanie USB"</string>
     <string name="enable_adb_summary" msgid="4881186971746056635">"Tryb debugowania, gdy podłączone jest USB"</string>
-    <string name="adb_notify">Powiadomienie o debugowaniu</string>
-    <string name="adb_notify_summary">Wyświetl powiadomienie, gdy aktywny jest tryb debugowania</string>
     <string name="keep_screen_on" msgid="1146389631208760344">"Zostaw włączony"</string>
     <string name="keep_screen_on_summary" msgid="2173114350754293009">"Ekran nie będzie gaszony podczas ładowania telefonu"</string>
     <string name="allow_mock_location" msgid="2787962564578664888">"Pozorowanie lokalizacji"</string>
     <string name="allow_mock_location_summary" msgid="317615105156345626">"Zezwalaj na pozorowanie lokalizacji"</string>
-    <string name="kill_app_longpress_back">Zatrzymaj aplikację przyciskiem wstecz</string>
-    <string name="kill_app_longpress_back_summary">Przytrzymanie przycisku wstecz spowoduje zabicie wyświetlanej aplikacji</string>
     <string name="adb_warning_title" msgid="6234463310896563253">"Czy zezwalać na debugowanie USB?"</string>
     <string name="adb_warning_message" msgid="5352555112049663033">"Debugowanie USB jest przeznaczone wyłącznie do celów programistycznych. Może posłużyć do kopiowania danych między komputerem a urządzeniem, instalowania aplikacji w urządzeniu bez powiadamiania, a także odczytywania danych dziennika."</string>
     <string name="gadget_picker_title" msgid="98374951396755811">"Wybierz gadżet"</string>
@@ -1169,95 +1160,6 @@
     <string name="sound_category_calls_title" msgid="3688531959256239012">"Połączenia przychodzące"</string>
     <string name="sound_category_notification_title" msgid="3502115998790286943">"Powiadomienia"</string>
     <string name="sound_category_feedback_title" msgid="4399742321363475393">"Reakcje"</string>
-    
-    <string name="launcher_settings_title">ADWLauncher</string>
-
-    <string name="possibleButtons">Dostępne przyciski</string>
-    <string name="toggleWifi">Wi-Fi</string>
-    <string name="toggleWifiAp">Przenośny hotspot Wi-Fi</string>
-    <string name="toggleBluetooth">Bluetooth</string>
-    <string name="toggleGPS">GPS</string>
-    <string name="toggleData">Internet Mobilny</string>
-    <string name="toggleSync">Synchronizacja</string>
-    <string name="toggle2g3g">2G/3G</string>
-    <string name="toggleSound">Profil Dźwięku</string>
-    <string name="toggleBrightness">Jasność</string>
-    <string name="toggleAutoRotate">Obrót ekranu</string>
-    <string name="toggleScreenTimeout">Wygaszenie ekranu</string>
-    <string name="toggleAirplane">Tryb samolotowy</string>
-    <string name="toggleFlashlight">Latarka</string>
-    <string name="toggleLockScreen">Blokada ekranu</string>
-
-    <string name="toggleWifiDescription">Włącz/wyłącz Wifi</string>
-    <string name="toggleWifiApDescription">Włącz/wyłącz hotspot Wi-Fi</string>
-    <string name="toggleBluetoothDescription">Włącz/wyłącz Bluetooth</string>
-    <string name="toggleGPSDescription">Włącz/wyłącz GPS</string>
-    <string name="toggleDataDescription">Włącz/wyłącz mobilny internet</string>
-    <string name="toggleSyncDescription">Włącz/wyłącz synchronizację</string>
-    <string name="toggle2g3gDescription">Przełącz między 2G i 3G</string>
-    <string name="toggleSoundDescription">Zmień profil dźwięku</string>
-    <string name="toggleBrightnessDescription">Zmień jasność</string>
-    <string name="toggleAutoRotateDescription">Włącz/wyłącz automatyczne obracanie ekranu</string>
-    <string name="toggleScreenTimeoutDescription">Zmień czas wygaszenia ekranu</string>
-    <string name="toggleAirplaneDescription">Włącz/wyłącz tryb samolotowy</string>
-    <string name="toggleFlashlightDescription">Włącz/wyłącz latarkę</string>
-    <string name="toggleLockScreenDescription">Włącz/wyłącz blokadę ekranu</string>
-
-
-    <string name="widgetSettings">Ustawienia widgetu</string>
-    <string name="wifiSettings">Ustawienia WiFi</string>
-    <string name="dataSettings">Ustawienia mobilnego internetu</string>
-    <string name="powerSettings">Ustawienia zasilania</string>
-
-    <string name="generalSettings">Ustawienia ogólne</string>
-
-    <string name="autoDisable3G">Internet mobilny wyłącza 3G</string>
-    <string name="autoEnable3G">Internet mobilny włącza 3G</string>
-    <string name="autoDisable3GWithWifi">Wifi wyłącza 3G</string>
-    <string name="autoEnable3GWithWifi">Wifi włącza 3G</string>
-    <string name="useRoundCorners">Zaokrąglone rogi</string>
-    <string name="useVertical">Układ pionowy</string>
-    <string name="useTransparent">Przezroczystość</string>
-    <string name="autoEnableSyncWithWifi">Wifi włącza Synchronizację</string>
-    <string name="autoDisableSyncWithWifi">Wifi wyłącza Synchronizacje</string>
-    <string name="ringModeVibrateAsOn">Wibruj gdy włączony</string>
-    <string name="monitorDataRoaming">Obserwuj Roaming</string>
-    <string name="autoEnableBluetoothWithPower">Zasil. zewn. wł. Bluetooth</string>
-    <string name="autoDisableBluetoothWithPower">Zasil. zewn. wył. Bluetooth</string>
-    <string name="autoEnableWifiWithPower">Zasil. zewn. wł. WiFi</string>
-    <string name="autoDisableWifiWithPower">Zasil. zewn. wył. WiFi</string>
-
-    <string name="autoDisable3GDescription">2G kiedy internet mobilny jest włączony</string>
-    <string name="autoEnable3GDescription">3G kiedy internet mobilny jest wyłączony</string>
-    <string name="autoDisable3GWithWifiDescription">2G kiedy Wifi jest włączone</string>
-    <string name="autoEnable3GWithWifiDescription">3G kiedy Wifi jest wyłączone</string>
-    <string name="useRoundCornersDescription">Użyj zaokrąglonych ikon</string>
-    <string name="useTransparentDescription">Brak tła</string>
-    <string name="useVerticalDescription">Orientacja pionowa</string>
-    <string name="autoEnableSyncWithWifiDescription">Włącz synchronizację kiedy WiFi jest włączone</string>
-    <string name="autoDisableSyncWithWifiDescription">Wyłącz synchronizację kiedy WiFi jest wyłączone</string>
-    <string name="ringModeVibrateAsOnDescription">Pokaż dźwięk jako włączony przy samych wibracjach</string>
-    <string name="monitorDataRoamingDescription">Status internetu czerwony podczas roamingu</string>
-    <string name="autoEnableBluetoothWithPowerDescription">Bluetooth włączony, gdy zasilanie podłączone</string>
-    <string name="autoDisableBluetoothWithPowerDescription">Bluetooth wyłączony, gdy zasilanie odłączone</string>
-    <string name="autoEnableWifiWithPowerDescription">WiFi włączone, gdy zasilanie podłączone</string>
-    <string name="autoDisableWifiWithPowerDescription">WiFi wyłączone, gdy zasilanie odłączone</string>
-
-    <string name="networkModeSpinner">Wybierz tryby sieci</string>
-    <string name="brightnessSpinner">Wybierz poziomy jasności</string>
-    <string name="ringModeSpinner">Wybierz profile dźwięku</string>
-    <string name="screenTimeoutSpinner">Wybierz opóźnienia wygaszenia ekranu</string>
-    <string name="backgroundImageSpinner">Wybierz tło</string>
-
-    <string name="notConfigured">Nie skonfigurowano. Proszę dodać ponownie</string>
-
-    <string name="ok">Ok</string>
-
-
-    <!-- Widget Picker -->
-    <string name="widget_count">(%d widżetów)</string>
-
-    <string name="cm_settings_title">Ustawienia CyanogenMod</string>
     <string name="wimax_settings" msgid="1574837328738396794">"Ustawienia 4G"</string>
     <string name="wimax_settings_summary" msgid="3207355006084135453">"Konfiguruj sieć i modem 4G oraz zarządzaj nimi"</string>
     <string name="status_wimax_mac_address" msgid="8390791848661413416">"Adres MAC 4G"</string>

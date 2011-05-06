@@ -1,5 +1,6 @@
 package com.android.settings.widget;
 
+import com.android.settings.R;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
@@ -10,10 +11,9 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.RemoteViews;
-import com.android.settings.R;
-import com.android.wimax.WimaxConstants;
 import android.os.AsyncTask;
-import com.android.wimax.WimaxSettingsHelper;
+import android.net.wimax.WimaxHelper;
+import android.net.wimax.WimaxManagerConstants;
 
 /**
  * Author: milesje,preludedrew
@@ -92,10 +92,11 @@ public class WimaxWidgetProvider extends AppWidgetProvider {
     	        // we must be between on and off so we do nothing
     	    }
     	    
-        } 
+        }
+    	
         if (WIMAX_ENABLED_CHANGED.equals(intent.getAction())){
-            int wimaxState = intent.getIntExtra(WimaxConstants.CURRENT_WIMAX_ENABLED_STATE,
-                                                 WimaxConstants.WIMAX_ENABLED_STATE_UNKNOWN);
+            int wimaxState = intent.getIntExtra(WimaxManagerConstants.CURRENT_WIMAX_ENABLED_STATE, 
+            		WimaxManagerConstants.WIMAX_ENABLED_STATE_UNKNOWN);
             updateWidgetView(context,WimaxStateTracker.wimaxStateToFiveState(wimaxState));    
             sWimaxState.onActualStateChange(context,intent);                                             
         }
@@ -175,9 +176,8 @@ public class WimaxWidgetProvider extends AppWidgetProvider {
         */
         @Override
         public int getActualState(Context context) {
-            final WimaxSettingsHelper helper = new WimaxSettingsHelper(context);
-            if (helper.isWimaxSupported()) {
-                return wimaxStateToFiveState(helper.getWimaxState());
+            if (WimaxHelper.isWimaxSupported(context)) {
+                return wimaxStateToFiveState(WimaxHelper.getWimaxState(context));
             }
             return StateTracker.STATE_UNKNOWN;
         }
@@ -186,21 +186,20 @@ public class WimaxWidgetProvider extends AppWidgetProvider {
         * Request the change of the wimax between on/off
         */
         @Override
-        protected void requestStateChange(Context context, final boolean desiredState) {
-            final WimaxSettingsHelper helper = new WimaxSettingsHelper(context);
-            if (!helper.isWimaxSupported()) {
-                Log.e(WimaxWidgetProvider.TAG, "WiMAX is not supported");
+        protected void requestStateChange(final Context context, final boolean desiredState) {
+            if (!WimaxHelper.isWimaxSupported(context)) {
+                Log.e(SettingsAppWidgetProvider.TAG, "WiMAX is not supported");
                 return;
             }
 
-            // Actually request the wimax change and persistent
+            // Actually request the wifi change and persistent
             // settings write off the UI thread, as it can take a
             // user-noticeable amount of time, especially if there's
             // disk contention.
             new AsyncTask<Void, Void, Void>() {
                 @Override
                 protected Void doInBackground(Void... args) {
-                    helper.setWimaxEnabled(desiredState);
+                    WimaxHelper.setWimaxEnabled(context, desiredState);
                     return null;
                 }
             }.execute();
@@ -208,11 +207,11 @@ public class WimaxWidgetProvider extends AppWidgetProvider {
 
         @Override
         public void onActualStateChange(Context context, Intent intent) {
-            if (!WimaxConstants.WIMAX_ENABLED_CHANGED_ACTION.equals(intent.getAction())) {
+        	if (!WimaxManagerConstants.WIMAX_ENABLED_CHANGED_ACTION.equals(intent.getAction())) {
                 return;
             }
-            int wimaxState = intent.getIntExtra(WimaxConstants.CURRENT_WIMAX_ENABLED_STATE, 
-                                                WimaxConstants.WIMAX_ENABLED_STATE_UNKNOWN);
+            int wimaxState = intent.getIntExtra(WimaxManagerConstants.CURRENT_WIMAX_ENABLED_STATE, 
+            		WimaxManagerConstants.WIMAX_ENABLED_STATE_UNKNOWN);
             int widgetState = wimaxStateToFiveState(wimaxState);
             setCurrentState(context, widgetState);
         }
@@ -223,13 +222,13 @@ public class WimaxWidgetProvider extends AppWidgetProvider {
          */
         private static int wimaxStateToFiveState(int wimaxState) {
             switch (wimaxState) {
-                case WimaxConstants.WIMAX_ENABLED_STATE_DISABLED:
+                case WimaxManagerConstants.WIMAX_ENABLED_STATE_DISABLED:
                     return StateTracker.STATE_DISABLED;
-                case WimaxConstants.WIMAX_ENABLED_STATE_ENABLED:
+                case WimaxManagerConstants.WIMAX_ENABLED_STATE_ENABLED:
                     return StateTracker.STATE_ENABLED;
-                case WimaxConstants.WIMAX_ENABLED_STATE_ENABLING:
+                case WimaxManagerConstants.WIMAX_ENABLED_STATE_ENABLING:
                     return StateTracker.STATE_TURNING_ON;
-                case WimaxConstants.WIMAX_ENABLED_STATE_DISABLING:
+                case WimaxManagerConstants.WIMAX_ENABLED_STATE_DISABLING:
                     return StateTracker.STATE_TURNING_OFF;
                 default:
                     return StateTracker.STATE_UNKNOWN;

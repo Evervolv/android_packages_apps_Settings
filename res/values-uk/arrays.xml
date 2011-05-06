@@ -43,10 +43,9 @@
     <item msgid="3342301044271143016">"15 секунд"</item>
     <item msgid="8881760709354815449">"30 секунд"</item>
     <item msgid="7589406073232279088">"1 хвилина"</item>
-    <item>2 хвилини</item>
-    <item>5 хвилин</item>
-    <item>10 хвилин</item>
-    <item>30 хвилин</item>
+    <item msgid="7001195990902244174">"2 хв."</item>
+    <item msgid="5721688686241190620">"10 хв."</item>
+    <item msgid="7156442995039264948">"30 хв."</item>
   </string-array>
   <string-array name="tts_rate_entries">
     <item msgid="6041212618892492920">"Дуже пов."</item>
@@ -116,19 +115,6 @@
     <item msgid="1549288661423279207">"Ніколи в підключ. стані"</item>
     <item msgid="1986753720941888596">"Ніколи"</item>
   </string-array>
-  <string-array name="battery_history_type_spinner">
-    <item>Використання ЦП</item>
-    <item>Використання мережі</item>
-    <item>Використання GPS</item>
-    <item>Використання датчика</item>
-    <item>Використання Partial wake</item>
-    <item>Інше</item>
-  </string-array>
-  <string-array name="battery_history_which_spinner">
-    <item>З останього вимкн. зовн. живл.</item>
-    <item>Всього, з моменту завантаження</item>
-    <item>Всього, за весь час</item>
-  </string-array>
   <string-array name="usage_stats_display_order_types">
     <item msgid="9077371706468756228">"Час використ."</item>
     <item msgid="1908750532762193304">"К-сть запусків"</item>
@@ -170,14 +156,5 @@
     <item msgid="6293147072807231256">"Ніколи"</item>
     <item msgid="1276641209451816572">"Лише в беззвуч. режимі"</item>
     <item msgid="8418930333779132418">"Лише не в беззвучному режимі"</item>
-  </string-array>
-  <string-array name="profile_entries">
-    <item>Увімк.</item>
-    <item>Вимк.</item>
-    <item>Не заміщати</item>
-  </string-array>
-  <string-array name="backgroundWidget">
-    <item>Сірий</item>
-    <item>Прозорий</item>
   </string-array>
 </resources>

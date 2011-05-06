@@ -157,13 +157,4 @@
     <item msgid="1276641209451816572">"マナーモードがONのときのみ"</item>
     <item msgid="8418930333779132418">"マナーモードがOFFのときのみ"</item>
   </string-array>
-  <string-array name="profile_entries">
-    <item>オン</item>
-    <item>オフ</item>
-    <item>オーバーライドしない</item>
-  </string-array>
-  <string-array name="backgroundWidget">
-    <item>グレー</item>
-    <item>透明</item>
-  </string-array>
 </resources>
