@@ -23,8 +23,7 @@ import android.net.wimax.WimaxManagerConstants;
 public class WimaxWidgetProvider extends AppWidgetProvider {
     // TAG
     public static final String TAG = "Evervolv_WimaxWidget";
-    //RemoteViews views = new RemoteViews("com.android.settings.widget.WimaxWidgetProvider",
-	//					R.layout.power_widget);
+    private boolean DBG = false;
     // Intent Actions
     public static String WIMAX_ENABLED_CHANGED = "com.htc.net.wimax.WIMAX_ENABLED_CHANGED";
     public static String WIMAX_CHANGED = "com.evervolv.widget.WIMAX_CLICKED";
@@ -33,7 +32,7 @@ public class WimaxWidgetProvider extends AppWidgetProvider {
 
     @Override
     public void onEnabled(Context context){
-		Log.d(TAG,"WimaxWidgetProvider::onEnabled");
+    	if (DBG) Log.d(TAG,"WimaxWidgetProvider::onEnabled");
 		PackageManager pm = context.getPackageManager();
         pm.setComponentEnabledSetting(new ComponentName("com.android.settings",
                 ".widget.WimaxWidgetProvider"),
@@ -42,7 +41,7 @@ public class WimaxWidgetProvider extends AppWidgetProvider {
     
     @Override
     public void onDisabled(Context context) {
-        Log.d(TAG,"Received request to remove last widget");
+    	if (DBG) Log.d(TAG,"Received request to remove last widget");
         PackageManager pm = context.getPackageManager();
         pm.setComponentEnabledSetting(new ComponentName("com.android.settings",
                 ".widget.WimaxWidgetProvider"),
@@ -52,7 +51,7 @@ public class WimaxWidgetProvider extends AppWidgetProvider {
     @Override
     public void onDeleted(Context context, int[] appWidgetIds) {
         super.onDeleted(context,appWidgetIds);
-        Log.d(TAG,"Received request to remove a widget");
+        if (DBG) Log.d(TAG,"Received request to remove a widget");
     }
     
     @Override
@@ -60,13 +59,13 @@ public class WimaxWidgetProvider extends AppWidgetProvider {
 			 AppWidgetManager appWidgetManager,
 			 int[] appWidgetIds){
         super.onUpdate(context, appWidgetManager, appWidgetIds);
-        Log.d(TAG,"WimaxWidgetProvider::onUpdate appWidgetIds"+appWidgetIds);
+        if (DBG) Log.d(TAG,"WimaxWidgetProvider::onUpdate appWidgetIds"+appWidgetIds);
     	updateWidget(context, appWidgetManager, appWidgetIds);
     	//updateWidget(context);
     }
     
     public void updateWidget(Context context){
-        Log.d(TAG,"WimaxWidgetProvider::updateWidget(context)");
+    	if (DBG) Log.d(TAG,"WimaxWidgetProvider::updateWidget(context)");
         ComponentName thisWidget = new ComponentName(context,WimaxWidgetProvider.class);
         AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
         int[] appWidgetIds = appWidgetManager.getAppWidgetIds(thisWidget);
@@ -80,7 +79,7 @@ public class WimaxWidgetProvider extends AppWidgetProvider {
     @Override
     public void onReceive(Context context, Intent intent){
     	super.onReceive(context, intent);
-        Log.d(TAG,"WimaxWidgetProvider::onReceive\n"+intent.getAction());
+    	if (DBG) Log.d(TAG,"WimaxWidgetProvider::onReceive\n"+intent.getAction());
         
     	if (WIMAX_CHANGED.equals(intent.getAction())){
 	    	int result = sWimaxState.getActualState(context);
@@ -107,7 +106,7 @@ public class WimaxWidgetProvider extends AppWidgetProvider {
 	*/
 	private void updateWidgetView(Context context,int state/*,int appWidgetId*/){
 	    
-        Log.d(TAG,"WimaxWidgetProvider::updateWidgetView");
+		if (DBG) Log.d(TAG,"WimaxWidgetProvider::updateWidgetView");
         Intent intent = new Intent(context, WimaxWidgetProvider.class);
 		intent.setAction(WIMAX_CHANGED);
 	    //intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
@@ -157,7 +156,7 @@ public class WimaxWidgetProvider extends AppWidgetProvider {
     	for (int i=0;i<appWidgetIds.length;i++){
 		
 	    	int appWidgetId = appWidgetIds[i];
-	    	Log.d(TAG,"appWidgetId: "+appWidgetId);
+	    	if (DBG) Log.d(TAG,"appWidgetId: "+appWidgetId);
 			int wimaxState = sWimaxState.getActualState(context);
     		updateWidgetView(context,wimaxState);
 		}

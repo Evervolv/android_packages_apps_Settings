@@ -22,6 +22,7 @@ public class BrightnessWidgetProvider extends AppWidgetProvider {
 	
     // TAG
     public static final String TAG = "Evervolv_BrightnessWidget";
+    private boolean DBG = false;
     // Intent Actions
     public static String BRIGHTNESS_CHANGED = "com.evervolv.widget.BRIGHTNESS_CLICKED";
 
@@ -49,7 +50,7 @@ public class BrightnessWidgetProvider extends AppWidgetProvider {
     
     @Override
     public void onDisabled(Context context) {
-        Log.d(TAG,"Received request to remove last widget");
+    	if (DBG) Log.d(TAG,"Received request to remove last widget");
         PackageManager pm = context.getPackageManager();
         pm.setComponentEnabledSetting(new ComponentName("com.android.settings",
                 ".widget.BrightnessWidgetProvider"),
@@ -59,14 +60,14 @@ public class BrightnessWidgetProvider extends AppWidgetProvider {
     @Override
     public void onDeleted(Context context, int[] appWidgetIds) {
         super.onDeleted(context,appWidgetIds);
-        Log.d(TAG,"Received request to remove a widget");
+        if (DBG) Log.d(TAG,"Received request to remove a widget");
     }
 
     @Override
     public void onUpdate(Context context,
 			 AppWidgetManager appWidgetManager,
 			 int[] appWidgetIds){
-    	Log.d(TAG, "onUpdate");
+    	if (DBG) Log.d(TAG, "onUpdate");
         super.onUpdate(context, appWidgetManager, appWidgetIds);
     	updateWidget(context, appWidgetManager, appWidgetIds);
     }
@@ -77,7 +78,7 @@ public class BrightnessWidgetProvider extends AppWidgetProvider {
 	*/
     @Override
     public void onReceive(Context context, Intent intent){
-    	Log.d(TAG, "onReceive - " + intent.toString());
+    	if (DBG) Log.d(TAG, "onReceive - " + intent.toString());
     	super.onReceive(context, intent);
     	if (BRIGHTNESS_CHANGED.equals(intent.getAction())){
     		toggleBrightness(context);

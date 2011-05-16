@@ -16,7 +16,7 @@ public class AirplaneModeWidgetProvider extends AppWidgetProvider{
     
     // TAG
     public static final String TAG = "Evervolv_AirplaneModeWidget";
-    private boolean DBG = true;
+    private boolean DBG = false;
     // Intent Actions
     public static String AIRPLANEMODE_CHANGED = "com.evervolv.widget.AIRPLANEMODE_CLICKED";
     

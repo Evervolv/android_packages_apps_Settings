@@ -18,6 +18,7 @@ import android.widget.RemoteViews;
 public class BluetoothWidgetProvider extends AppWidgetProvider  {
     // TAG
     public static final String TAG = "Evervolv_BTWidget";
+    private boolean DBG = false;
     // Intent Actions
     public static String BLUETOOTH_STATE_CHANGED = "android.bluetooth.adapter.action.STATE_CHANGED";
     public static String BLUETOOTH_CHANGED = "com.evervolv.widget.BLUETOOTH_CLICKED";
@@ -35,7 +36,7 @@ public class BluetoothWidgetProvider extends AppWidgetProvider  {
     
     @Override
     public void onDisabled(Context context) {
-        Log.d(TAG,"Received request to remove last widget");
+    	if (DBG) Log.d(TAG,"Received request to remove last widget");
         PackageManager pm = context.getPackageManager();
         pm.setComponentEnabledSetting(new ComponentName("com.android.settings",
                 ".widget.BluetoothWidgetProvider"),
@@ -45,14 +46,14 @@ public class BluetoothWidgetProvider extends AppWidgetProvider  {
     @Override
     public void onDeleted(Context context, int[] appWidgetIds) {
         super.onDeleted(context,appWidgetIds);
-        Log.d(TAG,"Received request to remove a widget");
+        if (DBG) Log.d(TAG,"Received request to remove a widget");
     }
 
     @Override
     public void onUpdate(Context context,
 			 AppWidgetManager appWidgetManager,
 			 int[] appWidgetIds){
-    	Log.d(TAG, "onUpdate");
+    	if (DBG) Log.d(TAG, "onUpdate");
         super.onUpdate(context, appWidgetManager, appWidgetIds);
     	updateWidget(context, appWidgetManager, appWidgetIds);
     }
@@ -64,7 +65,7 @@ public class BluetoothWidgetProvider extends AppWidgetProvider  {
 	*/
     @Override
     public void onReceive(Context context, Intent intent){
-    	Log.d(TAG, "onReceive - " + intent.toString());
+    	if (DBG) Log.d(TAG, "onReceive - " + intent.toString());
     	super.onReceive(context, intent);
     	if (BLUETOOTH_CHANGED.equals(intent.getAction())){
 	    	int result = sBluetoothState.getActualState(context);
@@ -156,7 +157,7 @@ public class BluetoothWidgetProvider extends AppWidgetProvider  {
         @Override
         protected void requestStateChange(Context context, final boolean desiredState) {
             if (sLocalBluetoothManager == null) {
-                Log.d(TAG, "No LocalBluetoothManager");
+            	Log.d(TAG, "No LocalBluetoothManager");
                 return;
             }
             // Actually request the Bluetooth change and persistent

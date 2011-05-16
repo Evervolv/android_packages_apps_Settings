@@ -17,6 +17,7 @@ import android.widget.RemoteViews;
 public class HotspotWidgetProvider extends AppWidgetProvider {
     // TAG
     public static final String TAG = "Evervolv_WifiApWidget";
+    private boolean DBG = false;
     // Intent Actions
     public static String WIFIAP_STATE_CHANGED = "android.net.wifi.WIFI_AP_STATE_CHANGED";
     public static String WIFIAP_CHANGED = "com.evervolv.widget.WIFIAP_CLICKED";
@@ -33,7 +34,7 @@ public class HotspotWidgetProvider extends AppWidgetProvider {
     
     @Override
     public void onDisabled(Context context) {
-        Log.d(TAG,"Received request to remove last widget");
+    	if (DBG) Log.d(TAG,"Received request to remove last widget");
         PackageManager pm = context.getPackageManager();
         pm.setComponentEnabledSetting(new ComponentName("com.android.settings",
                 ".widget.TetherWidgetProvider"),
@@ -43,14 +44,14 @@ public class HotspotWidgetProvider extends AppWidgetProvider {
     @Override
     public void onDeleted(Context context, int[] appWidgetIds) {
         super.onDeleted(context,appWidgetIds);
-        Log.d(TAG,"Received request to remove a widget");
+        if (DBG) Log.d(TAG,"Received request to remove a widget");
     }
 
     @Override
     public void onUpdate(Context context,
 			 AppWidgetManager appWidgetManager,
 			 int[] appWidgetIds){
-    	Log.d(TAG, "onUpdate");
+    	if (DBG) Log.d(TAG, "onUpdate");
         super.onUpdate(context, appWidgetManager, appWidgetIds);
     	updateWidget(context, appWidgetManager, appWidgetIds);
     }
@@ -61,7 +62,7 @@ public class HotspotWidgetProvider extends AppWidgetProvider {
 	*/
     @Override
     public void onReceive(Context context, Intent intent){
-    	Log.d(TAG, "onReceive - " + intent.toString());
+    	if (DBG) Log.d(TAG, "onReceive - " + intent.toString());
     	super.onReceive(context, intent);
     	if (WIFIAP_CHANGED.equals(intent.getAction())){
 	    	int result = sWifiApState.getActualState(context);
