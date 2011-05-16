@@ -2806,6 +2806,10 @@ found in the list of installed applications.</string>
     <string name="brightness_gadget_title">Brightness Toggle</string>
     <string name="brightness_gadget_caption">Brightness</string>
 
+    <!-- Orientation Widget -->
+    <string name="orientation_gadget_title">Rotation Toggle</string>
+    <string name="orientation_gadget_caption">Rotation</string>
+
     <!-- Hotspot Widget -->
     <string name="hotspot_gadget_title">Hotspot Toggle</string>
     <string name="hotspot_gadget_caption">Hotspot</string>
