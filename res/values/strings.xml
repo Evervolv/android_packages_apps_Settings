@@ -2807,6 +2807,10 @@ found in the list of installed applications.</string>
     <string name="brightness_gadget_caption">Brightness</string>
 
     <!-- Orientation Widget -->
+    <string name="airplanemode_gadget_title">Airplane Mode Toggle</string>
+    <string name="airplanemode_gadget_caption">Airplane Mode</string>
+
+    <!-- Orientation Widget -->
     <string name="orientation_gadget_title">Rotation Toggle</string>
     <string name="orientation_gadget_caption">Rotation</string>
 

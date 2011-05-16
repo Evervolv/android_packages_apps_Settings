@@ -1,6 +1,5 @@
 package com.android.settings.widget;
 
-
 import android.app.PendingIntent;
 import com.android.settings.R;
 import android.appwidget.AppWidgetManager;
@@ -13,19 +12,19 @@ import android.provider.Settings;
 import android.util.Log;
 import android.widget.RemoteViews;
 
-public class OrientationWidgetProvider  extends AppWidgetProvider{
+public class AirplaneModeWidgetProvider extends AppWidgetProvider{
     
     // TAG
-    public static final String TAG = "Evervolv_OrientationWidget";
-    private boolean DBG = false;
+    public static final String TAG = "Evervolv_AirplaneModeWidget";
+    private boolean DBG = true;
     // Intent Actions
-    public static String ORIENTATION_CHANGED = "com.evervolv.widget.ORIENTATION_CLICKED";
+    public static String AIRPLANEMODE_CHANGED = "com.evervolv.widget.AIRPLANEMODE_CLICKED";
     
     @Override
     public void onEnabled(Context context){
 		PackageManager pm = context.getPackageManager();
         pm.setComponentEnabledSetting(new ComponentName("com.android.settings",
-                ".widget.OrientationWidgetProvider"),
+                ".widget.AirplaneModeWidgetProvider"),
                 PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
     }
     
@@ -34,7 +33,7 @@ public class OrientationWidgetProvider  extends AppWidgetProvider{
         if (DBG) Log.d(TAG,"Received request to remove last widget");
         PackageManager pm = context.getPackageManager();
         pm.setComponentEnabledSetting(new ComponentName("com.android.settings",
-                ".widget.OrientationWidgetProvider"),
+                ".widget.AirplaneModeWidgetProvider"),
                 PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
     }
     
@@ -61,8 +60,13 @@ public class OrientationWidgetProvider  extends AppWidgetProvider{
     public void onReceive(Context context, Intent intent){
     	if (DBG) Log.d(TAG, "onReceive - " + intent.toString());
     	super.onReceive(context, intent);
-    	if (ORIENTATION_CHANGED.equals(intent.getAction())){
+    	
+    	if (AIRPLANEMODE_CHANGED.equals(intent.getAction())){
     		toggleState(context);
+    	}
+    	if (Intent.ACTION_AIRPLANE_MODE_CHANGED.equals(intent.getAction())) {
+			int airplanemodeState = getAirplaneModeState(context) ? 1 : 0;
+    		updateWidgetView(context,airplanemodeState);
     	}
     }
     
@@ -78,8 +82,8 @@ public class OrientationWidgetProvider  extends AppWidgetProvider{
 	    	int appWidgetId = appWidgetIds[i];
 			
 	    	//on or off
-			int orientationState = getOrientationState(context);
-    		updateWidgetView(context,orientationState);
+			int airplanemodeState = getAirplaneModeState(context) ? 1 : 0;
+    		updateWidgetView(context,airplanemodeState);
 		}
     }
     
@@ -88,8 +92,8 @@ public class OrientationWidgetProvider  extends AppWidgetProvider{
 	*/
 	private void updateWidgetView(Context context,int state){
 	
-	    Intent intent = new Intent(context, OrientationWidgetProvider.class);
-		intent.setAction(ORIENTATION_CHANGED);
+	    Intent intent = new Intent(context, AirplaneModeWidgetProvider.class);
+		intent.setAction(AIRPLANEMODE_CHANGED);
 	    PendingIntent pendingIntent = PendingIntent.getBroadcast(context,0,intent,0);
 	    RemoteViews views = new RemoteViews(context.getPackageName(),
 						R.layout.power_widget);
@@ -97,35 +101,45 @@ public class OrientationWidgetProvider  extends AppWidgetProvider{
 		views.setOnClickPendingIntent(R.id.power_press,pendingIntent);
 		views.setOnClickPendingIntent(R.id.power_item,pendingIntent);
 		views.setOnClickPendingIntent(R.id.power_trigger,pendingIntent);
-		views.setImageViewResource(R.id.power_item,R.drawable.widget_orientation_icon_on);
-		views.setTextViewText(R.id.power_label,context.getString(R.string.orientation_gadget_caption));
+		views.setImageViewResource(R.id.power_item,R.drawable.widget_airplanemode_icon_on);
+		views.setTextViewText(R.id.power_label,context.getString(R.string.airplanemode_gadget_caption));
 		// We need to update the Widget GUI
 		if (state == StateTracker.STATE_DISABLED){
 			views.setImageViewResource(R.id.power_trigger,R.drawable.power_switch_off);
-			views.setImageViewResource(R.id.power_item,R.drawable.widget_orientation_icon_off);
+			views.setImageViewResource(R.id.power_item,R.drawable.widget_airplanemode_icon_off);
 		} else if (state == StateTracker.STATE_ENABLED) {
 			views.setImageViewResource(R.id.power_trigger,R.drawable.power_switch_allon);
-			views.setImageViewResource(R.id.power_item,R.drawable.widget_orientation_icon_on);
+			views.setImageViewResource(R.id.power_item,R.drawable.widget_airplanemode_icon_on);
 		}
 		
-		ComponentName cn = new ComponentName(context, OrientationWidgetProvider.class);  
+		ComponentName cn = new ComponentName(context, AirplaneModeWidgetProvider.class);  
 		AppWidgetManager.getInstance(context).updateAppWidget(cn, views); 
 	}
-    
-    public static int getOrientationState(Context context) {
+
+    /**
+     * Gets the state of Airplane.
+     *
+     * @param context
+     * @return true if enabled.
+     */
+    private static boolean getAirplaneModeState(Context context) {
         return Settings.System.getInt(context.getContentResolver(),
-                Settings.System.ACCELEROMETER_ROTATION, 0);
+                Settings.System.AIRPLANE_MODE_ON, 0) == 1;
+    }
+
+    /**
+     * Toggles the state of Airplane
+     *
+     * @param context
+     */
+    public void toggleState(Context context) {
+        boolean state = getAirplaneModeState(context);
+        Settings.System.putInt(context.getContentResolver(), Settings.System.AIRPLANE_MODE_ON,
+                state ? 0 : 1);
+        // notify change
+        Intent intent = new Intent(Intent.ACTION_AIRPLANE_MODE_CHANGED);
+        intent.putExtra("state", state);
+        context.sendBroadcast(intent);
     }
     
-    public void toggleState(Context context) {
-        if (getOrientationState(context) == 0) {
-            Settings.System.putInt(context.getContentResolver(),
-                    Settings.System.ACCELEROMETER_ROTATION, 1);
-        } else {
-            Settings.System.putInt(context.getContentResolver(),
-                    Settings.System.ACCELEROMETER_ROTATION, 0);
-        }
-		int orientationState = getOrientationState(context);
-		updateWidgetView(context,orientationState);
-    }
 }
