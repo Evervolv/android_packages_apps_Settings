@@ -114,7 +114,6 @@ public class WimaxWidgetProvider extends AppWidgetProvider {
 	    RemoteViews views = new RemoteViews(context.getPackageName(),
 					R.layout.power_widget);
 		// set the image view icon
-		views.setImageViewResource(R.id.power_item,R.drawable.widget_wimax_icon);
 		// set the caption
 		String caption = context.getString(R.string.wimax_gadget_caption);
 		views.setTextViewText(R.id.power_label,caption);
@@ -126,19 +125,19 @@ public class WimaxWidgetProvider extends AppWidgetProvider {
 		// set the trigger according to the state of the wimax radio
 		if (state == StateTracker.STATE_DISABLED){
 			views.setImageViewResource(R.id.power_trigger,R.drawable.power_switch_off);
-			views.setImageViewResource(R.id.power_item,R.drawable.widget_wimax_icon_03);
+			views.setImageViewResource(R.id.power_item,R.drawable.widget_wimax_icon_off);
 		} else if (state == StateTracker.STATE_ENABLED) {
 			views.setImageViewResource(R.id.power_trigger,R.drawable.power_switch_on);
-			views.setImageViewResource(R.id.power_item,R.drawable.widget_wimax_icon);
+			views.setImageViewResource(R.id.power_item,R.drawable.widget_wimax_icon_on);
 		} else if (state == StateTracker.STATE_TURNING_ON) {
 			views.setImageViewResource(R.id.power_trigger,R.drawable.power_switch_tween);
-			views.setImageViewResource(R.id.power_item,R.drawable.widget_wimax_icon_02);
+			views.setImageViewResource(R.id.power_item,R.drawable.widget_wimax_icon_tween);
 		} else if (state == StateTracker.STATE_TURNING_OFF) {
 			views.setImageViewResource(R.id.power_trigger,R.drawable.power_switch_tween);
-			views.setImageViewResource(R.id.power_item,R.drawable.widget_wimax_icon_02);
+			views.setImageViewResource(R.id.power_item,R.drawable.widget_wimax_icon_tween);
 		} else if (state == StateTracker.STATE_UNKNOWN) {
 			views.setImageViewResource(R.id.power_trigger,R.drawable.power_switch_off);
-			views.setImageViewResource(R.id.power_item,R.drawable.widget_wimax_icon_03);
+			views.setImageViewResource(R.id.power_item,R.drawable.widget_wimax_icon_off);
 		}
 		// update the widget
     	ComponentName cn = new ComponentName(context, WimaxWidgetProvider.class);  

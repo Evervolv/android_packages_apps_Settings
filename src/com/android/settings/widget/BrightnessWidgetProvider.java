@@ -123,22 +123,22 @@ public class BrightnessWidgetProvider extends AppWidgetProvider {
 			views.setImageViewResource(R.id.power_trigger,
 							R.drawable.brightness_switch_auto);
 			views.setImageViewResource(R.id.power_item,
-							R.drawable.widget_brightness_icon);
+							R.drawable.widget_brightness_icon_auto);
 		} else if (mBrightnessMode == BRIGHTNESS_MINIMUM) {
 			views.setImageViewResource(R.id.power_trigger,
 							R.drawable.brightness_switch_min);
 			views.setImageViewResource(R.id.power_item,
-							R.drawable.widget_brightness_icon_02);
+							R.drawable.widget_brightness_icon_min);
 		} else if (mBrightnessMode == BRIGHTNESS_MAXIMUM) {
 			views.setImageViewResource(R.id.power_trigger,
 							R.drawable.brightness_switch_max);
 			views.setImageViewResource(R.id.power_item,
-							R.drawable.widget_brightness_icon_03);
+							R.drawable.widget_brightness_icon_max);
 		} else if (mBrightnessMode == BRIGHTNESS_DEFAULT) {
 			views.setImageViewResource(R.id.power_trigger,
 							R.drawable.brightness_switch_default);
 			views.setImageViewResource(R.id.power_item,
-							R.drawable.widget_brightness_icon_04);
+							R.drawable.widget_brightness_icon_def);
 		}
 		
 		ComponentName cn = new ComponentName(context, BrightnessWidgetProvider.class);  

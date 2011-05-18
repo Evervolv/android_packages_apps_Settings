@@ -97,7 +97,6 @@ public class OrientationWidgetProvider  extends AppWidgetProvider{
 		views.setOnClickPendingIntent(R.id.power_press,pendingIntent);
 		views.setOnClickPendingIntent(R.id.power_item,pendingIntent);
 		views.setOnClickPendingIntent(R.id.power_trigger,pendingIntent);
-		views.setImageViewResource(R.id.power_item,R.drawable.widget_orientation_icon_on);
 		views.setTextViewText(R.id.power_label,context.getString(R.string.orientation_gadget_caption));
 		// We need to update the Widget GUI
 		if (state == StateTracker.STATE_DISABLED){

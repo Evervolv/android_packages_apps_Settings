@@ -95,24 +95,23 @@ public class WifiWidgetProvider extends AppWidgetProvider {
 		views.setOnClickPendingIntent(R.id.power_press,pendingIntent);
 		views.setOnClickPendingIntent(R.id.power_item,pendingIntent);
 		views.setOnClickPendingIntent(R.id.power_trigger,pendingIntent);
-		views.setImageViewResource(R.id.power_item,R.drawable.widget_wifi_icon);
 		views.setTextViewText(R.id.power_label,context.getString(R.string.wifi_gadget_caption));
 		// We need to update the Widget GUI
 		if (state == StateTracker.STATE_DISABLED){
 			views.setImageViewResource(R.id.power_trigger,R.drawable.power_switch_off);
-			views.setImageViewResource(R.id.power_item,R.drawable.widget_wifi_icon_03);
+			views.setImageViewResource(R.id.power_item,R.drawable.widget_wifi_icon_off);
 		} else if (state == StateTracker.STATE_ENABLED) {
 			views.setImageViewResource(R.id.power_trigger,R.drawable.power_switch_on);
-			views.setImageViewResource(R.id.power_item,R.drawable.widget_wifi_icon);
+			views.setImageViewResource(R.id.power_item,R.drawable.widget_wifi_icon_on);
 		} else if (state == StateTracker.STATE_TURNING_ON) {
 			views.setImageViewResource(R.id.power_trigger,R.drawable.power_switch_tween);
-			views.setImageViewResource(R.id.power_item,R.drawable.widget_wifi_icon_02);
+			views.setImageViewResource(R.id.power_item,R.drawable.widget_wifi_icon_tween);
 		} else if (state == StateTracker.STATE_TURNING_OFF) {
 			views.setImageViewResource(R.id.power_trigger,R.drawable.power_switch_tween);
-			views.setImageViewResource(R.id.power_item,R.drawable.widget_wifi_icon_02);
+			views.setImageViewResource(R.id.power_item,R.drawable.widget_wifi_icon_tween);
 		} else if (state == StateTracker.STATE_UNKNOWN) {
 			views.setImageViewResource(R.id.power_trigger,R.drawable.power_switch_off);
-			views.setImageViewResource(R.id.power_item,R.drawable.widget_wifi_icon_03);
+			views.setImageViewResource(R.id.power_item,R.drawable.widget_wifi_icon_off);
 		}
 		
 		ComponentName cn = new ComponentName(context, WifiWidgetProvider.class);  
