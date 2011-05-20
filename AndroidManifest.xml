@@ -958,6 +958,17 @@
             </intent-filter>
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_info" />
         </receiver>
-
+        	<!-- USB Tether standalone widget -->
+        <receiver android:name=".widget.TetherWidgetProvider"
+                android:label="@string/tether_gadget_title">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.evervolv.widget.TETHER_CLICKED"/>
+                <action android:name="android.net.conn.TETHER_STATE_CHANGED" />
+                <action android:name="android.intent.action.MEDIA_SHARED" />
+                <action android:name="android.intent.action.MEDIA_UNSHARED" />
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_info" />
+        </receiver>
     </application>
 </manifest>

@@ -19,6 +19,8 @@ public abstract class StateTracker {
     public static final int STATE_TURNING_OFF = 3;
     public static final int STATE_UNKNOWN = 4;
     public static final int STATE_INTERMEDIATE = 5;
+    public static final int STATE_UNAVAILABLE = 6;
+    
     // Is the state in the process of changing?
     private boolean mInTransition = false;
 
