@@ -41,6 +41,7 @@ public class WirelessSettings extends PreferenceActivity {
     private static final String KEY_TOGGLE_BLUETOOTH = "toggle_bluetooth";
     private static final String KEY_TOGGLE_WIFI = "toggle_wifi";
     private static final String KEY_TOGGLE_NFC = "toggle_nfc";
+    private static final String KEY_TOGGLE_WIMAX = "toggle_wimax";
     private static final String KEY_WIFI_SETTINGS = "wifi_settings";
     private static final String KEY_WIMAX_SETTINGS = "wimax_settings";
     private static final String KEY_BT_SETTINGS = "bt_settings";
@@ -55,7 +56,9 @@ public class WirelessSettings extends PreferenceActivity {
     private WifiEnabler mWifiEnabler;
     private NfcEnabler mNfcEnabler;
     private BluetoothEnabler mBtEnabler;
-
+    private WimaxEnabler mWimaxEnabler;
+    private CheckBoxPreference wimax;
+    
     /**
      * Invoked on each preference click in this hierarchy, overrides
      * PreferenceActivity's implementation.  Used to make sure we track the
@@ -96,12 +99,15 @@ public class WirelessSettings extends PreferenceActivity {
         CheckBoxPreference bt = (CheckBoxPreference) findPreference(KEY_TOGGLE_BLUETOOTH);
         CheckBoxPreference nfc = (CheckBoxPreference) findPreference(KEY_TOGGLE_NFC);
 
+        CheckBoxPreference wimax = (CheckBoxPreference) findPreference(KEY_TOGGLE_WIMAX);
+        
         mAirplaneModeEnabler = new AirplaneModeEnabler(this, airplane);
         mAirplaneModePreference = (CheckBoxPreference) findPreference(KEY_TOGGLE_AIRPLANE);
         mWifiEnabler = new WifiEnabler(this, wifi);
         mBtEnabler = new BluetoothEnabler(this, bt);
         mNfcEnabler = new NfcEnabler(this, nfc);
-
+        mWimaxEnabler = new WimaxEnabler(this, wimax);
+        
         String toggleable = Settings.System.getString(getContentResolver(),
                 Settings.System.AIRPLANE_MODE_TOGGLEABLE_RADIOS);
 
@@ -111,8 +117,11 @@ public class WirelessSettings extends PreferenceActivity {
         if (!isWimaxEnabled) {
             PreferenceScreen root = getPreferenceScreen();
             Preference ps = (Preference) findPreference(KEY_WIMAX_SETTINGS);
-            if (ps != null)
-                root.removePreference(ps);
+            if (ps != null) {
+            	root.removePreference(ps);
+            	root.removePreference(wimax);
+            }
+                
         } else {
             if (toggleable == null || !toggleable.contains(Settings.System.RADIO_WIMAX )
                     && isWimaxEnabled) {
@@ -176,6 +185,7 @@ public class WirelessSettings extends PreferenceActivity {
         mWifiEnabler.resume();
         mBtEnabler.resume();
         mNfcEnabler.resume();
+        mWimaxEnabler.resume();
     }
 
     @Override
@@ -186,6 +196,7 @@ public class WirelessSettings extends PreferenceActivity {
         mWifiEnabler.pause();
         mBtEnabler.pause();
         mNfcEnabler.pause();
+        mWimaxEnabler.pause();
     }
 
     @Override

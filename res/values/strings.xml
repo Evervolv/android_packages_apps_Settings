@@ -2822,9 +2822,34 @@ found in the list of installed applications.</string>
     <string name="tether_gadget_title">USB Tether Toggle</string>
     <string name="tether_gadget_caption">USB Tether</string>
 
+
+    <string name="wimax">WiMAX</string>
+    <string name="wimax_quick_toggle_summary">Turn on WiMAX</string>
     <string name="wimax_settings">4G settings</string>
     <string name="wimax_settings_summary">Set up &amp; manage 4G network and modem</string>
     <string name="status_wimax_mac_address">4G MAC address</string>
+
+
+    <!-- Error message when Wimax can't start -->
+    <string name="error_wimax_starting">Unable to start WiMAX</string>
+    <!-- Error message when Wimax can't stop -->
+    <string name="error_wimax_stopping">Unable to stop WiMAX</string>
+    <!--Wireless controls setting screen, Wimax check box summary text when turning Wimax on -->
+    <string name="wimax_starting">Turning on\u2026</string>
+    <!--Wireless controls setting screen, Wimax check box summary text when turning Wimax off -->
+    <string name="wimax_stopping">Turning off\u2026</string>
+    <!-- Generic error message -->
+    <string name="wimax_error">Error</string>
+    <!-- Status message of Wimax when it is scanning -->
+    <string name="wimax_status_scanning">Scanning\u2026</string>
+    <!-- Status message of Wimax when it is connecting (but the network is not known right now) -->
+    <string name="wimax_status_connecting">Connecting\u2026</string>
+    <!--Wimax settings screen, summary text for network when connected -->
+    <string name="wimax_status_connected">Connected</string>
+    <!-- Status message of wimax when it is disconnecting (but the network is not known right now) -->
+    <string name="wimax_status_disconnecting">Disconnecting\u2026</string>
+    <!-- Status message of wimax when it is disconnected -->
+    <string name="wimax_status_disconnected">Disconnected</string>
 
     <!-- A menu item in "About phone" that allows the user to update the phone with settings
     from their cell phone carrier. The use of the string is similar to the string
