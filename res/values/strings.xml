@@ -2822,6 +2822,9 @@ found in the list of installed applications.</string>
     <string name="tether_gadget_title">USB Tether Toggle</string>
     <string name="tether_gadget_caption">USB Tether</string>
 
+    <!-- Mobiel Data Widget -->
+    <string name="mobile_data_gadget_title">Mobile Data Toggle</string>
+    <string name="mobile_data_gadget_caption">Mobile Data</string>
 
     <string name="wimax">WiMAX</string>
     <string name="wimax_quick_toggle_summary">Turn on WiMAX</string>
