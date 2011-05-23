@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<FrameLayout android:id="@+id/power_view" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  	     xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<RelativeLayout android:layout_width="fill_parent"
+			android:layout_height="fill_parent">
+			
+			<ImageView android:id="@+id/power_panel"
+				   android:background="@drawable/power_panel"
+				   android:layout_width="76.0px"
+				   android:layout_height="94.0px"
+				   android:layout_marginLeft="7.0px"
+				   android:layout_marginTop="2.0px" />
+
+			<ImageView android:id="@+id/power_press"
+				   android:src="@drawable/panel_selector"
+				   android:layout_width="76.0px" 
+				   android:layout_height="94.0px" 
+				   android:layout_marginLeft="7.0px" 
+				   android:layout_marginTop="2.0px" />
+
+        		<ImageView android:id="@+id/power_item"
+				   android:layout_width="48.0px"
+				   android:layout_height="48.0px"
+				   android:layout_marginLeft="21.0px"
+				   android:layout_marginTop="8.0px"
+				   android:scaleType="center" />
+
+        		<ImageView android:id="@+id/power_trigger"
+				   android:layout_width="76.0px"
+				   android:layout_height="17.0px"
+				   android:layout_marginLeft="7.0px"
+				   android:layout_marginTop="52.0px"
+				   android:scaleType="center" />
+
+        		<RelativeLayout android:gravity="center" 
+					android:id="@+id/label_layout" 
+				   	android:layout_width="fill_parent" 
+					android:layout_height="29.0px" 
+					android:layout_marginLeft="6.0px" 
+					android:layout_marginTop="90.0px" 
+					android:layout_marginRight="2.0px">
+
+            			<TextView android:textSize="13.0dip" 
+					  android:textColor="#ffffffff" 
+					  android:ellipsize="marquee" 
+					  android:gravity="center_horizontal" 
+					  android:layout_gravity="center_horizontal" 
+					  android:id="@+id/power_label" 
+					  android:paddingLeft="4.0dip" 
+					  android:paddingTop="1.0px" 
+					  android:paddingRight="4.0dip" 
+					  android:layout_width="wrap_content" 
+					  android:layout_height="20.0pt" 
+					  android:shadowColor="#ff000000" 
+					  android:shadowRadius="2.0" 
+					  android:layout_alignParentBottom="true" 
+					  android:layout_centerHorizontal="true" />
+        		</RelativeLayout>
+	</RelativeLayout>
+</FrameLayout>
