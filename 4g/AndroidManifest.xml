@@ -868,6 +868,17 @@
             </intent-filter>
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/appwidget_info" />
         </receiver>
+
+		<!-- Wimax standalone widget -->
+        <receiver android:name=".widget.WimaxWidgetProvider"
+                android:label="@string/wimax_gadget_title">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.htc.net.wimax.WIMAX_ENABLED_CHANGED" />
+                <action android:name="com.evervolv.widget.WIMAX_CLICKED"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_info" />
+        </receiver>
 		<!-- Wifi standalone widget -->
         <receiver android:name=".widget.WifiWidgetProvider"
                 android:label="@string/wifi_gadget_title">

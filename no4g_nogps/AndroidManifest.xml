@@ -868,6 +868,7 @@
             </intent-filter>
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/appwidget_info" />
         </receiver>
+
 		<!-- Wifi standalone widget -->
         <receiver android:name=".widget.WifiWidgetProvider"
                 android:label="@string/wifi_gadget_title">
@@ -895,16 +896,6 @@
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
                 <action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
                 <action android:name="com.evervolv.widget.BLUETOOTH_CLICKED"/>
-            </intent-filter>
-            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_info" />
-        </receiver>
-		<!-- GPS standalone widget -->
-        <receiver android:name=".widget.GpsWidgetProvider"
-                android:label="@string/gps_gadget_title">
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-                <action android:name="com.evervolv.widget.GPS_CLICKED"/>
-                <action android:name="android.location.PROVIDERS_CHANGED" />
             </intent-filter>
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_info" />
         </receiver>
