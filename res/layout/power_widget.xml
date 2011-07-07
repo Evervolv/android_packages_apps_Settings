@@ -42,11 +42,11 @@
 				   android:scaleType="center" />
 
         		<ImageView android:id="@+id/power_trigger"
-				   android:layout_width="94.0px"
-				   android:layout_height="17.0px"
-				   android:layout_marginLeft="15.0px"
+				   android:layout_width="85.0px"
+				   android:layout_height="19.0px"
+				   android:layout_marginLeft="19.0px"
 				   android:layout_marginTop="80.0px"
-				   android:scaleType="center" />
+				   android:scaleType="fitXY" />
 
         		<RelativeLayout android:gravity="center" 
 					android:id="@+id/label_layout" 
