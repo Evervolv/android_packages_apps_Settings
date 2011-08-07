@@ -186,9 +186,14 @@
     <string name="bluetooth_visibility">Discoverable</string>
     <!-- Bluetooth settings screen, summary after selecting Discoverable check box -->
     <string name="bluetooth_is_discoverable">Discoverable for <xliff:g id="discoverable_time_period">%1$s</xliff:g> seconds\u2026</string>
+    <!-- Bluetooth settings screen, Discoverable checkbox summary text when Discoverable duration is set to "forever" -->
+    <string name="bluetooth_is_discoverable_always">Discoverable</string>
     <!-- Bluetooth settings screen, Discoverable checkbox summary text -->
     <string name="bluetooth_not_discoverable">Make device discoverable</string>
-    <!-- Bluetooth settings screen, heading above the list of nearby bluetooth devices -->
+    <!-- Bluetooth settings screen, option name to pick discoverability timeout duration (a list dialog comes up) -->
+    <string name="bluetooth_visibility_timeout">Discoverable timeout</string>
+    <!-- Bluetooth settings screen, Discoverable timout list dialog summary text -->
+    <string name="bluetooth_visibility_timeout_summary">Set how long device will be discoverable</string>
     <!-- Bluetooth settings screen, check box label whether or not to allow
         bluetooth voice dialing when lock screen is up-->
     <string name="bluetooth_lock_voice_dialing">Lock voice dialing</string>
@@ -196,7 +201,7 @@
     <string name="bluetooth_lock_voice_dialing_summary">
       Prevent use of the bluetooth dialer when the screen is locked
     </string>
-
+    <!-- Bluetooth settings screen, heading above the list of nearby bluetooth devices -->
     <string name="bluetooth_devices">Bluetooth devices</string>
     <!-- Bluetooth settings screen, title for the current bluetooth name setting -->
     <string name="bluetooth_device_name">Device name</string>
@@ -245,23 +250,38 @@
     <!-- Strings for asking to the user whether to allow an app to enable discovery mode -->
     <string name="bluetooth_ask_discovery">"An application on your phone is requesting permission to make your phone discoverable by other Bluetooth devices for <xliff:g id="timeout">%1$d</xliff:g> seconds. Do you want to do this?"</string>
 
+    <!-- Strings for asking to the user whether to allow an app to enable lasting discovery mode  -->
+    <string name="bluetooth_ask_lasting_discovery">"An application on your phone is requesting permission to make your phone \u201calways discoverable\u201d by other Bluetooth devices. Do you want to do this?"</string>
+
     <!-- Strings for asking to the user whether to allow an app to enable bluetooth and discovery mode -->
     <string name="bluetooth_ask_enablement_and_discovery">"An application on your phone is requesting permission to turn on Bluetooth and to make your phone discoverable by other devices for <xliff:g id="timeout">%1$d</xliff:g> seconds. Do you want to do this?"</string>
+
+    <!-- Strings for asking to the user whether to allow an app to enable bluetooth and discovery mode -->
+    <string name="bluetooth_ask_enablement_and_lasting_discovery">"An application on your phone is requesting permission to turn on Bluetooth and to make your phone discoverable by other devices. Do you want to do this?"</string>
 
     <!-- Strings for msg to display to user while bluetooth is turning on -->
     <string name="bluetooth_turning_on">"Turning on Bluetooth\u2026"</string>
 
     <!-- Do not translate. Used for diagnostic screens, precise translation is not necessary -->
-    <string name="bluetooth_scan_text">Empty button\u2026</string>
+    <string name="bluetooth_scan_text" translatable="false">Empty button\u2026</string>
     <!-- Do not translate. Used for diagnostic screens, precise translation is not necessary -->
-    <string name="bluetooth_settings_text">Empty button\u2026</string>
+    <string name="bluetooth_settings_text" translatable="false">Empty button\u2026</string>
     <!-- Do not translate. Used for diagnostic screens, precise translation is not necessary -->
-    <string name="bluetooth_enable_text">Empty button\u2026</string>
+    <string name="bluetooth_enable_text" translatable="false">Empty button\u2026</string>
 
     <!-- Do not translate. Used for diagnostic screens, precise translation is not necessary -->
-    <string name="bluetooth_device_info_connectButton_text">Turn on Bluetooth</string>
+    <string name="bluetooth_device_info_connectButton_text" translatable="false">Turn on Bluetooth</string>
     <!-- Do not translate. Used for diagnostic screens, precise translation is not necessary -->
-    <string name="bluetooth_device_info_deviceInfo_text"></string>
+    <string name="bluetooth_device_info_deviceInfo_text" translatable="false"></string>
+
+    <!-- Activity label of BluetoothPermissionActivity [CHAR LIMIT=none]-->
+    <string name="bluetooth_connection_permission_request">"Bluetooth connection request"</string>
+
+    <!-- Notification message when a remote Bluetooth device wants to connect to a Bluetooth profile [CHAR LIMIT=none]-->
+    <string name="bluetooth_connection_notif_message">"Touch to connect to \u0022<xliff:g id="device_name">%1$s</xliff:g>\u0022"</string>
+
+    <!-- Bluetooth connection permission Alert Activity text [CHAR LIMIT=none]-->
+    <string name="bluetooth_connection_dialog_text">"Do you want to connect to \u0022<xliff:g id="device_name">%1$s</xliff:g>\u0022?"</string>
 
     <!-- Date & time settings screen title -->
     <string name="date_and_time">Date &amp; time settings</string>
@@ -707,13 +727,13 @@
     <string name="bluetooth_connecting_error_message">There was a problem connecting to <xliff:g id="device_name">%1$s</xliff:g>.</string>
 
     <!-- Do not translate -->
-    <string name="bluetooth_device_info_alias">Device alias</string>
+    <string name="bluetooth_device_info_alias" translatable="false">Device alias</string>
     <!-- Do not translate -->
-    <string name="bluetooth_device_info_no_alias">Type alias here\u2026</string>
+    <string name="bluetooth_device_info_no_alias" translatable="false">Type alias here\u2026</string>
     <!-- Do not translate -->
-    <string name="bluetooth_device_info_delete">Remove this device</string>
+    <string name="bluetooth_device_info_delete" translatable="false">Remove this device</string>
     <!-- Do not translate -->
-    <string name="bluetooth_device_info_sdp">List supported services</string>
+    <string name="bluetooth_device_info_sdp" translatable="false">List supported services</string>
 
     <!-- Bluetooth settings: The title of the preference (list item) that initiates a scan for devices -->
     <string name="bluetooth_preference_scan_title">Scan for devices</string>
@@ -740,13 +760,17 @@
     <string name="bluetooth_profile_headset">Phone</string>
     <!-- Bluetooth settings.  The user-visible string that is used whenever referring to the OPP profile. -->
     <string name="bluetooth_profile_opp">Transfer</string>
-
+    <!-- Bluetooth settings.  The user-visible string that is used whenever referring to the HID profile. -->
+    <string name="bluetooth_profile_hid">HID</string>
+    <string name="bluetooth_profile_network">Network</string>
     <!-- Bluetooth settings.  The summary string when a device is connected to the A2DP profile. -->
     <string name="bluetooth_summary_connected_to_a2dp">Connected to media audio</string>
     <!-- Bluetooth settings.  The summary string when a device is connected to the headset profile. -->
     <string name="bluetooth_summary_connected_to_headset">Connected to phone audio</string>
     <!-- Bluetooth settings.  The summary string when a device is connected to the A2DP and headset profiles. -->
     <string name="bluetooth_summary_connected_to_a2dp_headset">Connected to phone and media audio</string>
+    <!-- Bluetooth settings.  The summary string when a device is connected to the HID profile. -->
+    <string name="bluetooth_summary_connected_to_hid">Connected to hid device</string>
 
     <!-- Bluetooth settings.  Connection options screen.  The title of the screen. -->
     <string name="bluetooth_device_advanced_title"><xliff:g id="device_name">%1$s</xliff:g> options</string>
@@ -771,6 +795,11 @@
     <string name="bluetooth_headset_profile_summary_use_for">Use for phone audio</string>
     <!-- Bluetooth settings.  Connection options screen.  The summary for the OPP checkbox preference that describes how checking it will set the OPP profile as preferred. -->
     <string name="bluetooth_opp_profile_summary_use_for">Use for file transfer</string>
+    <!-- Bluetooth settings.  Connection options screen.  The summary for the HID checkbox preference when HID device is connected. -->
+    <string name="bluetooth_hid_profile_summary_connected">Connected to hid device</string>
+    <!-- Bluetooth settings.  Connection options screen.  The summary for the HID checkbox preference that describes how checking it will set the HID profile as preferred. -->
+    <string name="bluetooth_hid_profile_summary_use_for">Use for hid device</string>
+
 
     <!-- Bluetooth settings.  Dock Setting Title -->
     <string name="bluetooth_dock_settings">Dock Settings</string>
@@ -1262,6 +1291,8 @@
     <string name="status_number">My phone number</string>
     <!-- About phone, status item title.  The phone MIN number of the current device.-->
     <string name="status_min_number">MIN</string>
+    <!-- About phone, status item title.  The phone MSID number of the current device.-->
+    <string name="status_msid_number">MSID</string>
     <!-- About phone, status item title.  The phone PRL Version of the current device.-->
     <string name="status_prl_version">PRL Version</string>
     <!-- About phone, status item title.  The phone MEID number of the current device.-->
@@ -2523,9 +2554,9 @@ found in the list of installed applications.</string>
     <!-- Preference group title for a list of VPN profiles -->
     <string name="vpns">VPNs</string>
     <!-- Preference summary text when VPN is connecting -->
-    <string name="vpn_connecting">Connecting...</string>
+    <string name="vpn_connecting">Connecting\u2026</string>
     <!-- Preference summary text when VPN is disconnecting -->
-    <string name="vpn_disconnecting">Disconnecting...</string>
+    <string name="vpn_disconnecting">Disconnecting\u2026</string>
     <!-- Preference summary text when VPN is connected -->
     <string name="vpn_connected">Connected</string>
     <!-- Preference summary text when VPN is not connected -->
@@ -2574,8 +2605,10 @@ found in the list of installed applications.</string>
     <string name="vpn_openvpn_set_remote_addr">Remote IP Address</string>
     <string name="vpn_openvpn_set_cipher">Cipher algorithm</string>
     <string name="vpn_openvpn_set_cipher_message">Leave empty to use default cipher</string>
+    <string name="vpn_openvpn_set_cipher_default">default</string>
     <string name="vpn_openvpn_set_keysize">Size of cipher key</string>
     <string name="vpn_openvpn_set_keysize_message">Leave empty to use cipher-specific default</string>
+    <string name="vpn_openvpn_set_keysize_default">default</string>
     <string name="vpn_openvpn_set_extra">Extra arguments</string>
     <string name="vpn_openvpn_set_extra_message">Enter the extra command line arguments</string>
 

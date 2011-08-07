@@ -21,7 +21,9 @@ import com.android.settings.R;
 import android.bluetooth.BluetoothA2dp;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothHeadset;
+import android.bluetooth.BluetoothHid;
 import android.bluetooth.BluetoothUuid;
+import android.bluetooth.BluetoothNetwork;
 import android.os.Handler;
 import android.os.ParcelUuid;
 import android.util.Log;
@@ -44,6 +46,10 @@ public abstract class LocalBluetoothProfileManager {
     /* package */ static final ParcelUuid[] HEADSET_PROFILE_UUIDS = new ParcelUuid[] {
         BluetoothUuid.HSP,
         BluetoothUuid.Handsfree,
+    };
+
+    /* package */ static final ParcelUuid[] HID_PROFILE_UUIDS = new ParcelUuid[] {
+        BluetoothUuid.HID
     };
 
     /* package */ static final ParcelUuid[] A2DP_PROFILE_UUIDS = new ParcelUuid[] {
@@ -95,8 +101,14 @@ public abstract class LocalBluetoothProfileManager {
                 profileManager = new HeadsetProfileManager(localManager);
                 sProfileMap.put(Profile.HEADSET, profileManager);
 
+                profileManager = new HIDProfileManager(localManager);
+                sProfileMap.put(Profile.HID, profileManager);
+
                 profileManager = new OppProfileManager(localManager);
                 sProfileMap.put(Profile.OPP, profileManager);
+                
+                profileManager = new NetworkProfileManager(localManager);
+                sProfileMap.put(Profile.NETWORK, profileManager);
             }
         }
     }
@@ -161,6 +173,9 @@ public abstract class LocalBluetoothProfileManager {
         if (BluetoothUuid.containsAnyUuid(uuids, OPP_PROFILE_UUIDS)) {
             profiles.add(Profile.OPP);
         }
+        if (BluetoothUuid.containsAnyUuid(uuids, HID_PROFILE_UUIDS)) {
+            profiles.add(Profile.HID);
+        }
     }
 
     protected LocalBluetoothProfileManager(LocalBluetoothManager localManager) {
@@ -195,7 +210,9 @@ public abstract class LocalBluetoothProfileManager {
     public enum Profile {
         HEADSET(R.string.bluetooth_profile_headset),
         A2DP(R.string.bluetooth_profile_a2dp),
-        OPP(R.string.bluetooth_profile_opp);
+        OPP(R.string.bluetooth_profile_opp),
+        HID(R.string.bluetooth_profile_hid),
+        NETWORK(R.string.bluetooth_profile_network);
 
         public final int localizedString;
 
@@ -564,5 +581,164 @@ public abstract class LocalBluetoothProfileManager {
                 return SettingsBtStatus.CONNECTION_STATUS_UNKNOWN;
             }
         }
+    }
+
+    /**
+     * HidProfileManager is an abstraction for the {@link BluetoothHID} service. 
+     */
+    private static class HIDProfileManager extends LocalBluetoothProfileManager {
+       private BluetoothHid mService;
+
+        public HIDProfileManager(LocalBluetoothManager localManager) {
+            super(localManager);
+            mService = new BluetoothHid(localManager.getContext());
+        }
+
+        @Override
+        public Set<BluetoothDevice> getConnectedDevices() {
+            return mService.getNonDisconnectedSinks();
+        }
+
+        @Override
+        public boolean connect(BluetoothDevice device) {
+            Set<BluetoothDevice> sinks = mService.getNonDisconnectedSinks();
+            if (sinks != null) {
+                for (BluetoothDevice sink : sinks) {
+                    mService.disconnectHidDevice(device);
+
+                }
+            }
+           return mService.connectHidDevice(device);
+        }
+
+        @Override
+        public boolean disconnect(BluetoothDevice device) {
+           return mService.disconnectHidDevice(device);
+        }
+
+        @Override
+        public int getConnectionStatus(BluetoothDevice device) {
+           return convertState(mService.getHidDeviceState(device));
+        }
+
+        @Override
+        public int getSummary(BluetoothDevice device) {
+            int connectionStatus = getConnectionStatus(device);
+
+            if (SettingsBtStatus.isConnectionStatusConnected(connectionStatus)) {
+                return R.string.bluetooth_hid_profile_summary_connected;
+            } else {
+                return SettingsBtStatus.getConnectionStatusSummary(connectionStatus);
+            }
+       }
+
+
+        @Override
+        public boolean isPreferred(BluetoothDevice device) {
+           return mService.getHidDevicePriority(device) > BluetoothHid.PRIORITY_OFF;
+        }
+        @Override
+        public int getPreferred(BluetoothDevice device) {
+            return mService.getHidDevicePriority(device);
+        }
+
+        @Override
+        public void setPreferred(BluetoothDevice device, boolean preferred) {
+           if (preferred) {
+                if (mService.getHidDevicePriority(device) < BluetoothHid.PRIORITY_ON) {
+                    mService.setHidDevicePriority(device, BluetoothHid.PRIORITY_ON);
+                }
+            } else {
+                mService.setHidDevicePriority(device, BluetoothHid.PRIORITY_OFF);
+            }
+        }
+
+        @Override
+        public boolean isProfileReady() {
+            return true;
+        }
+
+        @Override
+        public int convertState(int hidState) {
+            switch (hidState) {
+            case BluetoothHid.STATE_CONNECTED:
+                return SettingsBtStatus.CONNECTION_STATUS_CONNECTED;
+            case BluetoothHid.STATE_CONNECTING:
+                return SettingsBtStatus.CONNECTION_STATUS_CONNECTING;
+            case BluetoothHid.STATE_DISCONNECTED:
+                return SettingsBtStatus.CONNECTION_STATUS_DISCONNECTED;
+            case BluetoothHid.STATE_DISCONNECTING:
+                return SettingsBtStatus.CONNECTION_STATUS_DISCONNECTING;
+            default:
+                return SettingsBtStatus.CONNECTION_STATUS_UNKNOWN;
+            }
+        }
+    }
+
+    private static class NetworkProfileManager extends LocalBluetoothProfileManager {
+        private BluetoothNetwork mService;
+
+        public NetworkProfileManager(LocalBluetoothManager localManager) {
+            super(localManager);
+            mService = new BluetoothNetwork(localManager.getContext());
+        }
+
+        @Override
+        public Set<BluetoothDevice> getConnectedDevices() {
+            return null;
+        }
+
+        @Override
+        public boolean connect(BluetoothDevice device) {
+            return false;
+        }
+
+        @Override
+        public boolean disconnect(BluetoothDevice device) {
+            return false;
+        }
+
+        @Override
+        public int getConnectionStatus(BluetoothDevice device) {
+            return 0;
+        }
+
+        @Override
+        public int getSummary(BluetoothDevice device) {
+            int connectionStatus = getConnectionStatus(device);
+
+            if (SettingsBtStatus.isConnectionStatusConnected(connectionStatus)) {
+                return R.string.bluetooth_a2dp_profile_summary_connected;
+            } else {
+                return SettingsBtStatus.getConnectionStatusSummary(connectionStatus);
+            }
+        }
+
+        @Override
+        public boolean isPreferred(BluetoothDevice device) {
+            return false;
+        }
+
+        @Override
+        public int getPreferred(BluetoothDevice device) {
+            return 0;
+        }
+
+        @Override
+        public void setPreferred(BluetoothDevice device, boolean preferred) {
+            
+        }
+
+
+        @Override
+        public boolean isProfileReady() {
+            return true;
+        }
+
+        @Override
+        public int convertState(int state) {
+            return 0;            
+        }
+
     }
 }
