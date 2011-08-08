@@ -136,7 +136,7 @@ public class TetherWidgetProvider extends AppWidgetProvider{
 			views.setImageViewResource(R.id.power_trigger,R.drawable.power_switch_off);
 			views.setImageViewResource(R.id.power_item,R.drawable.widget_wired_icon_off);
 		} else if (state == StateTracker.STATE_ENABLED) {
-			views.setImageViewResource(R.id.power_trigger,R.drawable.power_switch_allon);
+			views.setImageViewResource(R.id.power_trigger,R.drawable.power_switch_on);
 			views.setImageViewResource(R.id.power_item,R.drawable.widget_wired_icon_on);
 		} else if (state == StateTracker.STATE_UNAVAILABLE) {
 			views.setImageViewResource(R.id.power_trigger,R.drawable.power_switch_off);
