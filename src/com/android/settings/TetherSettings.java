@@ -240,6 +240,8 @@ public class TetherSettings extends PreferenceActivity {
         }
 
         if (usbTethered) {
+            Settings.System.putInt(getContentResolver(), 
+                Settings.System.USB_TETHER, true ? 1 : 0);
             mUsbTether.setSummary(R.string.usb_tethering_active_subtext);
             mUsbTether.setEnabled(true);
             mUsbTether.setChecked(true);
@@ -260,6 +262,8 @@ public class TetherSettings extends PreferenceActivity {
             mUsbTether.setEnabled(false);
             mUsbTether.setChecked(false);
         } else {
+            Settings.System.putInt(getContentResolver(), 
+                Settings.System.USB_TETHER, false ? 1 : 0);
             mUsbTether.setSummary(R.string.usb_tethering_unavailable_subtext);
             mUsbTether.setEnabled(false);
             mUsbTether.setChecked(false);
