@@ -1171,7 +1171,7 @@
     <!-- Main Settings screen setting option summary text for the itme to go into the screen with data sync settings-->
     <string name="sync_settings_summary">Add or remove accounts and change account settings</string>
 
-	<string name="evparts_settings">Evervolv Settings</string>
+	<string name="evparts_settings">Evervolv Toolbox</string>
 
     <!-- Main Settings screen, setting option name to go into search settings -->
     <string name="search_settings">Search</string>
