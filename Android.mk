@@ -1,8 +1,12 @@
 LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
 
-ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),harmony)
+ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),desirec)
+LOCAL_MANIFEST_FILE := /nohotspot/AndroidManifest.xml
+else ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),harmony)
 LOCAL_MANIFEST_FILE := /no4g_nogps/AndroidManifest.xml
+else ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),heroc)
+LOCAL_MANIFEST_FILE := /nohotspot/AndroidManifest.xml
 else ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),speedy)
 LOCAL_MANIFEST_FILE := /4g/AndroidManifest.xml
 else ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),supersonic)
