@@ -98,14 +98,17 @@ public class ExtendedDeviceInfo extends PreferenceActivity {
     	    } else {
     	    	mSDCardPartEXTSize.setEnabled(false);
     	    }
+
+            Pattern p = Pattern.compile("Evervolv-(\\w+)-(.+)");
+            Matcher m = p.matcher(Build.ROMVER);
+            if (m.find()) {
+                mDeviceName.setSummary(m.group(1));
+                mRomVersion.setSummary(m.group(2));
+            }
     	    
     	} catch (IllegalArgumentException e) {
     		e.printStackTrace();
     	}
-    	
-    	//Todo~~~~~~~~~~~~~~~
-        //mRomVersion = *****
-    	//mDeviceName = *****
     	
     }
 
