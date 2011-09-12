@@ -25,12 +25,14 @@
 		<!-- Device name -->
 		<Preference android:key="ext_device_name" 
 		        android:title="@string/title_ext_device_name"
-		        android:summary="@string/default_unimplemented"
+		        android:summary="@string/default_unavailable"
+		        style="?android:preferenceInformationStyle"
 			/>
 		<!-- Rom version -->
 		<Preference android:key="ext_rom_version" 
 		        android:title="@string/title_ext_rom_version"
-		        android:summary="@string/default_unimplemented"
+		        android:summary="@string/default_unavailable"
+		        style="?android:preferenceInformationStyle"
 			/>
 
 	</PreferenceCategory>
@@ -43,30 +45,35 @@
 		<Preference android:key="system_part_info" 
 		        android:title="@string/title_system_part_info"
 		        android:summary="@string/default_unavailable"
+		        style="?android:preferenceInformationStyle"
 			/>
 		        
 		<!-- /Data info -->
 		<Preference android:key="data_part_info" 
 		        android:title="@string/title_data_part_info"
 		        android:summary="@string/default_unavailable"
+		        style="?android:preferenceInformationStyle"
 			/>
 
 		<!-- /cache info -->
 		<Preference android:key="cache_part_info" 
 		        android:title="@string/title_cache_part_info"
 		        android:summary="@string/default_unavailable"
+		        style="?android:preferenceInformationStyle"
 			/>
 		        
 		<!-- SDCard info (fat) -->
 		<Preference android:key="sdcard_part_info_fat" 
 		        android:title="@string/title_sdcard_fat_part_info"
 		        android:summary="@string/default_unavailable"
+		        style="?android:preferenceInformationStyle"
 			/>
 		
 		<!-- SDCard info (ext) -->
 		<Preference android:key="sdcard_part_info_ext" 
 		        android:title="@string/title_sdcard_ext_part_info"
 		        android:summary="@string/default_unavailable"
+		        style="?android:preferenceInformationStyle"
 			/>
 
 	</PreferenceCategory>
