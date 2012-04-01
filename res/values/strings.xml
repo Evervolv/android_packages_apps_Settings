@@ -45,6 +45,8 @@
     <!-- Category headings in left-pane header menu --> <skip />
     <!-- Settings main menu category heading. Wireless and networks (Wi-Fi, Bluetooth, data usage...). [CHAR LIMIT=40] -->
     <string name="header_category_wireless_networks">WIRELESS &amp; NETWORKS</string>
+<!-- Settings main menu category heading. Evervolv (Toolbox, etc...). [CHAR LIMIT=40] -->
+    <string name="header_category_evervolv">EVERVOLV</string>
     <!-- Settings main menu category heading. Device (Sound, display, battery, applications...). [CHAR LIMIT=40] -->
     <string name="header_category_device">DEVICE</string>
     <!-- Settings main menu category heading. Personal (Accounts, security, language, backup...). [CHAR LIMIT=40] -->
@@ -4680,6 +4682,14 @@
     <string name="ssl_ca_cert_warning_message">A third party is capable of monitoring your network\nactivity, including emails, apps, and secure websites.\n\nA trusted credential installed on your device is making this possible.</string>
     <!-- Label on button that will take the user to the Trusted Credentials settings page.  [CHAR LIMIT=NONE]-->
     <string name="ssl_ca_cert_settings_button">Check trusted credentials</string>
+
+    <!-- Evervolv Settings -->
+    <!-- Title for the user to open the EVToolbox app -->
+    <string name="evtoolbox_settings">Toolbox</string>
+    <!-- Title for the user to open the EVUpdater app -->
+    <string name="evupdater_settings">Updates</string>
+    <!-- Main settings screen, setting title for the user to open the Themes app -->
+    <string name="themes_settings">Themes</string>
 
     <!-- User settings -->
     <skip/>

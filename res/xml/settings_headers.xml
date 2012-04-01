@@ -58,6 +58,43 @@
         android:fragment="com.android.settings.WirelessSettings"
         android:icon="@drawable/empty_icon" />
 
+
+    <!-- EVERVOLV -->
+    <header android:title="@string/header_category_evervolv" />
+
+    <!-- EVToolbox -->
+    <header
+        android:id="@+id/evtoolbox_settings"
+        android:icon="@drawable/ic_settings_evtoolbox"
+        android:title="@string/evtoolbox_settings" >
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="com.evervolv.toolbox"
+            android:targetClass="com.evervolv.toolbox.Toolbox" />
+    </header>
+
+    <!-- Themes -->
+    <header
+        android:id="@+id/themes_settings"
+        android:icon="@drawable/ic_settings_themes"
+        android:title="@string/themes_settings" >
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="com.tmobile.themechooser"
+            android:targetClass="com.tmobile.themechooser.ThemeChooser" />
+    </header>
+
+    <!-- EVUpdater -->
+    <header
+        android:id="@+id/evupdater_settings"
+        android:icon="@drawable/ic_settings_evupdater"
+        android:title="@string/evupdater_settings" >
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="com.evervolv.updater"
+            android:targetClass="com.evervolv.updater.Updater" />
+    </header>
+
     <!-- DEVICE -->
     <header android:id="@+id/device_section"
         android:title="@string/header_category_device" />
@@ -208,5 +245,6 @@
         android:fragment="com.android.settings.DeviceInfoSettings"
         android:icon="@drawable/ic_settings_about"
         android:title="@string/about_settings" />
+
 
 </preference-headers>
