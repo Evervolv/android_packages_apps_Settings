@@ -71,6 +71,36 @@
 
     </dashboard-category>
 
+
+    <!-- EVERVOLV -->
+    <dashboard-category
+            android:id="@+id/evervolv_section"
+            android:title="@string/header_category_evervolv" >
+
+        <!-- EVToolbox -->
+        <dashboard-tile
+            android:id="@+id/evtoolbox_settings"
+            android:icon="@drawable/ic_settings_evtoolbox"
+            android:title="@string/evtoolbox_settings" >
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="com.evervolv.toolbox"
+            android:targetClass="com.evervolv.toolbox.Toolbox" />
+        </dashboard-tile>
+
+        <!-- EVUpdater -->
+        <dashboard-tile
+            android:id="@+id/evupdater_settings"
+            android:icon="@drawable/ic_settings_evupdater"
+            android:title="@string/evupdater_settings" >
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="com.evervolv.updater"
+            android:targetClass="com.evervolv.updater.Updater" />
+        </dashboard-tile>
+
+    </dashboard-category>
+
     <!-- DEVICE -->
     <dashboard-category
             android:id="@+id/device_section"
