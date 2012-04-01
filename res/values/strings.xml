@@ -29,6 +29,8 @@
     <string name="header_category_wireless_networks">WIRELESS &amp; NETWORKS</string>
     <!-- Settings main menu category heading. Device (Sound, display, battery, applications...). [CHAR LIMIT=40] -->
     <string name="header_category_device">DEVICE</string>
+    <!-- Settings main menu category heading. Evervolv (Toolbox, etc...). [CHAR LIMIT=40] -->
+    <string name="header_category_evervolv">EVERVOLV</string>
     <!-- Settings main menu category heading. Personal (Accounts, security, language, backup...). [CHAR LIMIT=40] -->
     <string name="header_category_personal">PERSONAL</string>
     <!-- Settings main menu category heading. System (Updates, data, accessibility, about phone). [CHAR LIMIT=40] -->
@@ -3784,5 +3786,8 @@ found in the list of installed apps.</string>
     from their cell phone carrier. The use of the string is similar to the string
     "system_update_settings_list_item_title" in this project. [CHAR LIMIT=25] -->
     <string name="additional_system_update_settings_list_item_title">Additional system updates</string>
+
+    <!-- Main settings screen, setting title for the user to open the EVToolbox app -->
+    <string name="evtoolbox_settings">Toolbox</string>
 
 </resources>
