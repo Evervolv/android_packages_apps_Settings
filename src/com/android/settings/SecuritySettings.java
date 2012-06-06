@@ -133,6 +133,8 @@ public class SecuritySettings extends SettingsPreferenceFragment
         addPreferencesFromResource(resid);
 
 
+    // Yaffs2 does not support ecryption, so dont display this for those devices
+    if (getResources().getBoolean(R.bool.filesystem_is_encryptable)) {
         // Add options for device encryption
         DevicePolicyManager dpm =
                 (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
@@ -147,6 +149,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
             addPreferencesFromResource(R.xml.security_settings_unencrypted);
             break;
         }
+    }
 
         // lock after preference
         mLockAfter = (ListPreference) root.findPreference(KEY_LOCK_AFTER_TIMEOUT);

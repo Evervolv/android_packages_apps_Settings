@@ -23,6 +23,9 @@
          specific product builds. -->
     <bool name="has_powercontrol_widget">true</bool>
 
+    <!-- Set this to false for yaffs2 devices -->
+    <bool name="filesystem_is_encryptable">true</bool>
+
     <!-- Display additional System Update menu if true -->
     <bool name="config_additional_system_update_setting_enable">false</bool>
 </resources>
