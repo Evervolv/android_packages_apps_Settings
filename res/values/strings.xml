@@ -4045,6 +4045,8 @@
     <!-- Evervolv Settings -->
     <!-- Title for the user to open the EVToolbox app -->
     <string name="evtoolbox_settings">Toolbox</string>
+    <!-- Main settings screen, setting title for the user to open the Themes app -->
+    <string name="themes_settings">Themes</string>
 
     <!-- User settings -->
     <skip/>
