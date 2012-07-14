@@ -288,6 +288,7 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
     public void onPause() {
         super.onPause();
 
+        mSettingsObserver.pause();
         mIm.unregisterInputDeviceListener(this);
         mSettingsObserver.pause();
 
