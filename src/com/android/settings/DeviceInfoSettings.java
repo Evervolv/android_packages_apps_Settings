@@ -200,6 +200,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
                 //"(gcc" followed by anything up to two consecutive ")" separated by only white space (which seems to be the norm)
                 "(?:\\(gcc.*\\)\\s+\\))?\\s+" +
                 "([^\\s]+)\\s+" + /* group 3: #26 */
+                "(?:SMP\\s+)?" + /* ignore: SMP (optional) */
                 "(?:PREEMPT\\s+)?" + /* ignore: PREEMPT (optional) */
                 "(.+)"; /* group 4: date */
 
