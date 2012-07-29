@@ -17,11 +17,19 @@
 package com.android.settings.deviceinfo.firmwareversion;
 
 import android.content.Context;
+import android.os.FileUtils;
+
+import androidx.preference.Preference;
 
 import com.android.settings.core.BasePreferenceController;
 import com.android.settingslib.DeviceInfoUtils;
 
+import java.io.File;
+import java.io.IOException;
+
 public class KernelVersionPreferenceController extends BasePreferenceController {
+
+    private boolean mClicked = false;
 
     public KernelVersionPreferenceController(Context context, String preferenceKey) {
         super(context, preferenceKey);
@@ -34,6 +42,31 @@ public class KernelVersionPreferenceController extends BasePreferenceController 
 
     @Override
     public CharSequence getSummary() {
+        return DeviceInfoUtils.getFormattedKernelVersion(mContext);
+    }
+
+    @Override
+    public String getPreferenceKey() {
+        return mPreferenceKey;
+    }
+
+    @Override
+    public boolean handlePreferenceTreeClick(Preference preference) {
+        if (preference.getKey().equals(mPreferenceKey)) {
+            mClicked = !mClicked;
+            String version = getKernelVersion();
+            preference.setSummary(version);
+        }
+        return false;
+    }
+
+    private String getKernelVersion() {
+        if(!mClicked) {
+            try {
+                return FileUtils.readTextFile(new File("/proc/version"), 256, null);
+            } catch (IOException e) {
+            }
+        }
         return DeviceInfoUtils.getFormattedKernelVersion(mContext);
     }
 }
