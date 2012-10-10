@@ -299,7 +299,7 @@
     <string name="owner_info_settings_title" msgid="2723190010708381889">"Info o vlastníkovi"</string>
     <string name="owner_info_settings_summary" msgid="3800834657847339570"></string>
     <string name="owner_info_settings_edit_text_hint" msgid="4608681417960923911">"Zadejte text, který se zobrazí na zamčené obrazovce"</string>
-    <string name="location_settings_title" msgid="8935806698251432196">"Služby určování polohy"</string>
+    <string name="location_settings_title" msgid="4483843407328665068">"Přístup k poloze"</string>
     <string name="security_settings_title" msgid="7945465324818485460">"Zabezpečení"</string>
     <string name="security_settings_summary" msgid="967393342537986570">"Moje poloha, odemknutí obrazovky, zámek SIM, zámek úložiště pověření"</string>
     <string name="cdma_security_settings_summary" msgid="6068799952798901542">"Nastavení funkce Moje poloha, odemknutí obrazovky a zamknutí úložiště pověření"</string>
@@ -714,6 +714,7 @@
     <string name="system_update_settings_list_item_summary" msgid="3853057315907710747"></string>
     <string name="firmware_version" msgid="4801135784886859972">"Verze systému Android"</string>
     <string name="model_number" msgid="3765737700545384794">"Označení modelu"</string>
+    <string name="fcc_equipment_id" msgid="149114368246356737">"ID zařízení"</string>
     <string name="baseband_version" msgid="1848990160763524801">"Verze základního pásma"</string>
     <string name="kernel_version" msgid="9192574954196167602">"Verze jádra"</string>
     <string name="build_number" msgid="3075795840572241758">"Číslo sestavení"</string>
@@ -899,16 +900,20 @@
     <string name="tethering_help_button_text" msgid="656117495547173630">"Nápověda"</string>
     <string name="network_settings_title" msgid="7967552516440151852">"Mobilní sítě"</string>
     <string name="location_title" msgid="1029961368397484576">"Moje poloha"</string>
-    <string name="location_network_based" msgid="5569673665032992664">"Určování polohy Google"</string>
-    <string name="location_neighborhood_level" msgid="2948129720516513300">"Povolit odesílání anonymních dat o poloze do Googlu a současně umožnit povoleným aplikacím, aby k určení vaší přibližné polohy využívaly data ze zdrojů, jako jsou sítě Wi-Fi a mobilní sítě."</string>
+    <string name="location_network_based" msgid="7472814266821714527">"Poloha Wi-Fi a mobilní sítě"</string>
+    <string name="location_neighborhood_level" msgid="5626515380188353712">"Povolit aplikacím používat službu polohy Google a rychleji odhadovat vaši polohu. Anonymní data budou sbírána a odesílána Googlu."</string>
     <string name="location_neighborhood_level_wifi" msgid="7457348712272184793">"Poloha určená sítí Wi-Fi"</string>
     <string name="location_gps" msgid="8392461023569708478">"Satelity GPS"</string>
-    <string name="location_street_level" msgid="4244496898967415234">"Povolit aplikacím určit vaši přesnou polohu pomocí systému GPS"</string>
+    <string name="location_street_level" product="tablet" msgid="1669562198260860802">"Povolit aplikacím ve vašem tabletu určovat polohu pomocí GPS"</string>
+    <string name="location_street_level" product="default" msgid="4617445745492014203">"Povolit aplikacím ve vašem telefonu určovat polohu pomocí GPS"</string>
     <string name="assisted_gps" msgid="4649317129586736885">"Použít systém A-GPS"</string>
     <string name="assisted_gps_enabled" msgid="8751899609589792803">"Vylepšit funkčnost GPS pomocí serveru (deaktivací této funkce snížíte využití sítě)"</string>
     <string name="assisted_gps_disabled" msgid="6982698333968010748">"Vylepšit funkčnost GPS pomocí serveru (zrušením této funkce zvýšíte výkon GPS)"</string>
     <string name="use_location_title" msgid="5206937465504979977">"Poloha a vyhledávání"</string>
     <string name="use_location_summary" msgid="3978805802386162520">"Povolit Googlu použít vaši polohu ke zlepšení výsledků vyhledávání a dalších služeb"</string>
+    <string name="location_access_title" msgid="7064108942964081243">"Přístup k údajům o mé poloze"</string>
+    <string name="location_access_summary" msgid="69031404093194341">"Povolit aplikacím, které o to požádaly, používat údaje o poloze"</string>
+    <string name="location_sources_heading" msgid="1278732419851088319">"Zdroje polohy"</string>
     <string name="about_settings" product="tablet" msgid="593457295516533765">"Informace o tabletu"</string>
     <string name="about_settings" product="default" msgid="1743378368185371685">"Info o telefonu"</string>
     <string name="about_settings_summary" msgid="3371517697156165959">"Zobrazí právní informace, stav a verzi softwaru"</string>
@@ -1413,6 +1418,9 @@
     <string name="backup_configure_account_default_summary" msgid="2436933224764745553">"Aktuálně nejsou zálohovaná data ukládána do žádného účtu."</string>
     <string name="auto_restore_title" msgid="5397528966329126506">"Automatické obnovení"</string>
     <string name="auto_restore_summary" msgid="4235615056371993807">"Při přeinstalaci aplikace obnovit zálohovaná nastavení a další data"</string>
+    <string name="bugreport_title" msgid="1009498799922543551">"Zaznamenat zprávu o chybě"</string>
+    <string name="bugreport_message" msgid="1182209569732110590">"Shromažďuje informace o aktuálním stavu zařízení. Tyto informace je následně možné poslat v e-mailové zprávě, chvíli však potrvá, než bude hlášení o chybě připraveno k odeslání. Buďte prosím trpěliví."</string>
+    <string name="report" msgid="302437572240018342">"Vytvořit zprávu"</string>
     <string name="local_backup_password_title" msgid="3860471654439418822">"Heslo pro zálohy v počítači"</string>
     <string name="local_backup_password_summary_none" msgid="393503434408227110">"Úplné zálohy v počítači nejsou v současné době chráněny"</string>
     <string name="local_backup_password_summary_change" msgid="2731163425081172638">"Tuto možnost vyberte, chcete-li změnit nebo odebrat heslo pro úplné zálohy v počítači"</string>

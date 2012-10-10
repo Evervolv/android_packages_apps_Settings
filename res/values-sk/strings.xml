@@ -299,7 +299,7 @@
     <string name="owner_info_settings_title" msgid="2723190010708381889">"Info. o vlastníkovi"</string>
     <string name="owner_info_settings_summary" msgid="3800834657847339570"></string>
     <string name="owner_info_settings_edit_text_hint" msgid="4608681417960923911">"Zadajte text, ktorý sa zobrazí na uzamknutej obrazovke"</string>
-    <string name="location_settings_title" msgid="8935806698251432196">"Služby na zisťovanie polohy"</string>
+    <string name="location_settings_title" msgid="4483843407328665068">"Prístup k polohe"</string>
     <string name="security_settings_title" msgid="7945465324818485460">"Zabezpečenie"</string>
     <string name="security_settings_summary" msgid="967393342537986570">"Moja poloha, odomknutie obrazovky, zámok SIM, zámok ukladacieho priestoru poverení"</string>
     <string name="cdma_security_settings_summary" msgid="6068799952798901542">"Nastavenie funkcie Moje poloha, odomknutie obrazovky a zamknutie ukladacieho priestoru poverení"</string>
@@ -714,6 +714,7 @@
     <string name="system_update_settings_list_item_summary" msgid="3853057315907710747"></string>
     <string name="firmware_version" msgid="4801135784886859972">"Verzia systému Android"</string>
     <string name="model_number" msgid="3765737700545384794">"Číslo modelu"</string>
+    <string name="fcc_equipment_id" msgid="149114368246356737">"ID zariadenia"</string>
     <string name="baseband_version" msgid="1848990160763524801">"Verzia základného pásma"</string>
     <string name="kernel_version" msgid="9192574954196167602">"Verzia jadra"</string>
     <string name="build_number" msgid="3075795840572241758">"Číslo zostavy"</string>
@@ -899,16 +900,20 @@
     <string name="tethering_help_button_text" msgid="656117495547173630">"Pomocník"</string>
     <string name="network_settings_title" msgid="7967552516440151852">"Mobilné siete"</string>
     <string name="location_title" msgid="1029961368397484576">"Moja poloha"</string>
-    <string name="location_network_based" msgid="5569673665032992664">"Služba určovania polohy Google"</string>
-    <string name="location_neighborhood_level" msgid="2948129720516513300">"Povoliť odosielanie anonymných údajov o polohe spoločnosti Google. Umožniť tiež povoleným aplikáciám určiť vašu približnú polohu pomocou údajov zo zdrojov ako sú mobilné siete a siete Wi-Fi."</string>
+    <string name="location_network_based" msgid="7472814266821714527">"Poloha Wi-Fi a mobilnej siete"</string>
+    <string name="location_neighborhood_level" msgid="5626515380188353712">"Povoliť apl. používať službu urč. polohy Google a rýchl. odhad. vašu polohu. Anonym. údaje o polohe sa budú odosielať spol. Google."</string>
     <string name="location_neighborhood_level_wifi" msgid="7457348712272184793">"Poloha je určená podľa siete Wi-Fi"</string>
     <string name="location_gps" msgid="8392461023569708478">"Satelity GPS"</string>
-    <string name="location_street_level" msgid="4244496898967415234">"Povoliť aplikáciám použiť zariadenie GPS na určenie vašej polohy"</string>
+    <string name="location_street_level" product="tablet" msgid="1669562198260860802">"Umožniť aplikáciám na vašom tablete určovať polohu pomocou GPS"</string>
+    <string name="location_street_level" product="default" msgid="4617445745492014203">"Umožniť aplikáciám na vašom telefóne určovať polohu pomocou GPS"</string>
     <string name="assisted_gps" msgid="4649317129586736885">"Použiť systém A-GPS"</string>
     <string name="assisted_gps_enabled" msgid="8751899609589792803">"Vylepšiť funkčnosť GPS pomocou servera (vypnutím tejto funkcie znížite využitie siete)"</string>
     <string name="assisted_gps_disabled" msgid="6982698333968010748">"Vylepšiť funkčnosť GPS pomocou servera (zrušením tejto funkcie zvýšite výkon GPS)"</string>
     <string name="use_location_title" msgid="5206937465504979977">"Poloha a vyhľadávanie Google"</string>
     <string name="use_location_summary" msgid="3978805802386162520">"Povoliť systému Google použiť polohu na vylepšenie výsledkov vyhľadávania a ďalších služieb"</string>
+    <string name="location_access_title" msgid="7064108942964081243">"Prístup k údajom o mojej polohe"</string>
+    <string name="location_access_summary" msgid="69031404093194341">"Umožniť aplikáciám, ktoré o to požiadali, používať údaje o polohe"</string>
+    <string name="location_sources_heading" msgid="1278732419851088319">"Zdroje polohy"</string>
     <string name="about_settings" product="tablet" msgid="593457295516533765">"Informácie o tablete"</string>
     <string name="about_settings" product="default" msgid="1743378368185371685">"Informácie o telefóne"</string>
     <string name="about_settings_summary" msgid="3371517697156165959">"Zobrazuje právne informácie, stav a verziu softvéru"</string>
@@ -1413,6 +1418,9 @@
     <string name="backup_configure_account_default_summary" msgid="2436933224764745553">"Momentálne nie sú záložné údaje ukladané do žiadneho účtu"</string>
     <string name="auto_restore_title" msgid="5397528966329126506">"Automatické obnovenie"</string>
     <string name="auto_restore_summary" msgid="4235615056371993807">"Pri preinštalovaní aplikácie obnoviť zálohované údaje a nastavenia"</string>
+    <string name="bugreport_title" msgid="1009498799922543551">"Zaznamenať správu o chybe"</string>
+    <string name="bugreport_message" msgid="1182209569732110590">"Zhromažďuje informácie o aktuálnom stave zariadenia a tieto informácie je následne možné odoslať prostredníctvom e-mailovej správy. Od spustenia vytvárania správy o chybe až do chvíle, kedy je tento nástroj pripravený odoslať prvú správu, môže uplynúť nejaký čas. Prosíme vás preto o trpezlivosť."</string>
+    <string name="report" msgid="302437572240018342">"Vytvoriť prehľad"</string>
     <string name="local_backup_password_title" msgid="3860471654439418822">"Heslo pre zálohu do PC"</string>
     <string name="local_backup_password_summary_none" msgid="393503434408227110">"Úplné zálohy na počítači nie sú momentálne chránené"</string>
     <string name="local_backup_password_summary_change" msgid="2731163425081172638">"Dotykom zmeníte alebo odstránite heslo pre úplné zálohy do počítača"</string>
