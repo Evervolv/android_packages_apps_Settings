@@ -281,6 +281,7 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
 
         mSettingsObserver.pause();
         mIm.unregisterInputDeviceListener(this);
+        mSettingsObserver.pause();
 
         if (SHOW_INPUT_METHOD_SWITCHER_SETTINGS) {
             mShowInputMethodSelectorPref.setOnPreferenceChangeListener(null);
