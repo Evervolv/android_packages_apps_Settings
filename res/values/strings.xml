@@ -4554,4 +4554,9 @@
 
     <!-- Hostname setting -->
     <string name="device_hostname">Device hostname</string>
+
+    <!-- convert sound to vibration toggle -->
+    <string name="notification_convert_sound_to_vibration_title">Vibrate on notification</string>
+    <string name="notification_convert_sound_to_vibration_summary">In vibrate mode, all notifications will vibrate regardless of individual app settings</string>
+
 </resources>
