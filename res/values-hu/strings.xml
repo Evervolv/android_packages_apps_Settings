@@ -20,6 +20,8 @@
     <string name="no" msgid="6731231425810196216">"Nem"</string>
     <string name="create" msgid="3578857613172647409">"Létrehozás"</string>
     <string name="allow" msgid="3349662621170855910">"Engedélyezés"</string>
+    <string name="day" msgid="7984755014526510295">"1 nap"</string>
+    <string name="days" msgid="2070509222727852210">"<xliff:g id="DAYS">%s</xliff:g> nap"</string>
     <string name="deny" msgid="6947806159746484865">"Elutasítás"</string>
     <string name="device_info_default" msgid="7847265875578739287">"Ismeretlen"</string>
   <plurals name="show_dev_countdown">
