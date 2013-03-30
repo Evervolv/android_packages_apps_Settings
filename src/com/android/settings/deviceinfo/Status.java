@@ -50,6 +50,7 @@ import com.android.internal.telephony.PhoneStateIntentReceiver;
 import com.android.settings.R;
 import com.android.settings.Utils;
 
+import java.lang.Integer;
 import java.lang.ref.WeakReference;
 
 /**
@@ -545,8 +546,11 @@ public class Status extends PreferenceActivity {
     private String convert(long t) {
         int s = (int)(t % 60);
         int m = (int)((t / 60) % 60);
-        int h = (int)((t / 3600));
-
-        return h + ":" + pad(m) + ":" + pad(s);
+        int h = (int)((t / 3600) % 24);
+        int d = (int)((t / (3600 * 24)));
+        String day = (d == 0) ? "" :
+                (d == 1) ? getResources().getString(R.string.day) + " " :
+                getResources().getString(R.string.days, Integer.toString(d)) + " ";
+        return day + h + ":" + pad(m) + ":" + pad(s);
     }
 }

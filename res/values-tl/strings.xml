@@ -20,6 +20,8 @@
     <string name="no" msgid="6731231425810196216">"Hindi"</string>
     <string name="create" msgid="3578857613172647409">"Likhain"</string>
     <string name="allow" msgid="3349662621170855910">"Payagan"</string>
+    <string name="day" msgid="7984755014526510295">"1 araw"</string>
+    <string name="days" msgid="2070509222727852210">"<xliff:g id="DAYS">%s</xliff:g> (na) araw"</string>
     <string name="deny" msgid="6947806159746484865">"Tanggihan"</string>
     <string name="device_info_default" msgid="7847265875578739287">"Hindi Kilala"</string>
   <plurals name="show_dev_countdown">

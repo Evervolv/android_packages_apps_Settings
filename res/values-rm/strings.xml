@@ -24,6 +24,8 @@
     <skip />
     <!-- no translation found for deny (6947806159746484865) -->
     <skip />
+    <string name="day" msgid="7984755014526510295">"1 di"</string>
+    <string name="days" msgid="2070509222727852210">"<xliff:g id="DAYS">%s</xliff:g> dis"</string>
     <string name="device_info_default" msgid="7847265875578739287">"Nunenconuschent"</string>
     <!-- no translation found for show_dev_countdown:one (5295687242294085452) -->
     <!-- no translation found for show_dev_countdown:other (6722953419953594148) -->
