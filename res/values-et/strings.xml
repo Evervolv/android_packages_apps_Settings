@@ -20,6 +20,8 @@
     <string name="no" msgid="6731231425810196216">"Ei"</string>
     <string name="create" msgid="3578857613172647409">"Loo"</string>
     <string name="allow" msgid="3349662621170855910">"Luba"</string>
+    <string name="day" msgid="7984755014526510295">"1 päev"</string>
+    <string name="days" msgid="2070509222727852210">"<xliff:g id="DAYS">%s</xliff:g> päeva"</string>
     <string name="deny" msgid="6947806159746484865">"Keela"</string>
     <string name="device_info_default" msgid="7847265875578739287">"Tundmatu"</string>
   <plurals name="show_dev_countdown">

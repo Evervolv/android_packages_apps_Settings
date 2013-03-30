@@ -20,6 +20,8 @@
     <string name="no" msgid="6731231425810196216">"Nei"</string>
     <string name="create" msgid="3578857613172647409">"Opprett"</string>
     <string name="allow" msgid="3349662621170855910">"Tillat"</string>
+    <string name="day" msgid="7984755014526510295">"1 dag"</string>
+    <string name="days" msgid="2070509222727852210">"<xliff:g id="DAYS">%s</xliff:g> dager"</string>
     <string name="deny" msgid="6947806159746484865">"Avslå"</string>
     <string name="device_info_default" msgid="7847265875578739287">"Ukjent"</string>
   <plurals name="show_dev_countdown">

@@ -26,6 +26,10 @@
     <!-- Strings for Dialog allow button -->
     <string name="allow">Allow</string>
 
+    <!-- Strings for uptime -->
+    <string name="day">"1 day"</string>
+    <string name="days">"<xliff:g id="days">%s</xliff:g> days"</string>
+
     <!-- Strings for Dialog deny button -->
     <string name="deny">Deny</string>
 

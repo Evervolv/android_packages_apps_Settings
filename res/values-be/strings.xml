@@ -20,6 +20,8 @@
     <string name="no" msgid="6731231425810196216">"Не"</string>
     <string name="create" msgid="3578857613172647409">"Стварыць"</string>
     <string name="allow" msgid="3349662621170855910">"Дазволіць"</string>
+    <string name="day" msgid="7984755014526510295">"1 дзень"</string>
+    <string name="days" msgid="2070509222727852210">"Дзён: <xliff:g id="DAYS">%s</xliff:g>"</string>
     <string name="deny" msgid="6947806159746484865">"Забараніць"</string>
     <string name="device_info_default" msgid="7847265875578739287">"Невядома"</string>
   <plurals name="show_dev_countdown">
