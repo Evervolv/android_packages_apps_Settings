@@ -4350,6 +4350,8 @@
     <string name="evtoolbox_settings">Toolbox</string>
     <!-- Main settings screen, setting title for the user to open the Themes app -->
     <string name="themes_settings">Themes</string>
+    <!-- Advanced, Device specific (DeviceParts) settings  -->
+    <string name="advanced_settings_title">Advanced</string>
 
     <!-- User settings -->
     <skip/>
