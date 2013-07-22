@@ -70,7 +70,7 @@
         <intent
             android:action="android.intent.action.MAIN"
             android:targetPackage="com.evervolv.toolbox"
-            android:targetClass="com.evervolv.toolbox.Settings" />
+            android:targetClass="com.evervolv.toolbox.Toolbox" />
     </header>
 
     <!-- Themes -->
@@ -82,6 +82,17 @@
             android:action="android.intent.action.MAIN"
             android:targetPackage="com.tmobile.themechooser"
             android:targetClass="com.tmobile.themechooser.ThemeChooser" />
+    </header>
+
+    <!-- EVToolbox -->
+    <header
+        android:id="@+id/evupdater_settings"
+        android:icon="@drawable/ic_settings_evupdater"
+        android:title="@string/evupdater_settings" >
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="com.evervolv.updater"
+            android:targetClass="com.evervolv.updater.Updater" />
     </header>
 
     <!-- DeviceParts Device Specific settings -->
