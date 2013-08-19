@@ -174,6 +174,13 @@
             android:summary="@string/dc_dimming_info"
             settings:controller="com.android.settings.display.DcDimmingPreferenceController"/>
 
+        <!-- Adaptive backlight -->
+        <SwitchPreference
+            android:key="display_low_power"
+            android:title="@string/live_display_low_power_title"
+            android:summary="@string/live_display_low_power_summary"
+            settings:controller="com.android.settings.display.DisplayLowPowerModeController"/>
+
         <SwitchPreference
             android:key="show_operator_name"
             android:title="@string/show_operator_name_title"
