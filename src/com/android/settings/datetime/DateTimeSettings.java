@@ -91,6 +91,7 @@ public class DateTimeSettings extends DashboardFragment implements
                 activity, this /* UpdateTimeAndDateCallback */, autoTimePreferenceController));
         controllers.add(new DatePreferenceController(
                 activity, this /* UpdateTimeAndDateCallback */, autoTimePreferenceController));
+        controllers.add(new AmPmFormatPreferenceController(activity));
         return controllers;
     }
 
