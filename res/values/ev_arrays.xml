@@ -26,4 +26,16 @@
         <item>@string/security_settings_fingerprint_sensor_location_screen</item> 
     </string-array>
 
+    <string-array name="status_bar_am_pm_entries" translatable="false">
+        <item>@string/status_bar_am_pm_normal</item>
+        <item>@string/status_bar_am_pm_small</item>
+        <item>@string/status_bar_am_pm_hidden</item>
+    </string-array>
+
+    <string-array name="status_bar_am_pm_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
 </resources>
