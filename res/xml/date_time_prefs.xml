@@ -75,6 +75,14 @@
         <SwitchPreference
             android:key="24 hour"
             android:title="@string/date_time_24hour" />
+
+        <ListPreference
+            android:key="status_bar_am_pm"
+            android:title="@string/status_bar_am_pm_title"
+            android:dialogTitle="@string/status_bar_am_pm_title"
+            android:entries="@array/status_bar_am_pm_entries"
+            android:entryValues="@array/status_bar_am_pm_values" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>
