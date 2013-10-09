@@ -25,6 +25,7 @@ import android.provider.SearchIndexableResource;
 
 import com.android.settings.dashboard.DashboardFragment;
 import com.android.settings.dashboard.SummaryLoader;
+import com.android.settings.datetime.AmPmFormatPreferenceController;
 import com.android.settings.datetime.AutoTimeFormatPreferenceController;
 import com.android.settings.datetime.AutoTimePreferenceController;
 import com.android.settings.datetime.AutoTimeZonePreferenceController;
@@ -101,6 +102,7 @@ public class DateTimeSettings extends DashboardFragment implements
                 activity, this /* UpdateTimeAndDateCallback */, autoTimePreferenceController));
         controllers.add(new DatePreferenceController(
                 activity, this /* UpdateTimeAndDateCallback */, autoTimePreferenceController));
+        controllers.add(new AmPmFormatPreferenceController(activity));
         return controllers;
     }
 
