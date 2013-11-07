@@ -147,6 +147,14 @@
             settings:controller="com.android.settings.display.ContrastPreferenceController"
             settings:searchable="true"/>
 
+        <!-- RGB display color adjustments -->
+        <com.android.settings.display.DisplayColorPreference
+            android:key="color_calibration"
+            android:title="@string/color_calibration_title"
+            android:dialogTitle="@string/color_calibration_title"
+            android:summary="@string/color_calibration_summary"
+            settings:controller="com.android.settings.display.DisplayColorPreferenceController"/>
+
         <!-- Color enhancement -->
         <SwitchPreferenceCompat
             android:key="display_color_enhance"
