@@ -245,15 +245,24 @@ public class SecuritySettings extends RestrictedSettingsFragment
         // Enable or disable keyguard widget checkbox based on DPM state
         mEnableKeyguardWidgets = (CheckBoxPreference) root.findPreference(KEY_ENABLE_WIDGETS);
         if (mEnableKeyguardWidgets != null) {
-            final boolean disabled = (0 != (mDPM.getKeyguardDisabledFeatures(null)
-                    & DevicePolicyManager.KEYGUARD_DISABLE_WIDGETS_ALL));
-            if (disabled) {
-                mEnableKeyguardWidgets.setSummary(
-                        R.string.security_enable_widgets_disabled_summary);
+            if (mLockPatternUtils.isLockScreenDisabled()) {
+                PreferenceGroup securityCategory
+                        = (PreferenceGroup) root.findPreference(KEY_SECURITY_CATEGORY);
+                if (securityCategory != null) {
+                    securityCategory.removePreference(root.findPreference(KEY_ENABLE_WIDGETS));
+                    mEnableKeyguardWidgets = null;
+                }
             } else {
-                mEnableKeyguardWidgets.setSummary("");
+                final boolean disabled = (0 != (mDPM.getKeyguardDisabledFeatures(null)
+                        & DevicePolicyManager.KEYGUARD_DISABLE_WIDGETS_ALL));
+                if (disabled) {
+                    mEnableKeyguardWidgets.setSummary(
+                            R.string.security_enable_widgets_disabled_summary);
+                } else {
+                    mEnableKeyguardWidgets.setSummary("");
+                }
+                mEnableKeyguardWidgets.setEnabled(!disabled);
             }
-            mEnableKeyguardWidgets.setEnabled(!disabled);
         }
 
         // Show password
