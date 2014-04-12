@@ -23,4 +23,8 @@
     <!-- Title for the user to open the EVUpdater app -->
     <string name="evupdater_settings">Updates</string>
 
+    <!-- Themes Settings -->
+    <!-- Settings main menu entry -->
+    <string name="themes_settings_title">Themes</string>
+
 </resources>
