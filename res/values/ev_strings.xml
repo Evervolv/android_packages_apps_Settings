@@ -26,4 +26,7 @@
     <string name="advanced_reboot_title">Advanced reboot</string>
     <string name="advanced_reboot_summary">When unlocked, include options in the power menu for rebooting into recovery or bootloader</string>
 
+    <!-- Bluetooth settings.  A checkbox to set if we should accept all the file types regardless of their presence in MIME type whitelist -->
+    <string name="bluetooth_accept_all_files">Accept all file types</string>
+
 </resources>
