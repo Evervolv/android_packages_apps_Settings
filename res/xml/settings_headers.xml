@@ -95,17 +95,6 @@
             android:targetClass="com.evervolv.updater.Updater" />
     </header>
 
-    <!-- DeviceParts Device Specific settings -->
-    <header
-        android:id="@+id/advanced_settings"
-        android:icon="@drawable/ic_settings_advanced"
-        android:title="@string/advanced_settings_title">
-        <intent
-            android:action="android.intent.action.MAIN"
-            android:targetPackage="com.cyanogenmod.settings.device"
-            android:targetClass="com.cyanogenmod.settings.device.DeviceSettings" />
-    </header>
-
     <!-- DEVICE -->
     <header android:id="@+id/device_section"
         android:title="@string/header_category_device" />
