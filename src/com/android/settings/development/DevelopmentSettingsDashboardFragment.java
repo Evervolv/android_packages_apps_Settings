@@ -76,7 +76,7 @@ import java.util.List;
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class DevelopmentSettingsDashboardFragment extends RestrictedDashboardFragment
         implements SwitchBar.OnSwitchChangeListener, OemUnlockDialogHost, AdbDialogHost,
-        AdbClearKeysDialogHost, LogPersistDialogHost,
+        AdbClearKeysDialogHost, LogPersistDialogHost, UpdateRecoveryDialogHost,
         BluetoothA2dpHwOffloadRebootDialog.OnA2dpHwDialogConfirmedListener,
         AbstractBluetoothPreferenceController.Callback {
 
@@ -348,6 +348,20 @@ public class DevelopmentSettingsDashboardFragment extends RestrictedDashboardFra
     }
 
     @Override
+    public void onUpdateRecoveryDialogConfirmed() {
+        final UpdateRecoveryPreferenceController controller = getDevelopmentOptionsController(
+                UpdateRecoveryPreferenceController.class);
+        controller.onUpdateRecoveryDialogConfirmed();
+    }
+
+    @Override
+    public void onUpdateRecoveryDialogDismissed() {
+        final UpdateRecoveryPreferenceController controller = getDevelopmentOptionsController(
+                UpdateRecoveryPreferenceController.class);
+        controller.onUpdateRecoveryDialogDismissed();
+    }
+
+    @Override
     public void onA2dpHwDialogConfirmed() {
         final BluetoothA2dpHwOffloadPreferenceController controller =
                 getDevelopmentOptionsController(BluetoothA2dpHwOffloadPreferenceController.class);
@@ -489,6 +503,7 @@ public class DevelopmentSettingsDashboardFragment extends RestrictedDashboardFra
         controllers.add(new ClearAdbKeysPreferenceController(context, fragment));
         controllers.add(new WirelessDebuggingPreferenceController(context, lifecycle));
         controllers.add(new AdbAuthorizationTimeoutPreferenceController(context));
+        controllers.add(new UpdateRecoveryPreferenceController(context, fragment));
         controllers.add(new LocalTerminalPreferenceController(context));
         controllers.add(new BugReportInPowerPreferenceController(context));
         controllers.add(new AutomaticSystemServerHeapDumpPreferenceController(context));
