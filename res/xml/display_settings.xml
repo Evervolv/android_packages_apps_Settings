@@ -139,6 +139,13 @@
             android:title="@string/accessibility_color_contrast_title"
             settings:controller="com.android.settings.display.ContrastPreferenceController"
             settings:searchable="true"/>
+
+        <!-- Color enhancement -->
+        <SwitchPreferenceCompat
+            android:key="display_color_enhance"
+            android:title="@string/live_display_enhance_color_title"
+            android:summary="@string/live_display_enhance_color_summary"
+            settings:controller="com.android.settings.display.ColorEnhancementController"/>
     </PreferenceCategory>
 
     <PreferenceCategory
