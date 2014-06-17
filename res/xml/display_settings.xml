@@ -119,6 +119,13 @@
             settings:controller="com.android.settings.display.DisplayModePreferenceController">
             <intent android:action="com.evervolv.toolbox.DISPLAY_MODE_PICKER"/>
         </Preference>
+
+        <!-- Color enhancement -->
+        <SwitchPreference
+            android:key="display_color_enhance"
+            android:title="@string/live_display_enhance_color_title"
+            android:summary="@string/live_display_enhance_color_summary"
+            settings:controller="com.android.settings.display.ColorEnhancementController"/>
     </PreferenceCategory>
 
     <PreferenceCategory
