@@ -223,7 +223,7 @@ public final class BluetoothPairingDialog extends AlertActivity implements
         }
 
         messageViewCaption.setText(messageId1);
-        messageViewContent.setText(mCachedDeviceManager.getName(mDevice));
+        messageViewContent.setText(Html.fromHtml(mCachedDeviceManager.getName(mDevice)));
         messageView2.setText(messageId2);
         mPairingView.setInputType(InputType.TYPE_CLASS_NUMBER);
         mPairingView.setFilters(new InputFilter[] {
@@ -266,7 +266,7 @@ public final class BluetoothPairingDialog extends AlertActivity implements
 
         if (messageViewCaption != null) {
             messageViewCaption.setText(messageCaption);
-            messageViewContent.setText(name);
+            messageViewContent.setText(Html.fromHtml(name));
         }
 
         if (pairingContent != null) {
