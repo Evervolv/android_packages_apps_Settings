@@ -86,6 +86,8 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
     int mDevHitCountdown;
     Toast mDevHitToast;
 
+    boolean mToolboxEnabled;
+
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -147,9 +149,14 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         Utils.updatePreferenceToSpecificActivityOrRemove(act, parentPreference, KEY_COPYRIGHT,
                 Utils.UPDATE_PREFERENCE_FLAG_SET_TITLE_TO_MATCHING_ACTIVITY);
 
+        // Check if EVToolbox is enabled
+        mToolboxEnabled = Settings.System.getInt(act.getContentResolver(),
+                Settings.System.DISABLE_TOOLBOX, 0) != 1;
+
         // These are contained by the root preference screen
         parentPreference = getPreferenceScreen();
-        if (UserHandle.myUserId() == UserHandle.USER_OWNER) {
+        // Disabled if EVToolbox is enabled
+        if (!mToolboxEnabled && UserHandle.myUserId() == UserHandle.USER_OWNER) {
             Utils.updatePreferenceToSpecificActivityOrRemove(act, parentPreference,
                     KEY_SYSTEM_UPDATE_SETTINGS,
                     Utils.UPDATE_PREFERENCE_FLAG_SET_TITLE_TO_MATCHING_ACTIVITY);
