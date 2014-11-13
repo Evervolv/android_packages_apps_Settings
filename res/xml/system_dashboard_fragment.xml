@@ -27,6 +27,11 @@
         android:order="-260"
         android:fragment="com.android.settings.language.LanguageAndInputSettings"/>
 
+    <com.evervolv.internal.parts.PartsPreference
+        android:key="button_settings"
+        android:icon="@drawable/ic_settings_buttons"
+        android:order="-252" />
+
     <Preference
         android:key="gesture_settings"
         android:title="@string/gesture_preference_title"
