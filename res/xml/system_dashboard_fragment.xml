@@ -56,6 +56,11 @@
         settings:keywords="@string/keywords_touchpad"
         settings:controller="com.android.settings.inputmethod.TouchpadAndMouseSettingsController"/>
 
+    <com.evervolv.internal.parts.PartsPreference
+        android:key="button_settings"
+        android:icon="@drawable/ic_settings_buttons"
+        android:order="-252" />
+
     <Preference
         android:key="touchpad_settings"
         android:title="@string/trackpad_settings"
