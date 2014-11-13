@@ -36,6 +36,7 @@ import com.android.settings.applications.defaultapps.DefaultAutofillPreferenceCo
 import com.android.settings.dashboard.DashboardFragment;
 import com.android.settings.dashboard.SummaryLoader;
 import com.android.settings.inputmethod.GameControllerPreferenceController;
+import com.android.settings.inputmethod.HardwareButtonPreferenceController;
 import com.android.settings.inputmethod.PhysicalKeyboardPreferenceController;
 import com.android.settings.inputmethod.SpellCheckerPreferenceController;
 import com.android.settings.inputmethod.VirtualKeyboardPreferenceController;
@@ -103,6 +104,7 @@ public class LanguageAndInputSettings extends DashboardFragment {
         controllers.add(new UserDictionaryPreferenceController(context));
         controllers.add(new TtsPreferenceController(context, new TtsEngines(context)));
         // Input
+        controllers.add(new HardwareButtonPreferenceController(context));
         controllers.add(new VirtualKeyboardPreferenceController(context));
         controllers.add(new PhysicalKeyboardPreferenceController(context, lifecycle));
         final GameControllerPreferenceController gameControllerPreferenceController

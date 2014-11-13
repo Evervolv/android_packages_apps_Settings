@@ -27,7 +27,8 @@ LOCAL_STATIC_ANDROID_LIBRARIES := \
     android-support-v7-preference \
     android-support-v7-recyclerview \
     android-support-v14-preference \
-    cm-support-preference
+    cm-support-preference \
+    cm-support-utilities
 
 LOCAL_JAVA_LIBRARIES := \
     bouncycastle \

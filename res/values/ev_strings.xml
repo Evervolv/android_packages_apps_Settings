@@ -26,10 +26,6 @@
     <string name="advanced_reboot_title">Advanced reboot</string>
     <string name="advanced_reboot_summary">When unlocked, include options in the power menu for rebooting into recovery or bootloader</string>
 
-    <!-- Volume rocker music controls -->
-    <string name="volbtn_music_controls_title">Volume rocker music controls</string>
-    <string name="volbtn_music_controls_summary">When screen off, long-pressing the volume rockers will seek music tracks</string>
-
     <!-- Expanded desktop -->
     <string name="power_menu_expanded_desktop">Expanded desktop</string>
     <string name="expanded_hide_nothing">Hide nothing</string>
@@ -43,5 +39,39 @@
     <string name="expanded_desktop_style">Expanded desktop style</string>
     <string name="expanded_desktop_style_description">Choose a default expanded desktop style</string>
     <string name="expanded_desktop_title">Expanded desktop options</string>
+
+    <!-- Hardware key -->
+    <string name="hardware_button_title">Hardware buttons</string>
+    <string name="hardware_button_summary">Adjust button configurations</string>
+
+    <!-- Hardware key rebinding -->
+    <string name="power_key_title">Power button</string>
+    <string name="home_key_title">Home button</string>
+    <string name="back_key_title">Back button</string>
+    <string name="menu_key_title">Menu button</string>
+    <string name="assist_key_title">Search button</string>
+    <string name="appswitch_key_title">Recents button</string>
+    <string name="camera_key_title">Camera button</string>
+    <string name="volume_keys_title">Volume buttons</string>
+    <string name="short_press_title">Short press action</string>
+    <string name="long_press_title">Long press action</string>
+    <string name="double_tap_title">Double tap action</string>
+    <string name="action_nothing">No action</string>
+    <string name="action_menu">Open/close menu</string>
+    <string name="action_app_switch">Recent apps switcher</string>
+    <string name="action_search">Search assistant</string>
+    <string name="action_voice_search">Voice search</string>
+    <string name="action_in_app_search">In-app search</string>
+    <string name="action_launch_camera">Launch camera</string>
+    <string name="action_sleep">Turn screen off</string>
+    <string name="action_last_app">Last app</string>
+    <string name="action_split_screen">Split screen</string>
+    <string name="volbtn_music_controls_title">Control playback</string>
+    <string name="volbtn_music_controls_summary">Seek music tracks by long pressing the volume keys while the display is off</string>
+    <string name="button_wake_title">Wake device</string>
+
+    <!-- Navigation Bar -->
+    <string name="disable_navkeys_title">On-screen navigation bar</string>
+    <string name="disable_navkeys_summary">Enable on-screen navigation bar and disable hardware buttons</string>
 
 </resources>
