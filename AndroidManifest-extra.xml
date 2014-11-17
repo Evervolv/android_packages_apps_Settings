@@ -43,5 +43,19 @@
                 android:resource="@string/rootmanagement_dashboard_summary" />
         </activity>
 
+        <!-- Expanded desktop settings activity. -->
+        <activity android:name="Settings$ExpandedDesktopSettingsActivity"
+                android:label="@string/power_menu_expanded_desktop"
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.applications.ExpandedDesktopPreferenceFragment" />
+            <meta-data android:name="com.android.settings.PRIMARY_PROFILE_CONTROLLED"
+                android:value="true" />
+        </activity>
+
     </application>
 </manifest>
