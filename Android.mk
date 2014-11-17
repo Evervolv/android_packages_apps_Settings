@@ -48,6 +48,8 @@ LOCAL_STATIC_JAVA_LIBRARIES := \
 
 LOCAL_PROGUARD_FLAG_FILES := proguard.flags
 
+LOCAL_FULL_LIBS_MANIFEST_FILES := $(LOCAL_PATH)/AndroidManifest-extra.xml
+
 ifneq ($(INCREMENTAL_BUILDS),)
     LOCAL_PROGUARD_ENABLED := disabled
     LOCAL_JACK_ENABLED := incremental

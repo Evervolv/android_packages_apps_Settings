@@ -49,6 +49,7 @@ public class Settings extends SettingsActivity {
     public static class LanguageAndInputSettingsActivity extends SettingsActivity { /* empty */ }
     public static class UserDictionarySettingsActivity extends SettingsActivity { /* empty */ }
     public static class DisplaySettingsActivity extends SettingsActivity { /* empty */ }
+    public static class ExpandedDesktopSettingsActivity extends SettingsActivity { /* empty */ }
     public static class NightDisplaySettingsActivity extends SettingsActivity { /* empty */ }
     public static class NightDisplaySuggestionActivity extends NightDisplaySettingsActivity { /* empty */ }
     public static class DeviceInfoSettingsActivity extends SettingsActivity { /* empty */ }
@@ -165,5 +166,4 @@ public class Settings extends SettingsActivity {
     public static class StorageDashboardActivity extends SettingsActivity {}
     public static class AccountDashboardActivity extends SettingsActivity {}
     public static class SystemDashboardActivity extends SettingsActivity {}
-
 }
