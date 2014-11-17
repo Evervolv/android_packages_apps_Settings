@@ -84,6 +84,11 @@
                 android:title="@string/screensaver_settings_title"
                 android:fragment="com.android.settings.DreamSettings" />
 
+        <PreferenceScreen
+                android:key="expanded_desktop"
+                android:title="@string/power_menu_expanded_desktop"
+                android:fragment="com.android.settings.applications.ExpandedDesktopPreferenceFragment" />
+
         <SwitchPreference
                 android:key="lift_to_wake"
                 android:title="@string/lift_to_wake_title" />

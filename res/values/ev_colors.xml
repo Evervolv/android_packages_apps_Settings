@@ -28,6 +28,9 @@
     <color name="condition_card_divider_color">@android:color/white</color>
     <color name="condition_card_first_button_text_color">@*android:color/primary_text_default_material_dark</color>
     <color name="condition_card_second_button_text_color">@*android:color/primary_text_default_material_dark</color>
+    <!-- Expanded desktop -->
+    <drawable name="expanded_item_bg_activated">#ffEEEEEE</drawable>
+    <drawable name="expanded_item_bg">@android:color/background_light</drawable>
     <!-- Storage Summary Title -->
     <color name="storage_summary_title_color">@*android:color/accent_device_default_light</color>
     <!-- Gesture settings switchbar background -->
