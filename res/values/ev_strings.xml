@@ -14,8 +14,9 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
     <!-- Settings main menu category heading. Evervolv (Toolbox, etc...). [CHAR LIMIT=40] -->
-    <string name="header_category_evervolv">EVERVOLV</string>
+    <string name="header_category_evervolv">Evervolv</string>
 
     <!-- Title for the user to open the EVToolbox app -->
     <string name="evtoolbox_settings">Toolbox</string>
