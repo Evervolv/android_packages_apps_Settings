@@ -319,30 +319,10 @@ public class PowerUsageSummary extends PowerUsageBase {
                     continue;
                 }
                 if (sipper.drainType == BatterySipper.DrainType.OVERCOUNTED) {
-                    // Don't show over-counted unless it is at least 2/3 the size of
-                    // the largest real entry, and its percent of total is more significant
-                    if (sipper.totalPowerMah < ((mStatsHelper.getMaxRealPower()*2)/3)) {
-                        continue;
-                    }
-                    if (percentOfTotal < 10) {
-                        continue;
-                    }
-                    if ("user".equals(Build.TYPE)) {
-                        continue;
-                    }
+                    continue;
                 }
                 if (sipper.drainType == BatterySipper.DrainType.UNACCOUNTED) {
-                    // Don't show over-counted unless it is at least 1/2 the size of
-                    // the largest real entry, and its percent of total is more significant
-                    if (sipper.totalPowerMah < (mStatsHelper.getMaxRealPower()/2)) {
-                        continue;
-                    }
-                    if (percentOfTotal < 5) {
-                        continue;
-                    }
-                    if ("user".equals(Build.TYPE)) {
-                        continue;
-                    }
+                    continue;
                 }
                 final UserHandle userHandle = new UserHandle(UserHandle.getUserId(sipper.getUid()));
                 final BatteryEntry entry = new BatteryEntry(getActivity(), mHandler, mUm, sipper);
