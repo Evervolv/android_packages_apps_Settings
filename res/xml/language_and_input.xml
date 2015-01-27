@@ -100,6 +100,13 @@
             android:dialogTitle="@string/pointer_speed" />
     </PreferenceCategory>
 
+    <evervolv.preference.EVSecureSettingSwitchPreference
+        android:key="feature_touch_hovering"
+        android:title="@string/touchscreen_hovering_title"
+        android:summary="@string/touchscreen_hovering_summary"
+        android:defaultValue="false"
+        settings:requiresFeature="hardware:FEATURE_TOUCH_HOVERING" />
+
     <SwitchPreference
         android:key="vibrate_input_devices"
         android:title="@string/vibrate_input_devices"
