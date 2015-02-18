@@ -194,6 +194,13 @@
             android:summary="@string/display_white_balance_summary"
             settings:controller="com.android.settings.display.DisplayWhiteBalancePreferenceController"/>
 
+        <!-- Manual temperature selection -->
+        <com.android.settings.display.DisplayTemperaturePreference
+            android:key="live_display_color_temperature"
+            android:title="@string/live_display_color_temperature_title"
+            android:dialogTitle="@*evervolv.platform:string/live_display_title"
+            settings:controller="com.android.settings.display.DisplayTemperaturePreferenceController"/>
+
         <SwitchPreferenceCompat
             android:key="peak_refresh_rate"
             android:title="@string/peak_refresh_rate_title"
