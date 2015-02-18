@@ -130,6 +130,10 @@
     <!-- Label for <input type="reset"> button in html -->
     <string name="live_display_reset">@string/accessibility_text_reading_confirm_dialog_reset_button</string>
 
+    <!-- LiveDisplay -->
+    <string name="live_display_summary">Optimize your screen based on time of day and ambient conditions to improve readability and reduce eyestrain</string>
+    <string name="live_display_mode">Live Display</string>
+
     <!-- LiveDisplay : Picture Adjustment -->
     <string name="picture_adjustment_title">Picture adjustment</string>
     <string name="picture_adjustment_summary">Adjust hue, saturation, intensity, and contrast</string>

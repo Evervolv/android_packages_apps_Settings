@@ -186,6 +186,13 @@
             android:summary="@string/peak_refresh_rate_summary"
             settings:controller="com.android.settings.display.PeakRefreshRatePreferenceController"/>
 
+        <!-- Live display -->
+        <ListPreference
+            android:key="live_display"
+            android:title="@string/live_display_mode"
+            android:summary="@string/summary_placeholder"
+            settings:controller="com.android.settings.display.LiveDisplayPreferenceController"/>
+
         <!-- Anti flicker mode / DC dimming -->
         <SwitchPreferenceCompat
             android:key="dc_dimming"
