@@ -117,6 +117,13 @@
             settings:controller="com.android.settings.display.NightDisplayPreferenceController"
             settings:keywords="@string/keywords_display_night_display"/>
 
+        <!-- Live display -->
+        <ListPreference
+            android:key="live_display"
+            android:title="@string/live_display_mode"
+            android:summary="@string/summary_placeholder"
+            settings:controller="com.android.settings.display.LiveDisplayPreferenceController"/>
+
         <Preference
             android:key="color_mode"
             android:title="@string/color_mode_title"
