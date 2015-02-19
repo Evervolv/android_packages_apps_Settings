@@ -19,5 +19,6 @@
 
 <bitmap xmlns:android="http://schemas.android.com/apk/res/android"
         android:src="@drawable/ic_settings_evtoolbox_am"
+        android:tint="@*android:color/material_deep_teal_500"
         android:autoMirrored="true"
         />
