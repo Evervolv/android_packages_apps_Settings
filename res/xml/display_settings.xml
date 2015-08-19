@@ -16,6 +16,7 @@
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:evervolv="http://schemas.android.com/apk/res/evervolv.platform"
     xmlns:settings="http://schemas.android.com/apk/res-auto"
     android:key="display_settings_screen"
     android:title="@string/display_settings"
@@ -98,6 +99,12 @@
             android:fragment="com.android.settings.display.ColorModePreferenceFragment"
             settings:controller="com.android.settings.display.ColorModePreferenceController"
             settings:keywords="@string/keywords_color_mode"/>
+
+        <com.evervolv.internal.parts.PartsPreference
+            android:key="display_mode"
+            evervolv:replacesKey="color_mode"
+            evervolv:requiresFeature="hardware:FEATURE_DISPLAY_MODES"
+            settings:controller="com.android.settings.display.DisplayModePreferenceController" />
     </PreferenceCategory>
 
     <PreferenceCategory

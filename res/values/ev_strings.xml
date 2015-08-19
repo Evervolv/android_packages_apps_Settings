@@ -30,4 +30,18 @@
 
     <!-- About phone screen, status item label  [CHAR LIMIT=60] -->
     <string name="vendor_security_patch">Vendor security update</string>
+
+    <!-- Color Profiles -->
+    <string name="live_display_color_profile_standard_title">Standard</string>
+    <string name="live_display_color_profile_natural_title">Natural</string>
+    <string name="live_display_color_profile_dynamic_title">Dynamic</string>
+    <string name="live_display_color_profile_cinema_title">Cinema</string>
+    <string name="live_display_color_profile_astronomy_title">Astronomy</string>
+    <string name="live_display_color_profile_photography_title">Photography</string>
+    <string name="live_display_color_profile_basic_title">Basic</string>
+    <string name="live_display_color_profile_adaptive_title">Adaptive</string>
+    <string name="live_display_color_profile_reading_title">Reading</string>
+    <string name="live_display_color_profile_srgb_title">sRGB</string>
+    <string name="live_display_color_profile_dci_p3_title">DCI-P3</string>
+
 </resources>
