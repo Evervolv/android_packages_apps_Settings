@@ -142,6 +142,7 @@
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 
     <uses-permission android:name="evervolv.permission.HARDWARE_ABSTRACTION_ACCESS" />
+    <uses-permission android:name="evervolv.permission.MANAGE_LIVEDISPLAY" />
 
     <application
             android:name=".SettingsApplication"
