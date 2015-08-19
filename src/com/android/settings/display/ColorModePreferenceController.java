@@ -20,6 +20,8 @@ import androidx.annotation.VisibleForTesting;
 
 import com.android.settings.core.BasePreferenceController;
 
+import evervolv.hardware.HardwareManager;
+
 public class ColorModePreferenceController extends BasePreferenceController {
 
     public ColorModePreferenceController(Context context, String key) {
@@ -28,6 +30,11 @@ public class ColorModePreferenceController extends BasePreferenceController {
 
     @Override
     public int getAvailabilityStatus() {
+        if (HardwareManager.getInstance(mContext)
+                .isSupported(HardwareManager.FEATURE_DISPLAY_MODES)) {
+            return CONDITIONALLY_UNAVAILABLE;
+        }
+
         final int[] availableColorModes = mContext.getResources().getIntArray(
                 com.android.internal.R.array.config_availableColorModes);
         if (availableColorModes.length == 0) {
