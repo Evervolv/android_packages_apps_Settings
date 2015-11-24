@@ -108,4 +108,9 @@
     <!-- App details: open play store link if app is user installed -->
     <string name="app_play_store">Google Play</string>
 
+    <!-- Reset battery stats -->
+    <string name="battery_stats_reset">Clear usage data?</string>
+    <string name="battery_stats_message">Battery usage data will be lost</string>
+    <string name="battery_stats_clear">@string/proxy_clear_text</string>
+
 </resources>
