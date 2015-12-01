@@ -61,7 +61,9 @@ limitations under the License.
 
     <!-- Personal Dictionary Add Icon -->
     <drawable name="ic_menu_add_word">@drawable/ic_menu_add_dark</drawable>
-
+    <color name="screencolor_background">#50000000</color>
+    <drawable name="transparent_background">#00000000</drawable>
+ 
     <!-- NFC hard colors -->
     <color name="nfc_how_it_works_main_background">#FF80CBC4</color>
     <color name="nfc_how_it_works_background">#FFB2DFDB</color>
@@ -74,4 +76,6 @@ limitations under the License.
     <!-- Storage Summary Hard colors-->
     <color name="storage_summary_text_color">#ff607d8b</color>
     <color name="storage_summary_used_text_color">#8a000000</color>
+
+    <color name="external_tile_icon_tint_color">?android:attr/colorAccent</color>
 </resources>
