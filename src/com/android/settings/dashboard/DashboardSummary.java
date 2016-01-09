@@ -26,6 +26,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.TypedValue;
@@ -178,6 +179,11 @@ public class DashboardSummary extends InstrumentedFragment {
     private void updateTileView(Context context, Resources res, DashboardTile tile,
             ImageView tileIcon, TextView tileTextView, TextView statusTextView, Switch switchBar) {
 
+        boolean mSettingSwitchEnabled;
+        // Check if Settings switch is enabled
+        mSettingSwitchEnabled = Settings.System.getInt(context.getContentResolver(),
+                Settings.System.SETTINGS_SWITCH, 0) != 1;
+
         if (!TextUtils.isEmpty(tile.iconPkg)) {
             try {
                 Drawable drawable = context.getPackageManager()
@@ -217,7 +223,7 @@ public class DashboardSummary extends InstrumentedFragment {
             statusTextView.setVisibility(View.GONE);
         }
 
-        if (tile.switchControl != null) {
+        if ((tile.switchControl != null) && (!mSettingSwitchEnabled)){
             switchBar.setVisibility(View.VISIBLE);
         } else {
             switchBar.setVisibility(View.GONE);
