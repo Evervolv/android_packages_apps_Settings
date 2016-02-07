@@ -202,23 +202,11 @@
             <intent android:action="com.android.settings.MANUFACTURER_APPLICATION_SETTING" />
         </dashboard-tile>
 
-        <!-- Google Settings -->
-        <dashboard-tile
-            android:id="@+id/google_settings"
-            android:icon="@drawable/ic_settings_google"
-            android:title="@string/google_title">
-            <intent
-                android:action="android.intent.action.MAIN"
-                android:targetPackage="com.google.android.gms"
-                android:targetClass="com.google.android.gms.app.settings.GoogleSettingsLink" />
-        </dashboard-tile>
-
     </dashboard-category>
 
     <!-- PERSONAL -->
     <dashboard-category
             android:id="@+id/personal_section"
-            android:key="@string/category_key_personal"
             android:title="@string/header_category_personal" >
 
         <!-- Location -->
@@ -245,8 +233,16 @@
                 android:icon="@drawable/ic_settings_accounts"
                 />
 
-        <!-- Marker for where to place external tiles in this category -->
-        <external-tiles />
+        <!-- Google Settings -->
+        <dashboard-tile
+            android:id="@+id/google_settings"
+            android:icon="@drawable/ic_settings_google"
+            android:title="@string/google_title">
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="com.google.android.gms"
+                android:targetClass="com.google.android.gms.app.settings.GoogleSettingsLink" />
+        </dashboard-tile>
 
         <!-- Language -->
         <dashboard-tile
