@@ -81,4 +81,11 @@ limitations under the License.
     <color name="external_tile_icon_tint_color">?android:attr/colorAccent</color>
     <!-- Fingerprint Checkmark Tint-->
     <color name="fingerprint_enrollment_checkmark_tint">?android:attr/textColorPrimary</color>
+
+    <!-- Filter Spinner Text Color -->
+    <color name="filter_spinner_text_color">@color/text_color_white</color>
+
+    <!-- App Name Text Color -->
+    <color name="app_name_text_color">@color/text_color_white</color>
+
 </resources>
