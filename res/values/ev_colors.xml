@@ -82,6 +82,8 @@ limitations under the License.
     <!-- Fingerprint Checkmark Tint-->
     <color name="fingerprint_enrollment_checkmark_tint">?android:attr/textColorPrimary</color>
 
+    <color name="navbar_edit_icon_color">#607d8b</color>
+    
     <!-- Filter Spinner Text Color -->
     <color name="filter_spinner_text_color">@color/text_color_white</color>
 
