@@ -38,12 +38,6 @@
     <!-- The duration (in milliseconds) of activity transitions -->
     <integer name="setup_wizard_transition_duration">300</integer>
 
-    <!-- Config to show/hide Wifi calling mode Preference UI option -->
-    <bool name="config_wfc_mode_supported" translatable="false">true</bool>
-
-    <!-- Config to enable/disable ppp number in APN editor -->
-    <bool name="config_ppp_enabled">false</bool>
-
     <!-- When true enable color temperature setting. -->
     <bool name="config_enableColorTemperature">false</bool>
 

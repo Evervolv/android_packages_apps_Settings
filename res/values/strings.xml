@@ -2593,9 +2593,6 @@
     <string name="apn_protocol">APN protocol</string>
     <!-- Edit access point labels: The protocol of the APN when roaming, e.g., "IPv4", "IPv6", or "IPv4/IPv6". -->
     <string name="apn_roaming_protocol">APN roaming protocol</string>
-    <!-- Edit access point labels: PPP number -->
-    <string name="apn_ppp_number">APN PPP phone number</string>
-    <string name="ppp_number">ppp_number</string>
     <!-- Edit enable/disable of APN -->
     <string name="carrier_enabled">APN enable/disable</string>
     <string name="carrier_enabled_summaryOn">APN enabled</string>
@@ -7020,8 +7017,6 @@
     <string name="write_settings_on">Yes</string>
     <!-- Summary of app not allowed to write system settings [CHAR LIMIT=45] -->
     <string name="write_settings_off">No</string>
-
-    <string name="select_sim_card">Select SIM card</string>
 
     <!-- Title of setting that controls gesture to open camera [CHAR LIMIT=40] -->
     <string name="camera_gesture_title">Double twist for camera</string>
