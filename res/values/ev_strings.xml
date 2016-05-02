@@ -113,4 +113,8 @@
     <!-- Three-fingers-swipe to screenshot -->
     <string name="three_finger_gesture">Swipe to screenshot</string>
     <string name="three_finger_gesture_summary">Swipe down with three fingers to take a screenshot</string>
+
+    <!-- Sound & display settings screen, accelerometer-based rotation check box label -->
+    <string name="auto_rotate_lockscreen_title">Auto-rotate lock screen</string>
+    <string name="auto_rotate_lockscreen_summary">Allow the lock screen to switch between portrait and landscape</string>
 </resources>
