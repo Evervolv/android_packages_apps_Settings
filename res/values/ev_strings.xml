@@ -113,4 +113,8 @@
 
     <!-- String for removal of sensitive info on about, depending on tap -->
     <string name="device_info_protected_single_press">Tap to show info</string>
+
+    <!-- Sound & display settings screen, accelerometer-based rotation check box label -->
+    <string name="auto_rotate_lockscreen_title">Auto-rotate lock screen</string>
+    <string name="auto_rotate_lockscreen_summary">Allow the lock screen to switch between portrait and landscape</string>
 </resources>
