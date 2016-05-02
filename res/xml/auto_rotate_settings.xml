@@ -38,6 +38,12 @@
         settings:replacesKey="auto_rotate_switch"
         settings:requiresFeature="android.hardware.sensor.accelerometer" />
 
+    <SwitchPreference
+        android:key="auto_rotate_lockscreen"
+        android:title="@string/auto_rotate_lockscreen_title"
+        android:summary="@string/auto_rotate_lockscreen_summary"
+        settings:controller="com.android.settings.display.AutoRotateLockscreenController"/>
+
     <com.android.settingslib.widget.BannerMessagePreference
         android:key="face_rotate_permission"
         android:title="@string/adaptive_sleep_title_no_permission"
