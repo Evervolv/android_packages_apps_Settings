@@ -23,6 +23,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.os.PowerManager;
 import android.os.Process;
 import android.os.UserHandle;
 import android.preference.Preference;
@@ -72,6 +73,7 @@ public class PowerUsageSummary extends PowerUsageBase {
 
     private BatteryHistoryPreference mHistPref;
     private PreferenceGroup mAppListGroup;
+    private PowerManager mPowerManager;
 
     private int mStatsType = BatteryStats.STATS_SINCE_CHARGED;
 
@@ -87,6 +89,7 @@ public class PowerUsageSummary extends PowerUsageBase {
         addPreferencesFromResource(R.xml.power_usage_summary);
         mHistPref = (BatteryHistoryPreference) findPreference(KEY_BATTERY_HISTORY);
         mAppListGroup = (PreferenceGroup) findPreference(KEY_APP_LIST);
+        mPowerManager = (PowerManager) getActivity().getSystemService(getContext().POWER_SERVICE);
     }
 
     @Override
@@ -137,6 +140,9 @@ public class PowerUsageSummary extends PowerUsageBase {
 
         MenuItem batterySaver = menu.add(0, MENU_BATTERY_SAVER, 0, R.string.battery_saver);
         batterySaver.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
+        if (!mPowerManager.hasPowerProfiles()) {
+            batterySaver.setVisible(false);
+        }
 
         menu.add(0, MENU_HIGH_POWER_APPS, 0, R.string.high_power_apps);
         super.onCreateOptionsMenu(menu, inflater);
