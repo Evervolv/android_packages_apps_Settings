@@ -105,4 +105,7 @@
     <string name="fod_gesture_title">Screen off fingerprint</string>
     <string name="fod_gesture_summary">Allows unlocking the device without having to wake up the screen first</string>
 
+    <!-- App details: open play store link if app is user installed -->
+    <string name="app_play_store">Google Play</string>
+
 </resources>
