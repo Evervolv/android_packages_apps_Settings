@@ -18,4 +18,9 @@
     <!-- Settings main menu category heading. Evervolv (Toolbox, Updater, etc...). [CHAR LIMIT=40] -->
     <string name="header_category_evervolv">Evervolv</string>
 
+   <!-- Manage applications: show substratum overlays -->
+   <string name="filter_substratum_apps">Substratum overlays</string>
+   <string name="menu_show_substratum">Show overlays</string>
+   <string name="menu_hide_substratum">Hide overlays</string>
+
 </resources>
