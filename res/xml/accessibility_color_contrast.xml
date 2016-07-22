@@ -38,6 +38,14 @@
         settings:controller=
             "com.android.settings.accessibility.HighTextContrastPreferenceController" />
 
+    <!-- HSIC display color adjustments -->
+    <com.android.settings.display.PictureAdjustmentPreference
+        android:key="picture_adjustment"
+        android:title="@string/picture_adjustment_title"
+        android:dialogTitle="@string/picture_adjustment_title"
+        android:summary="@string/picture_adjustment_summary"
+        settings:controller="com.android.settings.display.PictureAdjustmentPreferenceController"/>
+
     <com.android.settings.accessibility.AccessibilityFooterPreference
         android:key="color_contrast_footer"
         android:title="@string/color_contrast_note"
