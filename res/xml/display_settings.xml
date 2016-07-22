@@ -120,6 +120,14 @@
             <intent android:action="com.evervolv.toolbox.DISPLAY_MODE_PICKER"/>
         </Preference>
 
+        <!-- HSIC display color adjustments -->
+        <com.android.settings.display.PictureAdjustmentPreference
+            android:key="picture_adjustment"
+            android:title="@string/picture_adjustment_title"
+            android:dialogTitle="@string/picture_adjustment_title"
+            android:summary="@string/picture_adjustment_summary"
+            settings:controller="com.android.settings.display.PictureAdjustmentPreferenceController"/>
+
         <!-- Color enhancement -->
         <SwitchPreference
             android:key="display_color_enhance"
