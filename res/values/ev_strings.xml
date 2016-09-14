@@ -81,4 +81,8 @@
     <!-- Reading Mode -->
     <string name="live_display_reading_mode_title">Reading mode</string>
     <string name="live_display_reading_mode_summary">Grayscale mode for long-term reading</string>
+
+    <!-- Automatic outdoor mode -->
+    <string name="live_display_outdoor_mode_title">Automatic outdoor mode</string>
+    <string name="live_display_outdoor_mode_summary">Increase brightness and saturation automatically under bright sunlight</string>
 </resources>
