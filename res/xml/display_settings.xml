@@ -45,6 +45,12 @@
             android:title="@string/even_dimmer_display_title"
             android:summary="@string/even_dimmer_display_summary"
             settings:controller="com.android.settings.display.EvenDimmerPreferenceController"/>
+
+        <SwitchPreferenceCompat
+            android:key="display_auto_outdoor_mode"
+            android:title="@string/live_display_outdoor_mode_title"
+            android:summary="@string/live_display_outdoor_mode_summary"
+            settings:controller="com.android.settings.display.AutomaticOutdoorModeController"/>
     </PreferenceCategory>
 
     <PreferenceCategory
