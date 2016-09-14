@@ -32,6 +32,11 @@
         android:icon="@drawable/ic_settings_buttons"
         android:order="-252" />
 
+    <com.evervolv.internal.parts.PartsPreference
+        android:key="status_bar_settings"
+        android:icon="@drawable/ic_settings_statusbar"
+        android:order="-251" />
+
     <Preference
         android:key="gesture_settings"
         android:title="@string/gesture_preference_title"
