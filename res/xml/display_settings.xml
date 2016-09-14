@@ -36,6 +36,12 @@
             android:title="@string/auto_brightness_title"
             android:fragment="com.android.settings.display.AutoBrightnessSettings"
             settings:controller="com.android.settings.display.AutoBrightnessPreferenceController"/>
+
+        <SwitchPreference
+            android:key="display_auto_outdoor_mode"
+            android:title="@string/live_display_outdoor_mode_title"
+            android:summary="@string/live_display_outdoor_mode_summary"
+            settings:controller="com.android.settings.display.AutomaticOutdoorModeController"/>
     </PreferenceCategory>
 
     <PreferenceCategory
