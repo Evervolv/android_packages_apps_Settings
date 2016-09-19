@@ -26,4 +26,8 @@
     <string name="security_settings_fingerprint_sensor_location_left">left side</string>
     <string name="security_settings_fingerprint_sensor_location_right">right side</string>
 
+    <!-- Advanced reboot options -->
+    <string name="advanced_reboot_title">Advanced reboot</string>
+    <string name="advanced_reboot_summary">When unlocked, include options in the power menu for rebooting into recovery or bootloader</string>
+
 </resources>
