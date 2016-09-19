@@ -17,6 +17,12 @@
     xmlns:settings="http://schemas.android.com/apk/res-auto"
     android:title="@string/power_menu_setting_name">
 
+    <evervolv.preference.EVSecureSettingSwitchPreference
+        android:key="advanced_reboot"
+        android:title="@string/advanced_reboot_title"
+        android:summary="@string/advanced_reboot_summary"
+        android:defaultValue="false" />
+
     <SwitchPreference
         android:key="gesture_power_menu_long_press_for_assist"
         android:title="@string/power_menu_long_press_for_assist"
