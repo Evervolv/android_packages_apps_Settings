@@ -67,4 +67,7 @@
     <string name="status_bar_am_pm_small">Small</string>
     <string name="status_bar_am_pm_hidden">Hidden</string>
 
+    <!-- Lock screen visualizer -->
+    <string name="lockscreen_visualizer_title">Display music visualizer</string>
+
 </resources>
