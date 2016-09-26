@@ -72,6 +72,12 @@
         settings:keywords="@string/keywords_auto_rotate"
         settings:controller="com.android.settings.display.AutoRotatePreferenceController"/>
 
+    <!-- Rotation -->
+    <com.evervolv.internal.parts.PartsPreference
+        android:key="rotation"
+        evervolv:replacesKey="auto_rotate"
+        evervolv:requiresFeature="android.hardware.sensor.accelerometer" />
+
     <Preference
         android:key="color_mode"
         android:title="@string/color_mode_title"
