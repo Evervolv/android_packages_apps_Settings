@@ -38,4 +38,11 @@
         <item>2</item>
     </string-array>
 
+    <string-array name="entries_font_size_percent">
+        <item>80%</item>
+        <item>100%</item>
+        <item>115%</item>
+        <item>130%</item>
+    </string-array>
+
 </resources>
