@@ -39,4 +39,8 @@
    <string name="force_authorize_substratum_packages_title">Force authorize every theme app</string>
    <string name="force_authorize_substratum_packages_summary">Allow theme apps from unknown sources</string>
 
+   <!-- Doze -->
+   <string name="doze_settings_title">Ambient display settings</string>
+   <string name="doze_settings_summary">Control the actions that wake the screen</string>
+
 </resources>
