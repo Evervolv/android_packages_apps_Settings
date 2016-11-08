@@ -95,4 +95,11 @@
             android:order="24"/>
     </PreferenceCategory>
 
+    <!-- importance -->
+    <PreferenceScreen
+        android:key="power_notification_controls"
+        android:title="@string/tuner_full_importance_settings">
+        <intent android:action="com.android.settings.action.POWER_NOTIF_CONTROLS" />
+    </PreferenceScreen>
+
 </PreferenceScreen>
