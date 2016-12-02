@@ -28,4 +28,8 @@
    <string name="menu_show_substratum_icons">Show icon overlays</string>
    <string name="menu_hide_substratum_icons">Hide icon overlays</string>
 
+   <!-- Themes -->
+   <string name="themes_title">Themes</string>
+   <string name="themes_dashboard_summary">Manage your themes</string>
+
 </resources>
