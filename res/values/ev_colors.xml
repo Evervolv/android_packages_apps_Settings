@@ -74,4 +74,8 @@
     <color name="text_color_black">@android:color/black</color>
     <color name="text_color_white">@android:color/white</color>
     <color name="background_color_white">@android:color/white</color>
+
+    <!-- Color engine -->
+    <color name="pixel_primary_color">@*android:color/primary_dark_material_dark</color>
+    <color name="pixel_secondary_color">@*android:color/secondary_material_settings</color>
 </resources>
