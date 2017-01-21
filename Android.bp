@@ -79,6 +79,7 @@ android_library {
         "SettingsLibActivityEmbedding",
         "com.evervolv.platform.internal",
         "vendor.evervolv.fastcharge-V1.0-java",
+        "PartsPreference",
     ],
 
     libs: [
