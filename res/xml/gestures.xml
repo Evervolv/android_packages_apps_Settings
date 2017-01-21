@@ -17,9 +17,14 @@
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:evervolv="http://schemas.android.com/apk/res/evervolv.platform"
     xmlns:settings="http://schemas.android.com/apk/res-auto"
     android:key="gesture_settings_screen"
     android:title="@string/gesture_preference_title">
+
+    <com.evervolv.internal.parts.PartsPreference
+        android:key="touchscreen_gesture_settings"
+        evervolv:requiresFeature="hardware:FEATURE_TOUCHSCREEN_GESTURES" />
 
     <Preference
         android:key="gesture_assist_input_summary"
