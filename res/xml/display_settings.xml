@@ -58,15 +58,6 @@
                         android:targetClass="@string/config_wallpaper_picker_class" />
         </com.android.settingslib.RestrictedPreference>
 
-        <PreferenceCategory
-                android:title="@string/theme_title">
-
-            <com.android.settings.display.ThemePreference
-                    android:key="theme"
-                    android:title="@string/theme" />
-
-        </PreferenceCategory>
-
         <com.android.settings.TimeoutListPreference
                 android:key="screen_timeout"
                 android:title="@string/screen_timeout"
@@ -139,5 +130,14 @@
                 android:key="vr_display_pref"
                 android:summary="%s"
                 android:title="@string/display_vr_pref_title" />
+
+        <PreferenceCategory
+                android:title="@string/theme_title">
+
+            <com.android.settings.display.ThemePreference
+                    android:key="theme"
+                    android:title="@string/theme" />
+
+        </PreferenceCategory>
 
 </PreferenceScreen>
