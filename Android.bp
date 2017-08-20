@@ -80,6 +80,7 @@ android_library {
         "com.evervolv.platform.internal",
         "vendor.evervolv.fastcharge-V1.0-java",
         "PartsPreference",
+        "RemotePreference",
     ],
 
     libs: [
