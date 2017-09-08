@@ -47,6 +47,7 @@ java_library {
 android_library {
     name: "Settings-core",
     defaults: [
+        "EVSettingsLibDefaults",
         "SettingsLib-search-defaults",
         "SettingsLintDefaults",
         "SpaPrivilegedLib-defaults",
@@ -111,6 +112,7 @@ android_library {
         "androidx.test.rules",
         "telephony_flags_core_java_lib",
         "setupdesign-lottie-loading-layout",
+        "com.evervolv.platform.internal",
     ],
 
     plugins: ["androidx.room_room-compiler-plugin"],
