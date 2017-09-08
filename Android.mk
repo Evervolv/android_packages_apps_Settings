@@ -44,6 +44,7 @@ LOCAL_STATIC_JAVA_LIBRARIES := \
     guava \
     jsr305 \
     settings-logtags \
+    com.evervolv.platform.internal
 
 LOCAL_PROGUARD_FLAG_FILES := proguard.flags
 
