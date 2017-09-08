@@ -47,6 +47,7 @@ java_library {
 android_library {
     name: "Settings-core",
     defaults: [
+        "EVSettingsLibDefaults",
         "SettingsLib-search-defaults",
         "SettingsLintDefaults",
         "SpaPrivilegedLib-defaults",
@@ -110,6 +111,7 @@ android_library {
         "device_policy_aconfig_flags_lib",
         "kotlinx-coroutines-core",
         "kotlinx-coroutines-android",
+        "com.evervolv.platform.internal",
     ],
 
     plugins: ["androidx.room_room-compiler-plugin"],
