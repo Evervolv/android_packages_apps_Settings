@@ -49,7 +49,7 @@ android_library {
     name: "Settings-core",
     platform_apis: true,
     defaults: [
-        "SettingsLibDefaults",
+        "EVSettingsLibDefaults",
         "SettingsLib-search-defaults",
     ],
 
@@ -88,6 +88,7 @@ android_library {
         "WifiTrackerLib",
         "SettingsLibActivityEmbedding",
         "Settings-change-ids",
+        "com.evervolv.platform.internal",
     ],
 
     libs: [
