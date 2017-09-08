@@ -49,7 +49,7 @@ android_library {
     name: "Settings-core",
     platform_apis: true,
     defaults: [
-        "SettingsLibDefaults",
+        "EVSettingsLibDefaults",
         "SettingsLib-search-defaults",
     ],
 
@@ -89,6 +89,7 @@ android_library {
         "SettingsLibActivityEmbedding",
         "Settings-change-ids",
         "SystemUIUnfoldLib",
+        "com.evervolv.platform.internal",
     ],
 
     libs: [
