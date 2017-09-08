@@ -49,7 +49,7 @@ android_library {
     name: "Settings-core",
     platform_apis: true,
     defaults: [
-        "SettingsLibDefaults",
+        "EVSettingsLibDefaults",
         "SettingsLib-search-defaults",
         "SpaPrivilegedLib-defaults",
     ],
@@ -104,6 +104,7 @@ android_library {
         "Settings-change-ids",
         "androidx.room_room-runtime",
         "SystemUIUnfoldLib",
+        "com.evervolv.platform.internal",
     ],
 
     plugins: ["androidx.room_room-compiler-plugin"],
