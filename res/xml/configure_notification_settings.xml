@@ -221,6 +221,12 @@
             android:title="@string/notification_pulse_title"
             settings:controller="com.android.settings.notification.PulseNotificationPreferenceController"/>
 
+        <!-- Notification lights -->
+        <com.evervolv.internal.parts.PartsPreference
+            android:key="notification_lights"
+            settings:requiresConfig="@*android:bool/config_intrusiveNotificationLed"
+            settings:replacesKey="notification_pulse" />
+
         <SwitchPreferenceCompat
             android:key="notification_assistant"
             android:order="28"
