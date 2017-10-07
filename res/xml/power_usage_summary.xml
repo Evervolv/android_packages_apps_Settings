@@ -45,6 +45,11 @@
         android:key="perf_profile_settings"
         evervolv:replacesKey="battery_saver_summary" />
 
+    <com.evervolv.internal.parts.PartsPreference
+        android:key="battery_lights"
+        evervolv:requiresConfig="@*evervolv.platform:integer/config_deviceLightCapabilities"
+        evervolv:requiresConfigMask="64" />
+
     <Preference
         android:fragment="com.android.settings.fuelgauge.SmartBatterySettings"
         android:key="smart_battery_manager"
@@ -56,7 +61,6 @@
         android:title="@string/battery_percentage"
         android:summary="@string/battery_percentage_description"
         settings:controller="com.android.settings.display.BatteryPercentagePreferenceController" />
-
 
     <com.android.settings.fuelgauge.PowerGaugePreference
         android:key="last_full_charge"
