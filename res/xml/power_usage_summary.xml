@@ -53,6 +53,11 @@
         settings:controller="com.android.settings.display.BatteryPercentagePreferenceController" />
 
     <com.evervolv.internal.parts.PartsPreference
+        android:key="battery_lights"
+        evervolv:requiresConfig="@*evervolv.platform:integer/config_deviceLightCapabilities"
+        evervolv:requiresConfigMask="64" />
+
+    <com.evervolv.internal.parts.PartsPreference
         android:key="perf_profile_settings"
         evervolv:requiresFeature="com.evervolv.performance" />
 
