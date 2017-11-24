@@ -30,6 +30,12 @@
         settings:searchable="false"
         settings:controller="com.android.settings.deviceinfo.firmwareversion.FirmwareVersionDetailPreferenceController"/>
 
+    <!-- Evervolv version -->
+    <com.evervolv.internal.preference.deviceinfo.PlatformVersionPreference
+        android:key="evervolv_version"
+        android:selectable="false"
+        settings:enableCopying="true" />
+
     <!-- Security patch -->
     <Preference
         android:key="security_key"
