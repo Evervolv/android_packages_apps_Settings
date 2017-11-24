@@ -124,6 +124,11 @@
         android:fragment="com.android.settings.deviceinfo.firmwareversion.FirmwareVersionSettings"
         settings:controller="com.android.settings.deviceinfo.firmwareversion.FirmwareVersionPreferenceController"/>
 
+    <!-- Evervolv version -->
+    <com.evervolv.internal.preference.deviceinfo.PlatformVersionPreference
+        android:key="evervolv_version"
+        android:order="43" />
+
     <!--IP address -->
     <Preference
         android:key="wifi_ip_address"
