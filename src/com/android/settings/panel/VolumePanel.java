@@ -24,6 +24,7 @@ import static com.android.settings.slices.CustomSliceRegistry.REMOTE_MEDIA_SLICE
 import static com.android.settings.slices.CustomSliceRegistry.VOLUME_ALARM_URI;
 import static com.android.settings.slices.CustomSliceRegistry.VOLUME_CALL_URI;
 import static com.android.settings.slices.CustomSliceRegistry.VOLUME_MEDIA_URI;
+import static com.android.settings.slices.CustomSliceRegistry.VOLUME_NOTIFICATION_URI;
 import static com.android.settings.slices.CustomSliceRegistry.VOLUME_RINGER_URI;
 
 import android.app.Activity;
@@ -36,6 +37,7 @@ import android.content.IntentFilter;
 import android.net.Uri;
 import android.provider.Settings;
 import android.text.TextUtils;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 
 import androidx.lifecycle.LifecycleObserver;
@@ -65,6 +67,8 @@ public class VolumePanel implements PanelContent, LifecycleObserver {
     private PanelContentCallback mCallback;
     private LocalBluetoothProfileManager mProfileManager;
     private int mControlSliceWidth;
+
+    private TelephonyManager mTelephonyManager;
 
     private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
         @Override
@@ -104,6 +108,8 @@ public class VolumePanel implements PanelContent, LifecycleObserver {
         if (localBluetoothManager != null) {
             mProfileManager = localBluetoothManager.getProfileManager();
         }
+
+        mTelephonyManager = (TelephonyManager) mContext.getSystemService(Context.TELEPHONY_SERVICE);
     }
 
     /** Invoked when the panel is resumed. */
@@ -139,6 +145,10 @@ public class VolumePanel implements PanelContent, LifecycleObserver {
         uris.add(MEDIA_OUTPUT_INDICATOR_SLICE_URI);
         uris.add(VOLUME_CALL_URI);
         uris.add(VOLUME_RINGER_URI);
+        if (mTelephonyManager != null && mTelephonyManager.isVoiceCapable() 
+                && Settings.Secure.getInt(mContext.getContentResolver(), Settings.Secure.VOLUME_LINK_NOTIFICATION, 1) == 0) {
+            uris.add(VOLUME_NOTIFICATION_URI);
+        }
         uris.add(VOLUME_ALARM_URI);
         return uris;
     }
