@@ -33,6 +33,8 @@ import com.android.settings.wrapper.OverlayManagerWrapper.OverlayInfo;
 import com.android.settingslib.core.AbstractPreferenceController;
 import com.android.settingslib.core.instrumentation.MetricsFeatureProvider;
 
+import evervolv.style.StyleInterface;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -47,6 +49,7 @@ public class ThemePreferenceController extends AbstractPreferenceController impl
     private final MetricsFeatureProvider mMetricsFeatureProvider;
     private final OverlayManagerWrapper mOverlayService;
     private final PackageManager mPackageManager;
+    private StyleInterface mStyleInterface;
 
     public ThemePreferenceController(Context context) {
         this(context, ServiceManager.getService(Context.OVERLAY_SERVICE) != null
@@ -58,6 +61,7 @@ public class ThemePreferenceController extends AbstractPreferenceController impl
         super(context);
         mOverlayService = overlayManager;
         mPackageManager = context.getPackageManager();
+        mStyleInterface = StyleInterface.getInstance(context);
         mMetricsFeatureProvider = FeatureFactory.getFactory(context).getMetricsFeatureProvider();
     }
 
@@ -142,6 +146,7 @@ public class ThemePreferenceController extends AbstractPreferenceController impl
 
     @Override
     public boolean isAvailable() {
+        if (mStyleInterface != null) return false;
         if (mOverlayService == null) return false;
         String[] themes = getAvailableThemes();
         return themes != null && themes.length > 1;

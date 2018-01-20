@@ -25,6 +25,8 @@ import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceScreen;
 import android.util.FeatureFlagUtils;
 
+import evervolv.style.StyleInterface;
+
 import com.android.settings.core.BasePreferenceController;
 import com.android.settings.core.PreferenceControllerMixin;
 import com.android.settingslib.core.AbstractPreferenceController;
@@ -37,13 +39,17 @@ public class SystemUiThemePreferenceController extends BasePreferenceController
         implements Preference.OnPreferenceChangeListener {
 
     private ListPreference mSystemUiThemePref;
+    private StyleInterface mStyleInterface;
 
     public SystemUiThemePreferenceController(Context context, String preferenceKey) {
         super(context, preferenceKey);
+
+        mStyleInterface = StyleInterface.getInstance(context);
     }
 
     @Override
     public int getAvailabilityStatus() {
+        if (mStyleInterface != null) return CONDITIONALLY_UNAVAILABLE;
         boolean enabled = FeatureFlagUtils.isEnabled(mContext, "settings_systemui_theme");
         return enabled ? AVAILABLE : CONDITIONALLY_UNAVAILABLE;
     }
