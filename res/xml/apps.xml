@@ -66,6 +66,11 @@
         android:key="dashboard_tile_placeholder"
         android:order="10"/>
 
+    <com.evervolv.internal.parts.PartsPreference
+        android:key="long_screen_settings"
+        android:order="14"
+        settings:requiresConfig="@*evervolv.platform:bool/config_haveHigherAspectRatioScreen" />
+
     <Preference
         android:key="hibernated_apps"
         android:title="@string/unused_apps"
