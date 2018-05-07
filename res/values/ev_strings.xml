@@ -155,4 +155,9 @@
     <!-- Sound & display settings screen, accelerometer-based rotation check box label -->
     <string name="auto_rotate_lockscreen_title">Auto-rotate lock screen</string>
     <string name="auto_rotate_lockscreen_summary">Allow the lock screen to switch between portrait and landscape</string>
+
+    <!-- Location settings screen, setting check box label if Assisted GPS should be enabled -->
+    <string name="assisted_gps">Use assisted GPS</string>
+    <!-- Location settings screen, setting summary for Assisted GPS switch -->
+    <string name="assisted_gps_summary">Download satellite assistance data from the internet which can greatly improve the GPS startup performance. For emergency calls, assisted GPS is always allowed.</string>
 </resources>
