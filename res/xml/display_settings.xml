@@ -104,6 +104,12 @@
             android:key="display_mode"
             evervolv:replacesKey="color_mode"
             evervolv:requiresFeature="hardware:FEATURE_DISPLAY_MODES" />
+
+        <evervolv.preference.EVSystemSettingSwitchPreference
+            android:key="display_reading_mode"
+            android:title="@string/live_display_reading_mode_title"
+            android:summary="@string/live_display_reading_mode_summary"
+            settings:controller="com.android.settings.display.ReadingModePreferenceController" />
     </PreferenceCategory>
 
     <PreferenceCategory

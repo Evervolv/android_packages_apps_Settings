@@ -38,4 +38,8 @@
     <string name="live_display_color_profile_srgb_title">sRGB</string>
     <string name="live_display_color_profile_dci_p3_title">DCI-P3</string>
 
+    <!-- Reading Mode -->
+    <string name="live_display_reading_mode_title">Reading mode</string>
+    <string name="live_display_reading_mode_summary">Grayscale mode for long-term reading</string>
+
 </resources>
