@@ -74,6 +74,12 @@
             android:persistent="false"
             android:title="@string/accessibility_text_reading_options_title"
             settings:controller="com.android.settings.accessibility.TextReadingFragmentForDisplaySettingsController"/>
+
+        <SwitchPreference
+            android:key="display_reading_mode"
+            android:title="@string/live_display_reading_mode_title"
+            android:summary="@string/live_display_reading_mode_summary"
+            settings:controller="com.android.settings.display.ReadingModePreferenceController"/>
     </PreferenceCategory>
 
     <PreferenceCategory

@@ -49,7 +49,7 @@ public class DarkModeThemePreferenceController extends BasePreferenceController
         super.updateState(preference);
         int themeEnabled =
                 EVSettings.System.getInt(mContext.getContentResolver(), BERRY_BLACK_THEME, 0);
-        ((DropDownPreference) preference).setValue(themeEnabled);
+        ((DropDownPreference) preference).setValue(String.valueOf(themeEnabled));
     }
 
     @Override
