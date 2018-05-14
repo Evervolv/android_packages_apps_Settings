@@ -94,4 +94,8 @@
     <string name="dc_dimming_off">Off</string>
     <string name="dc_dimming_on">On</string>
     <string name="dc_dimming_auto">Turns on from sunset to sunrise</string>
+
+    <!-- Reading Mode -->
+    <string name="live_display_reading_mode_title">Reading mode</string>
+    <string name="live_display_reading_mode_summary">Grayscale mode for long-term reading</string>
 </resources>
