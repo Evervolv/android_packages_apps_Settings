@@ -157,4 +157,8 @@
     <!-- Volume panel location -->
     <string name="volume_panel_on_left_title">Show panel on left</string>
     <string name="volume_panel_on_left_summary">Display volume panel on the left side of the screen</string>
+
+    <!-- Reading Mode -->
+    <string name="live_display_reading_mode_title">Reading mode</string>
+    <string name="live_display_reading_mode_summary">Grayscale mode for long-term reading</string>
 </resources>

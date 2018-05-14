@@ -121,6 +121,12 @@
         android:summary="@string/display_white_balance_summary"
         settings:controller="com.android.settings.display.DisplayWhiteBalancePreferenceController" />
 
+    <evervolv.preference.EVSystemSettingSwitchPreference
+        android:key="display_reading_mode"
+        android:title="@string/live_display_reading_mode_title"
+        android:summary="@string/live_display_reading_mode_summary"
+        settings:controller="com.android.settings.display.ReadingModePreferenceController" />
+
     <ListPreference
         android:key="min_refresh_rate"
         android:title="@string/min_refresh_rate_title"
