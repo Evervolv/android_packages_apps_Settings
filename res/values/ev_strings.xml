@@ -91,4 +91,8 @@
     <!-- Anti-flicker -->
     <string name="live_display_anti_flicker_title">Anti flicker</string>
     <string name="live_display_anti_flicker_summary">Prevent extensive flickering and reduce eye strain in low light conditions. It might degrade color accuracy and affect the way some items are displayed.</string>
+
+    <!-- Reading Mode -->
+    <string name="live_display_reading_mode_title">Reading mode</string>
+    <string name="live_display_reading_mode_summary">Grayscale mode for long-term reading</string>
 </resources>
