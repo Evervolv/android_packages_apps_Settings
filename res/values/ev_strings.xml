@@ -88,4 +88,7 @@
     <string name="swipe_to_screenshot_gesture_title">Swipe to screenshot</string>
     <string name="swipe_to_screenshot_gesture_summary">Swipe three fingers to take screenshot</string>
 
+    <!-- About phone screen, status item label  [CHAR LIMIT=60] -->
+    <string name="vendor_security_patch">Vendor security update</string>
+
 </resources>
