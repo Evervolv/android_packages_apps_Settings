@@ -21,4 +21,7 @@
     <string name="platform_revision">Platform</string>
     <!-- Label for device's hardware ram size [CHAR LIMIT=40] -->
     <string name="total_ram">Total RAM</string>
+
+    <!-- About phone screen, status item label  [CHAR LIMIT=60] -->
+    <string name="vendor_security_patch">Vendor security update</string>
 </resources>
