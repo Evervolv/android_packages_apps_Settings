@@ -19,4 +19,10 @@
     <string-array name="config_ignored_backup_transports" translatable="false">
         <item>com.android.localtransport/.LocalTransport</item>
     </string-array>
+
+    <!-- Whether device platform should be shown or not. -->
+    <bool name="config_show_device_platform">true</bool>
+
+    <!-- Whether device total ram should be shown or not. -->
+    <bool name="config_show_device_total_ram">true</bool>
 </resources>
