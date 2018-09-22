@@ -17,6 +17,7 @@
 package com.android.settings.development;
 
 import android.content.Context;
+import android.os.Build;
 import android.provider.Settings;
 
 import androidx.annotation.VisibleForTesting;
@@ -72,5 +73,10 @@ public class DisableAutomaticUpdatesPreferenceController extends
         Settings.Global.putInt(mContext.getContentResolver(),
                 Settings.Global.OTA_DISABLE_AUTOMATIC_UPDATE, DISABLE_UPDATES_SETTING);
         ((SwitchPreference) mPreference).setChecked(false);
+    }
+
+    @Override
+    public boolean isAvailable() {
+        return Build.IS_ENG;
     }
 }
