@@ -72,4 +72,8 @@
     <!-- Label for device's hardware ram size [CHAR LIMIT=40] -->
     <string name="total_ram">Total RAM</string>
 
+    <!-- About phone screen, status item label  [CHAR LIMIT=40] -->
+    <string name="evervolv_title">Evervolv</string>
+    <string name="evervolv_version">Evervolv version</string>
+
 </resources>

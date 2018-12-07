@@ -51,7 +51,7 @@ public class FirmwareVersionDialogFragment extends InstrumentedDialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity())
-                .setTitle(R.string.firmware_title)
+                .setTitle(R.string.evervolv_title)
                 .setPositiveButton(android.R.string.ok, null /* listener */);
 
         mRootView = LayoutInflater.from(getActivity()).inflate(

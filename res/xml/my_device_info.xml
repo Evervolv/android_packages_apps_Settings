@@ -108,7 +108,7 @@
     <Preference
         android:key="firmware_version"
         android:order="32"
-        android:title="@string/firmware_version"
+        android:title="@string/evervolv_version"
         settings:keywords="@string/keywords_android_version"
         android:summary="@string/summary_placeholder"/>
 

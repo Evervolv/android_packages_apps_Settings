@@ -18,10 +18,11 @@ package com.android.settings.deviceinfo.firmwareversion;
 
 import android.app.Fragment;
 import android.content.Context;
-import android.os.Build;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceScreen;
 import android.text.TextUtils;
+
+import evervolv.os.Build;
 
 import com.android.settings.core.PreferenceControllerMixin;
 import com.android.settingslib.core.AbstractPreferenceController;
@@ -49,7 +50,10 @@ public class FirmwareVersionPreferenceController extends AbstractPreferenceContr
         super.displayPreference(screen);
         final Preference pref = screen.findPreference(getPreferenceKey());
         if (pref != null) {
-            pref.setSummary(Build.VERSION.RELEASE);
+            StringBuilder builder = new StringBuilder();
+            builder.append(Build.getVersion(false))
+                    .append(" (" + Build.getNameForSDKInt(Build.EVERVOLV_VERSION.SDK_INT) + ")");
+            pref.setSummary(builder.toString());
         }
     }
 
