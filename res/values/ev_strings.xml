@@ -150,4 +150,7 @@
     <string name="battery_saver_refresh_rate_title">Reduce refresh rate</string>
     <string name="battery_saver_refresh_rate_summary">Use 60 Hz as max refresh rate to save power when Battery Saver is on</string>
 
+    <!-- Volume panel expandable -->
+    <string name="volume_panel_expandable_title">Expanding panel</string>
+    <string name="volume_panel_expandable_summary">Panel expands to expose various volumes to control</string>
 </resources>
