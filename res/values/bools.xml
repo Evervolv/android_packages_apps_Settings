@@ -176,4 +176,7 @@
 
     <!-- Whether to disable "Uninstall Updates" menu item for System apps or not.. -->
     <bool name="config_disable_uninstall_update">false</bool>
+
+    <!-- Whether or not we should show the option to show battery percentage -->
+    <bool name="config_disable_battery_percentage_setting">false</bool>
 </resources>

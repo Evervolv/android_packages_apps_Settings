@@ -41,8 +41,8 @@ public class BatteryPercentagePreferenceController extends AbstractPreferenceCon
 
     @Override
     public boolean isAvailable() {
-        return mContext.getResources()
-                .getBoolean(R.bool.config_battery_percentage_setting_available);
+        return mContext.getResources().getBoolean(com.android.internal.R.bool.config_battery_percentage_setting_available)
+                && !mContext.getResources().getBoolean(com.android.settings.R.bool.config_disable_battery_percentage_setting);
     }
 
     @Override
