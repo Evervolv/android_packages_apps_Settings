@@ -19,6 +19,8 @@ import static android.provider.Settings.System.SHOW_BATTERY_PERCENT;
 
 import android.app.settings.SettingsEnums;
 import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.provider.Settings;
 
 import androidx.preference.Preference;
@@ -39,16 +41,24 @@ public class BatteryPercentagePreferenceController extends BasePreferenceControl
         PreferenceControllerMixin, Preference.OnPreferenceChangeListener {
 
     private Preference mPreference;
+    private boolean mExternalProvision;
 
     public BatteryPercentagePreferenceController(Context context, String preferenceKey) {
         super(context, preferenceKey);
+        ApplicationInfo info;
+        try {
+            info = context.getPackageManager().getApplicationInfo("com.evervolv.toolbox", 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            info = null;
+        }
+        mExternalProvision = info != null && info.enabled;
     }
 
     @Override
     public void displayPreference(PreferenceScreen screen) {
         super.displayPreference(screen);
         mPreference = screen.findPreference(getPreferenceKey());
-        if (!Utils.isBatteryPresent(mContext)) {
+        if (!Utils.isBatteryPresent(mContext) || mExternalProvision) {
             // Disable battery percentage
             onPreferenceChange(mPreference, false /* newValue */);
         }
@@ -56,7 +66,7 @@ public class BatteryPercentagePreferenceController extends BasePreferenceControl
 
     @Override
     public int getAvailabilityStatus() {
-        if (!Utils.isBatteryPresent(mContext)) {
+        if (!Utils.isBatteryPresent(mContext) || mExternalProvision) {
             return CONDITIONALLY_UNAVAILABLE;
         }
         return mContext.getResources().getBoolean(
