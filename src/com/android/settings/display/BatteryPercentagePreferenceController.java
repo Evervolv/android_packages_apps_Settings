@@ -18,11 +18,15 @@ package com.android.settings.display;
 import static android.provider.Settings.System.SHOW_BATTERY_PERCENT;
 
 import android.content.Context;
+import android.os.SystemProperties;
 import android.provider.Settings;
+import android.text.TextUtils;
 
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.SwitchPreference;
+
+import evervolv.os.Build;
 
 import com.android.internal.R;
 import com.android.settings.Utils;
@@ -54,6 +58,10 @@ public class BatteryPercentagePreferenceController extends BasePreferenceControl
 
     @Override
     public int getAvailabilityStatus() {
+        String vendorSdk = Build.getNameForSDKInt(Build.EVERVOLV_VERSION.SDK_INT);
+        if (!TextUtils.isEmpty(vendorSdk) && !vendorSdk.equals("unknown")) {
+            return UNSUPPORTED_ON_DEVICE;
+        }
         if (!Utils.isBatteryPresent(mContext)) {
             return CONDITIONALLY_UNAVAILABLE;
         }
