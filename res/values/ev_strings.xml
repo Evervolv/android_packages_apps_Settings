@@ -98,4 +98,7 @@
     <string name="status_bar_am_pm_small">Small</string>
     <string name="status_bar_am_pm_hidden">Hidden</string>
 
+    <!-- Jump to lockscreen tuner to let user change lockscreen shortcuts -->
+    <string name="open_lockscreen_tuner">Change shortcuts</string>
+
 </resources>
