@@ -100,4 +100,11 @@
         android:title="@string/power_menu_setting_name"
         android:fragment="com.android.settings.gestures.PowerMenuSettings"
         settings:controller="com.android.settings.gestures.PowerMenuPreferenceController" />
+
+    <evervolv.preference.EVSystemSettingSwitchPreference
+        android:key="swipe_to_screenshot"
+        android:title="@string/swipe_to_screenshot_gesture_title"
+        android:summary="@string/swipe_to_screenshot_gesture_summary"
+        android:defaultValue="false" />
+
 </PreferenceScreen>
