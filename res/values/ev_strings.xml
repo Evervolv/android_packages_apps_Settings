@@ -79,4 +79,8 @@
     <string name="status_bar_am_pm_small">Small</string>
     <string name="status_bar_am_pm_hidden">Hidden</string>
 
+    <!-- Three-fingers-swipe to screenshot -->
+    <string name="swipe_to_screenshot_title">Swipe to screenshot</string>
+    <string name="swipe_to_screenshot_summary">Swipe 3 fingers to take screenshot</string>
+
 </resources>
