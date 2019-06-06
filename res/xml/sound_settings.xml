@@ -107,6 +107,14 @@
         evervolv:requiresConfig="@*evervolv.platform:integer/config_deviceHardwareKeys"
         evervolv:requiresConfigMask="64" />
 
+    <evervolv.preference.EVSecureSettingSwitchPreference
+        android:key="volume_panel_on_left"
+        android:title="@string/volume_panel_on_left_title"
+        android:summary="@string/volume_panel_on_left_summary"
+        android:order="-136"
+        evervolv:requiresConfig="@*evervolv.platform:integer/config_deviceHardwareKeys"
+        evervolv:requiresConfigMask="64" />
+
     <!-- Also vibrate for calls -->
     <Preference
         android:fragment="com.android.settings.sound.VibrateForCallsPreferenceFragment"

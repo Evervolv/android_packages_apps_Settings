@@ -153,4 +153,8 @@
     <!-- Volume panel expandable -->
     <string name="volume_panel_expandable_title">Expanding panel</string>
     <string name="volume_panel_expandable_summary">Panel expands to expose various volumes to control</string>
+
+    <!-- Volume panel location -->
+    <string name="volume_panel_on_left_title">Show panel on left</string>
+    <string name="volume_panel_on_left_summary">Display volume panel on the left side of the screen</string>
 </resources>
