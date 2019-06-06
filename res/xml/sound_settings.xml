@@ -16,6 +16,7 @@
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:evervolv="http://schemas.android.com/apk/res/evervolv.platform"
     xmlns:settings="http://schemas.android.com/apk/res-auto"
     android:title="@string/sound_settings"
     android:key="sound_settings"
@@ -96,6 +97,14 @@
         android:defaultValue="true"
         android:order="-138"
         settings:controller="com.android.settings.notification.LinkedVolumesPreferenceController"/>
+
+    <evervolv.preference.EVSecureSettingSwitchPreference
+        android:key="volume_panel_on_left"
+        android:title="@string/volume_panel_on_left_title"
+        android:summary="@string/volume_panel_on_left_summary"
+        android:order="-136"
+        evervolv:requiresConfig="@*evervolv.platform:integer/config_deviceHardwareKeys"
+        evervolv:requiresConfigMask="64" />
 
     <!-- TODO(b/174964721): make this a PrimarySwitchPreference -->
     <!-- Interruptions -->
