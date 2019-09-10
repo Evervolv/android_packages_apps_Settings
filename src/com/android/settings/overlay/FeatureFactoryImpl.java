@@ -260,7 +260,7 @@ public class FeatureFactoryImpl extends FeatureFactory {
     @Override
     public AccountFeatureProvider getAccountFeatureProvider() {
         if (mAccountFeatureProvider == null) {
-            mAccountFeatureProvider = new AccountFeatureProviderImpl();
+            mAccountFeatureProvider = new AccountFeatureProviderImpl(getAppContext());
         }
         return mAccountFeatureProvider;
     }
