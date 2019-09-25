@@ -25,7 +25,17 @@
     <PreferenceCategory
         android:order="-10"
         android:key="security_status"
-        android:title="@string/security_status_title" />
+        android:title="@string/security_status_title" >
+
+        <!-- SELinux -->
+        <Preference
+            android:key="selinux_status"
+            android:title="@string/selinux_status"
+            android:summary="@string/summary_placeholder"
+            android:selectable="false"
+            settings:controller="com.android.settings.security.SelinuxStatusPreferenceController" />
+
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:order="1"

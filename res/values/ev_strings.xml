@@ -24,4 +24,10 @@
 
     <!-- About phone screen, status item label  [CHAR LIMIT=60] -->
     <string name="vendor_security_patch">Vendor security update</string>
+
+    <!-- SELinux Status -->
+    <string name="selinux_status">SELinux status</string>
+    <string name="selinux_status_disabled">Disabled</string>
+    <string name="selinux_status_permissive">Permissive</string>
+    <string name="selinux_status_enforcing">Enforcing</string>
 </resources>
