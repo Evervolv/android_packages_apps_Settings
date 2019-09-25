@@ -26,4 +26,7 @@
     -->
     <integer name="config_fingerprintSensorLocation">0</integer>
 
+    <!-- Whether SELinux status should be shown or not. -->
+    <bool name="config_show_selinux_status">false</bool>
+
 </resources>
