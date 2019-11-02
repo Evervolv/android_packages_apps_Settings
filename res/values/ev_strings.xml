@@ -75,4 +75,8 @@
     <string name="security_settings_fingerprint_sensor_location_right">right side</string>
     <string name="security_settings_fingerprint_sensor_location_screen">screen</string>
 
+    <!-- Android debugging as root -->
+    <string name="adb_enable_root">Rooted debugging</string>
+    <string name="adb_enable_summary_root">Allow running Android debugging as root</string>
+
 </resources>
