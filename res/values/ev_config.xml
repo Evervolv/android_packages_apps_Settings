@@ -22,6 +22,7 @@
          1 = front
          2 = left side
          3 = right side
+         4 = screen
     -->
     <integer name="config_fingerprintSensorLocation">0</integer>
 
