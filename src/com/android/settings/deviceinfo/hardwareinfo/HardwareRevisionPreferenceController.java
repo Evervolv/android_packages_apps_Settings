@@ -18,6 +18,7 @@ package com.android.settings.deviceinfo.hardwareinfo;
 
 import android.content.Context;
 import android.os.SystemProperties;
+import android.text.TextUtils;
 
 import com.android.settings.R;
 import com.android.settings.core.BasePreferenceController;
@@ -25,12 +26,18 @@ import com.android.settings.slices.Sliceable;
 
 public class HardwareRevisionPreferenceController extends BasePreferenceController {
 
+    private String mHardwareRevision;
+
     public HardwareRevisionPreferenceController(Context context, String preferenceKey) {
         super(context, preferenceKey);
+        mHardwareRevision = SystemProperties.get("ro.boot.hardware.revision");
     }
 
     @Override
     public int getAvailabilityStatus() {
+        if (TextUtils.isEmpty(mHardwareRevision)) {
+            return UNSUPPORTED_ON_DEVICE;
+        }
         return mContext.getResources().getBoolean(R.bool.config_show_device_model)
                 ? AVAILABLE : UNSUPPORTED_ON_DEVICE;
     }
@@ -58,6 +65,6 @@ public class HardwareRevisionPreferenceController extends BasePreferenceControll
 
     @Override
     public CharSequence getSummary() {
-        return SystemProperties.get("ro.boot.hardware.revision");
+        return mHardwareRevision;
     }
 }
