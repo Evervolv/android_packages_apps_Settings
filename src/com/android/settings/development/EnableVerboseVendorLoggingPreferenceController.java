@@ -19,6 +19,7 @@ package com.android.settings.development;
 import android.annotation.Nullable;
 import android.content.Context;
 import android.hardware.dumpstate.V1_0.IDumpstateDevice;
+import android.os.Build;
 import android.os.RemoteException;
 import android.util.Log;
 
@@ -59,7 +60,8 @@ public class EnableVerboseVendorLoggingPreferenceController
     public boolean isAvailable() {
         // Only show preference when IDumpstateDevice v1.1 is avalaible
         // This is temperary strategy that may change later.
-        return isIDumpstateDeviceV1_1ServiceAvailable();
+        return Build.IS_ENG
+                && isIDumpstateDeviceV1_1ServiceAvailable();
     }
 
     @Override

@@ -17,6 +17,7 @@
 package com.android.settings.development;
 
 import android.content.Context;
+import android.os.Build;
 import android.provider.Settings;
 
 import androidx.annotation.VisibleForTesting;
@@ -42,6 +43,11 @@ public class DisableAutomaticUpdatesPreferenceController extends
 
     public DisableAutomaticUpdatesPreferenceController(Context context) {
         super(context);
+    }
+
+    @Override
+    public boolean isAvailable() {
+        return Build.IS_ENG;
     }
 
     @Override
