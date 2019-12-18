@@ -17,6 +17,7 @@
 package com.android.settings.development;
 
 import android.content.Context;
+import android.os.Build;
 import android.os.UserManager;
 
 import com.android.settings.core.PreferenceControllerMixin;
@@ -37,7 +38,8 @@ public class BugReportPreferenceController extends DeveloperOptionsPreferenceCon
 
     @Override
     public boolean isAvailable() {
-        return !mUserManager.hasUserRestriction(UserManager.DISALLOW_DEBUGGING_FEATURES);
+        return Build.IS_ENG
+                && !mUserManager.hasUserRestriction(UserManager.DISALLOW_DEBUGGING_FEATURES);
     }
 
     @Override

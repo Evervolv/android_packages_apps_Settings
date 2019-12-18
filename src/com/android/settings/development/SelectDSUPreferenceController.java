@@ -18,6 +18,7 @@ package com.android.settings.development;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.SystemProperties;
 
 import androidx.preference.Preference;
@@ -38,6 +39,11 @@ class SelectDSUPreferenceController extends DeveloperOptionsPreferenceController
     @Override
     public String getPreferenceKey() {
         return DSU_LOADER_KEY;
+    }
+
+    @Override
+    public boolean isAvailable() {
+        return Build.IS_ENG;
     }
 
     private boolean isDSURunning() {
