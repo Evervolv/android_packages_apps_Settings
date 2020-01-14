@@ -105,6 +105,10 @@
             evervolv:replacesKey="color_mode"
             evervolv:requiresFeature="hardware:FEATURE_DISPLAY_MODES" />
 
+        <com.evervolv.internal.parts.PartsPreference
+            android:key="livedisplay"
+            evervolv:requiresConfig="@*evervolv.platform:bool/config_enableLiveDisplay" />
+
         <evervolv.preference.EVSystemSettingSwitchPreference
             android:key="display_reading_mode"
             android:title="@string/live_display_reading_mode_title"
