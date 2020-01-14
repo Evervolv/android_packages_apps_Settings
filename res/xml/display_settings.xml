@@ -86,6 +86,10 @@
     <PreferenceCategory
         android:title="@string/category_name_color">
 
+        <com.evervolv.internal.parts.PartsPreference
+            android:key="livedisplay"
+            evervolv:requiresConfig="@*evervolv.platform:bool/config_enableLiveDisplay" />
+
         <com.android.settings.widget.PrimarySwitchPreference
             android:key="night_display"
             android:title="@string/night_display_title"
