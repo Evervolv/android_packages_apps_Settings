@@ -27,6 +27,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.os.UserManager;
+import android.provider.Settings;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -64,16 +65,13 @@ public class SettingsHomepageActivity extends FragmentActivity {
 
         setHomepageContainerPaddingTop();
 
-        Context context = getApplicationContext();
-
-        mUserManager = context.getSystemService(UserManager.class);
+        mUserManager = getSystemService(UserManager.class);
 
         final Toolbar toolbar = findViewById(R.id.search_action_bar);
         FeatureFactory.getFactory(this).getSearchFeatureProvider()
                 .initSearchToolbar(this /* activity */, toolbar, SettingsEnums.SETTINGS_HOMEPAGE);
 
         mAvatarView = root.findViewById(R.id.account_avatar);
-        mAvatarView.setImageDrawable(getCircularUserIcon(context));
         mAvatarView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,6 +80,8 @@ public class SettingsHomepageActivity extends FragmentActivity {
                 startActivity(intent);
             }
         });
+        updateAvatarView();
+
         getLifecycle().addObserver(new HideNonSystemOverlayMixin(this));
 
         if (!getSystemService(ActivityManager.class).isLowRamDevice()) {
@@ -122,24 +122,28 @@ public class SettingsHomepageActivity extends FragmentActivity {
         view.requestFocus();
     }
 
-    private Drawable getCircularUserIcon(Context context) {
-        Bitmap bitmapUserIcon = mUserManager.getUserIcon(UserHandle.myUserId());
+    private void updateAvatarView() {
+        if(!mUserManager.isUserSwitcherEnabled()) {
+            mAvatarView.setVisibility(View.GONE);
+            return;
+        }
 
+        Bitmap bitmapUserIcon = mUserManager.getUserIcon(UserHandle.myUserId());
         if (bitmapUserIcon == null) {
             // get default user icon.
             final Drawable defaultUserIcon = UserIcons.getDefaultUserIcon(
-                    context.getResources(), UserHandle.myUserId(), false);
+                    getApplicationContext().getResources(), UserHandle.myUserId(), false);
             bitmapUserIcon = UserIcons.convertToBitmap(defaultUserIcon);
         }
         Drawable drawableUserIcon = new CircleFramedDrawable(bitmapUserIcon,
-                (int) context.getResources().getDimension(R.dimen.circle_avatar_size));
-
-        return drawableUserIcon;
+                (int) getApplicationContext().getResources().getDimension(R.dimen.circle_avatar_size));
+        mAvatarView.setImageDrawable(drawableUserIcon);
+        mAvatarView.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        mAvatarView.setImageDrawable(getCircularUserIcon(getApplicationContext()));
+        updateAvatarView();
     }
 }
