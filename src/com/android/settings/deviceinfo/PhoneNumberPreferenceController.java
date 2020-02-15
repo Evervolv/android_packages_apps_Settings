@@ -17,6 +17,7 @@
 package com.android.settings.deviceinfo;
 
 import android.content.Context;
+import android.os.Build;
 import android.telephony.SubscriptionInfo;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
@@ -52,7 +53,7 @@ public class PhoneNumberPreferenceController extends BasePreferenceController {
 
     @Override
     public int getAvailabilityStatus() {
-        return SubscriptionUtil.isSimHardwareVisible(mContext) ?
+        return Build.IS_ENG && SubscriptionUtil.isSimHardwareVisible(mContext) ?
                 AVAILABLE : UNSUPPORTED_ON_DEVICE;
     }
 
