@@ -17,6 +17,7 @@
 package com.android.settings.deviceinfo;
 
 import android.content.Context;
+import android.os.Build;
 import android.telephony.SubscriptionInfo;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
@@ -51,6 +52,7 @@ public class PhoneNumberPreferenceController extends BasePreferenceController {
 
     @Override
     public int getAvailabilityStatus() {
+        if (!Build.IS_ENG) return UNSUPPORTED_ON_DEVICE;
         return mTelephonyManager.isVoiceCapable() ? AVAILABLE : UNSUPPORTED_ON_DEVICE;
     }
 
