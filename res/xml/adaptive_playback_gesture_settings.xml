@@ -17,14 +17,15 @@
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:key="gesture_adaptive_playback_screen"
     android:title="@string/adaptive_playback_screen_title">
 
-    <com.android.settings.widget.VideoPreference
-        android:key="gesture_adaptive_playback_video"
-        app:animation="@raw/adaptive_playback"
-        app:preview="@drawable/adaptive_playback" />
+    <com.android.settingslib.widget.IllustrationPreference
+        android:key="adaptive_playback_header"
+        settings:searchable="false"
+        app:lottie_rawRes="@raw/lottie_adaptive_playback"/>
 
     <com.android.settingslib.widget.MainSwitchPreference
         android:key="gesture_adaptive_playback_switch" />
