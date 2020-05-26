@@ -65,4 +65,8 @@
     <string name="battery_saver_refresh_rate_title">Reduce refresh rate</string>
     <string name="battery_saver_refresh_rate_summary">Use a lower refresh rate for additional power savings</string>
 
+    <!-- Black theme for dark mode -->
+    <string name="night_display_theme_title">Dark theme</string>
+    <string name="night_display_theme_default">System default</string>
+    <string name="night_display_theme_black">Black</string>
 </resources>
