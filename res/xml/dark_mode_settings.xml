@@ -72,6 +72,13 @@
         settings:searchable="false"
         settings:controller="com.android.settings.display.darkmode.DarkModePendingLocationPreferenceController" />
 
+    <evervolv.preference.EVSecureSettingSwitchPreference
+        android:key="berry_black_theme"
+        android:dependency="dark_ui_activated"
+        android:title="@string/berry_black_theme_title"
+        android:summary="@string/berry_black_theme_summary"
+        settings:controller="com.android.settings.display.darkmode.DarkModeBlackThemePreferenceController"/>
+
     <com.android.settingslib.widget.FooterPreference
         android:key="dark_theme_custom_bedtime_footer"
         android:title="@string/dark_ui_bedtime_footer_summary"
