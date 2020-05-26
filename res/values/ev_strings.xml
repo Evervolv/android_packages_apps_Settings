@@ -151,4 +151,8 @@
     <!-- Volume panel location -->
     <string name="volume_panel_on_left_title">Show panel on left</string>
     <string name="volume_panel_on_left_summary">Display volume panel on the left side of the screen</string>
+
+    <!-- Black theme for dark mode -->
+    <string name="berry_black_theme_title">Pure black</string>
+    <string name="berry_black_theme_summary">Pure black background for dark theme</string>
 </resources>
