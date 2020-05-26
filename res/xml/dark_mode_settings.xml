@@ -16,6 +16,7 @@
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:evervolv="http://schemas.android.com/apk/res/evervolv.platform"
     xmlns:settings="http://schemas.android.com/apk/res-auto"
     android:title="@string/dark_ui_mode"
     settings:keywords="@string/keywords_dark_ui_mode">
@@ -54,6 +55,14 @@
         android:key="dark_theme_end_time"
         android:title="@string/night_display_end_time_title"
         settings:searchable="false"/>
+
+    <DropDownPreference
+        android:key="dark_ui_theme"
+        android:title="@string/night_display_theme_title"
+        android:summary="%s"
+        android:entries="@array/night_display_theme_entries"
+        android:entryValues="@array/night_display_theme_values"
+        settings:controller="com.android.settings.display.darkmode.DarkModeThemePreferenceController" />
 
     <com.android.settingslib.widget.FooterPreference
         android:key="dark_theme_custom_bedtime_footer"

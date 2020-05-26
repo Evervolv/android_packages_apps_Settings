@@ -78,4 +78,8 @@
     <string name="status_bar_am_pm_small">Small</string>
     <string name="status_bar_am_pm_hidden">Hidden</string>
 
+    <!-- Black theme for dark mode -->
+    <string name="night_display_theme_title">Dark theme</string>
+    <string name="night_display_theme_default">System default</string>
+    <string name="night_display_theme_black">Black</string>
 </resources>
