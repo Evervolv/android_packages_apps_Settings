@@ -28,4 +28,16 @@
         <item>2</item>
     </string-array>
 
+    <string-array name="dc_dimming_entries" translatable="false">
+        <item>@string/dc_dimming_off</item>
+        <item>@string/dc_dimming_on</item>
+        <item>@string/dc_dimming_auto</item>
+    </string-array>
+
+    <string-array name="dc_dimming_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
 </resources>
