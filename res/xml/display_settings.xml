@@ -134,6 +134,14 @@
             android:summary="@string/peak_refresh_rate_summary"
             settings:controller="com.android.settings.display.PeakRefreshRatePreferenceController"/>
 
+        <!-- Anti flicker mode / DC dimming -->
+        <evervolv.preference.EVSystemSettingSwitchPreference
+            android:key="display_anti_flicker"
+            android:title="@string/dc_dimming_title"
+            android:summary="@string/dc_dimming_info"
+            android:defaultValue="false"
+            evervolv:requiresFeature="hardware:FEATURE_ANTI_FLICKER" />
+
         <SwitchPreference
             android:key="show_operator_name"
             android:title="@string/show_operator_name_title"
