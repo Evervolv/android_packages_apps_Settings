@@ -158,6 +158,13 @@
             android:summary="@string/peak_refresh_rate_summary"
             settings:controller="com.android.settings.display.PeakRefreshRatePreferenceController"/>
 
+        <!-- Anti flicker mode / DC dimming -->
+        <SwitchPreferenceCompat
+            android:key="dc_dimming"
+            android:title="@string/dc_dimming_title"
+            android:summary="@string/dc_dimming_info"
+            settings:controller="com.android.settings.display.DcDimmingPreferenceController"/>
+
         <SwitchPreferenceCompat
             android:key="show_operator_name"
             android:title="@string/show_operator_name_title"
