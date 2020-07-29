@@ -82,4 +82,8 @@
     <string name="night_display_theme_title">Dark theme</string>
     <string name="night_display_theme_default">System default</string>
     <string name="night_display_theme_black">Black</string>
+
+    <!-- DC Dimming -->
+    <string name="dc_dimming_title">DC Dimming</string>
+    <string name="dc_dimming_info">Reduces eye strain in low light conditions but may result in reduced image quality and poor color production.</string>
 </resources>
