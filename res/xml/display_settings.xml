@@ -103,6 +103,15 @@
         settings:widgetLayout="@null"
         settings:searchable="false"/>
 
+    <!-- Anti flicker mode / DC dimming -->
+    <evervolv.preference.EVSystemSettingSwitchPreference
+        android:key="display_anti_flicker"
+        android:title="@string/dc_dimming_title"
+        android:summary="@string/dc_dimming_info"
+        android:defaultValue="false"
+        evervolv:replacesKey="dc_dimming"
+        evervolv:requiresFeature="hardware:FEATURE_ANTI_FLICKER" />
+
     <Preference
         android:key="color_mode"
         android:title="@string/color_mode_title"
