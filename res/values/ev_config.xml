@@ -16,6 +16,10 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <string-array name="config_ignored_backup_transports" translatable="false">
+        <item>com.android.localtransport/.LocalTransport</item>
+    </string-array>
+
     <!-- Whether device platform should be shown or not. -->
     <bool name="config_show_device_platform">true</bool>
 
