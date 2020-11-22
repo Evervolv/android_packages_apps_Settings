@@ -110,4 +110,7 @@
     <!-- Lock screen visualizer -->
     <string name="lockscreen_visualizer_title">Display music visualizer</string>
 
+    <!-- Refresh rate -->
+    <string name="refresh_rate_title">Screen refresh rate</string>
+
 </resources>
