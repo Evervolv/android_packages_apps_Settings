@@ -113,6 +113,7 @@ android_library {
         "device_policy_aconfig_flags_lib",
         "keyboard_flags_lib",
         "com.evervolv.platform.internal",
+        "vendor.evervolv.fastcharge-V1.0-java",
     ],
 
     plugins: [
