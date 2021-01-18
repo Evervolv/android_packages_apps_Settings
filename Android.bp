@@ -112,6 +112,7 @@ android_library {
         "kotlinx-coroutines-core",
         "kotlinx-coroutines-android",
         "com.evervolv.platform.internal",
+        "vendor.evervolv.fastcharge-V1.0-java",
     ],
 
     plugins: ["androidx.room_room-compiler-plugin"],
