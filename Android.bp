@@ -75,6 +75,7 @@ android_library {
         "lottie",
         "windowExtLib",
         "com.evervolv.platform.internal",
+        "vendor.evervolv.fastcharge-V1.0-java",
     ],
 
     libs: [
