@@ -105,6 +105,7 @@ android_library {
         "settings-telephony-protos-lite",
         "statslog-settings",
         "com.evervolv.platform.internal",
+        "vendor.evervolv.fastcharge-V1.0-java",
     ],
 
     plugins: ["androidx.room_room-compiler-plugin"],
