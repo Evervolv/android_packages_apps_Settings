@@ -89,6 +89,7 @@ android_library {
         "SettingsLibActivityEmbedding",
         "Settings-change-ids",
         "com.evervolv.platform.internal",
+        "vendor.evervolv.fastcharge-V1.0-java",
     ],
 
     libs: [
