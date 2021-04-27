@@ -61,6 +61,8 @@ public class ColorModePreferenceFragment extends RadioButtonPickerFragment {
 
     private static final int COLOR_MODE_FALLBACK = COLOR_MODE_NATURAL;
 
+    static final String KEY_COLOR_MODE_VENDOR = KEY_COLOR_MODE_PREFIX + "vendor_";
+
     static final String PAGE_VIEWER_SELECTION_INDEX = "page_viewer_selection_index";
 
     private static final int DOT_INDICATOR_SIZE = 12;
@@ -210,15 +212,27 @@ public class ColorModePreferenceFragment extends RadioButtonPickerFragment {
 
     @Override
     protected List<? extends CandidateInfo> getCandidates() {
-        final Map<Integer, String> colorModesToSummaries =
-                ColorModeUtils.getColorModeMapping(mResources);
+        final int[] availableColorModes = mResources.getIntArray(
+                com.android.internal.R.array.config_availableColorModes);
+        final String[] availableVendorColorModes = mResources.getStringArray(
+                R.array.available_vendor_color_modes);
         final List<ColorModeCandidateInfo> candidates = new ArrayList<>();
-        for (int colorMode : mResources.getIntArray(
-                com.android.internal.R.array.config_availableColorModes)) {
-            candidates.add(new ColorModeCandidateInfo(
-                    colorModesToSummaries.get(colorMode),
-                    getKeyForColorMode(colorMode),
-                    true /* enabled */));
+        if (availableVendorColorModes.length == availableColorModes.length) {
+            for (int i = 0; i < availableVendorColorModes.length; i++) {
+                candidates.add(new ColorModeCandidateInfo(
+                        availableVendorColorModes[i],
+                        KEY_COLOR_MODE_VENDOR + availableColorModes[i],
+                        true /* enabled */));
+            }
+        } else if (availableColorModes != null) {
+            final Map<Integer, String> colorModesToSummaries =
+                    ColorModeUtils.getColorModeMapping(mResources);
+            for (int colorMode : availableColorModes) {
+                candidates.add(new ColorModeCandidateInfo(
+                        colorModesToSummaries.get(colorMode),
+                        getKeyForColorMode(colorMode),
+                        true /* enabled */));
+            }
         }
         return candidates;
     }
@@ -226,7 +240,13 @@ public class ColorModePreferenceFragment extends RadioButtonPickerFragment {
     @Override
     protected String getDefaultKey() {
         final int colorMode = getColorMode();
-        if (isValidColorMode(colorMode)) {
+        final int[] availableColorModes = mResources.getIntArray(
+                com.android.internal.R.array.config_availableColorModes);
+        final String[] availableVendorColorModes = mResources.getStringArray(
+                R.array.available_vendor_color_modes);
+        if (availableVendorColorModes.length == availableColorModes.length) {
+            return KEY_COLOR_MODE_VENDOR + colorMode;
+        } else if (isValidColorMode(colorMode)) {
             return getKeyForColorMode(colorMode);
         }
         return getKeyForColorMode(COLOR_MODE_FALLBACK);
@@ -234,7 +254,14 @@ public class ColorModePreferenceFragment extends RadioButtonPickerFragment {
 
     @Override
     protected boolean setDefaultKey(String key) {
-        int colorMode = Integer.parseInt(key.substring(key.lastIndexOf("_") + 1));
+        int colorMode = COLOR_MODE_AUTOMATIC;
+        if (key.startsWith(KEY_COLOR_MODE_VENDOR)) {
+            colorMode = Integer.parseInt(key.substring(KEY_COLOR_MODE_VENDOR.length()));
+            setColorMode(colorMode);
+            return true;
+        }
+
+        colorMode = Integer.parseInt(key.substring(key.lastIndexOf("_") + 1));
         if (isValidColorMode(colorMode)) {
             setColorMode(colorMode);
         }
