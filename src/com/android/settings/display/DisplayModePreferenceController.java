@@ -21,11 +21,16 @@ import evervolv.hardware.HardwareManager;
 
 public class DisplayModePreferenceController extends BasePreferenceController {
 
+    private static final String COLOR_PROFILE_TITLE = "live_display_color_profile_%s_title";
+
     private HardwareManager mHardware;
+    private String mCurrentMode;
 
     public DisplayModePreferenceController(Context context, String key) {
         super(context, key);
         mHardware = HardwareManager.getInstance(context);
+        mCurrentMode = mHardware.getCurrentDisplayMode() != null
+                    ? mHardware.getCurrentDisplayMode().name : mHardware.getDefaultDisplayMode().name;
     }
 
     @Override
@@ -35,7 +40,17 @@ public class DisplayModePreferenceController extends BasePreferenceController {
 
     @Override
     public CharSequence getSummary() {
-        return mHardware.getCurrentDisplayMode() != null
+        final String name = mHardware.getCurrentDisplayMode() != null
                     ? mHardware.getCurrentDisplayMode().name : mHardware.getDefaultDisplayMode().name;
+        if (!name.equals(mCurrentMode)) {
+            mCurrentMode = name;
+        }
+
+        final int resId = mContext.getResources().getIdentifier(String.format(COLOR_PROFILE_TITLE,
+                mCurrentMode.toLowerCase().replace(" ", "_")), "string", "com.android.settings");
+        if (resId <= 0) {
+            return mCurrentMode;
+        }
+        return mContext.getResources().getString(resId);
     }
 }
