@@ -16,41 +16,40 @@ package com.android.settings.display;
 import android.content.Context;
 
 import com.android.settings.core.BasePreferenceController;
+import com.android.settings.R;
 
+import evervolv.hardware.DisplayMode;
 import evervolv.hardware.HardwareManager;
 
 public class DisplayModePreferenceController extends BasePreferenceController {
 
     private static final String COLOR_PROFILE_TITLE = "live_display_color_profile_%s_title";
 
-    private HardwareManager mHardware;
-    private String mCurrentMode;
+    private HardwareManager mHardwareManager;
 
     public DisplayModePreferenceController(Context context, String key) {
         super(context, key);
-        mHardware = HardwareManager.getInstance(context);
-        mCurrentMode = mHardware.getCurrentDisplayMode() != null
-                    ? mHardware.getCurrentDisplayMode().name : mHardware.getDefaultDisplayMode().name;
+        mHardwareManager = HardwareManager.getInstance(mContext);
     }
 
     @Override
     public int getAvailabilityStatus() {
-        return mHardware.getDisplayModes() != null && mHardware.getDisplayModes().length > 0 ? AVAILABLE : DISABLED_FOR_USER;
+        final DisplayMode[] availableColorModes = mHardwareManager.getDisplayModes();
+        return availableColorModes != null && availableColorModes.length > 0 ? AVAILABLE : UNSUPPORTED_ON_DEVICE;
     }
 
     @Override
     public CharSequence getSummary() {
-        final String name = mHardware.getCurrentDisplayMode() != null
-                    ? mHardware.getCurrentDisplayMode().name : mHardware.getDefaultDisplayMode().name;
-        if (!name.equals(mCurrentMode)) {
-            mCurrentMode = name;
+        final DisplayMode mode = mHardwareManager.getCurrentDisplayMode();
+        if (mode != null) {
+            final String modeName = mode.name;
+            final int modeResId = mContext.getResources().getIdentifier(String.format(COLOR_PROFILE_TITLE,
+                    modeName.toLowerCase().replace(" ", "_")), "string", "com.android.settings");
+            if (modeResId <= 0) {
+                return modeName;
+            }
+            return mContext.getText(modeResId);
         }
-
-        final int resId = mContext.getResources().getIdentifier(String.format(COLOR_PROFILE_TITLE,
-                mCurrentMode.toLowerCase().replace(" ", "_")), "string", "com.android.settings");
-        if (resId <= 0) {
-            return mCurrentMode;
-        }
-        return mContext.getResources().getString(resId);
+        return mContext.getText(R.string.summary_empty);
     }
 }
