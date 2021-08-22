@@ -71,7 +71,7 @@ public class MainlineModuleVersionPreferenceController extends BasePreferenceCon
 
     private void initModules() {
         final String moduleProvider = mContext.getString(
-                com.android.internal.R.string.config_defaultModuleMetadataProvider);
+                R.string.config_defaultModuleMetadataProvider);
         if (!TextUtils.isEmpty(moduleProvider)) {
             try {
                 mModuleVersion =
