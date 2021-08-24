@@ -101,7 +101,7 @@ public class SetupWizardUtils {
                 }
             }
         }
-        return R.style.GlifTheme;
+        return R.style.GlifV3Theme;
     }
 
     public static int getTransparentTheme(Context context, Intent intent) {
