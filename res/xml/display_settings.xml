@@ -103,8 +103,7 @@
         <com.evervolv.internal.parts.PartsPreference
             android:key="display_mode"
             evervolv:replacesKey="color_mode"
-            evervolv:requiresFeature="hardware:FEATURE_DISPLAY_MODES"
-            settings:controller="com.android.settings.display.DisplayModePreferenceController" />
+            evervolv:requiresFeature="hardware:FEATURE_DISPLAY_MODES" />
 
         <com.evervolv.internal.parts.PartsPreference
             android:key="livedisplay"
