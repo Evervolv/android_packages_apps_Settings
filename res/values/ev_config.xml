@@ -21,4 +21,7 @@
 
     <!-- Whether device total ram should be shown or not. -->
     <bool name="config_show_device_total_ram">true</bool>
+
+    <!-- Whether mainline module version should be shown or not. -->
+    <bool name="config_show_mainline_module_version">false</bool>
 </resources>
