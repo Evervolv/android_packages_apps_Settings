@@ -20,6 +20,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.os.Build;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.util.Log;
@@ -27,6 +28,7 @@ import android.util.Log;
 import androidx.annotation.VisibleForTesting;
 import androidx.preference.Preference;
 
+import com.android.settings.R;
 import com.android.settings.core.BasePreferenceController;
 
 import java.text.ParseException;
@@ -63,7 +65,8 @@ public class MainlineModuleVersionPreferenceController extends BasePreferenceCon
 
     @Override
     public int getAvailabilityStatus() {
-        return !TextUtils.isEmpty(mModuleVersion) ? AVAILABLE : UNSUPPORTED_ON_DEVICE;
+        return mContext.getResources().getBoolean(R.bool.config_show_mainline_module_version)
+                && !TextUtils.isEmpty(mModuleVersion) ? AVAILABLE : UNSUPPORTED_ON_DEVICE;
     }
 
     private void initModules() {
