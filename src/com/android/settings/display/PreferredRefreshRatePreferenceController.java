@@ -16,10 +16,7 @@
 
 package com.android.settings.display;
 
-import static android.provider.Settings.System.PEAK_REFRESH_RATE;
-
 import android.content.Context;
-import android.provider.Settings;
 import android.view.Display;
 
 import androidx.preference.ListPreference;
@@ -29,19 +26,21 @@ import androidx.preference.PreferenceScreen;
 import com.android.settings.R;
 import com.android.settings.core.BasePreferenceController;
 
+import evervolv.provider.EVSettings;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class PeakRefreshRatePreferenceController extends BasePreferenceController implements
+public class PreferredRefreshRatePreferenceController extends BasePreferenceController implements
         Preference.OnPreferenceChangeListener {
 
-    private static final String KEY_PEAK_REFRESH_RATE = "peak_refresh_rate";
+    private static final String KEY_PREFERRED_REFRESH_RATE = "preferred_refresh_rate";
 
     private ListPreference mListPreference;
 
-    public PeakRefreshRatePreferenceController(Context context) {
-        super(context, KEY_PEAK_REFRESH_RATE);
+    public PreferredRefreshRatePreferenceController(Context context) {
+        super(context, KEY_PREFERRED_REFRESH_RATE);
     }
 
     @Override
@@ -53,7 +52,7 @@ public class PeakRefreshRatePreferenceController extends BasePreferenceControlle
 
     @Override
     public String getPreferenceKey() {
-        return KEY_PEAK_REFRESH_RATE;
+        return KEY_PREFERRED_REFRESH_RATE;
     }
 
     @Override
@@ -65,7 +64,8 @@ public class PeakRefreshRatePreferenceController extends BasePreferenceControlle
         Display.Mode[] modes = mContext.getDisplay().getSupportedModes();
         for (Display.Mode m : modes) {
             if (m.getPhysicalWidth() == mode.getPhysicalWidth() &&
-                    m.getPhysicalHeight() == mode.getPhysicalHeight()) {
+                    m.getPhysicalHeight() == mode.getPhysicalHeight() &&
+                    m.getRefreshRate() >= 60.0f) {
                 entries.add(String.format("%.02fHz", m.getRefreshRate())
                         .replaceAll("[\\.,]00", ""));
                 values.add(String.format(Locale.US, "%.02f", m.getRefreshRate()));
@@ -80,9 +80,9 @@ public class PeakRefreshRatePreferenceController extends BasePreferenceControlle
     @Override
     public void updateState(Preference preference) {
         final float defaultRefreshRate = (float) mContext.getResources().getInteger(
-                        com.android.internal.R.integer.config_defaultPeakRefreshRate);
-        final float currentValue = Settings.System.getFloat(mContext.getContentResolver(),
-                PEAK_REFRESH_RATE, defaultRefreshRate);
+                        com.android.internal.R.integer.config_defaultRefreshRate);
+        final float currentValue = EVSettings.System.getFloat(mContext.getContentResolver(),
+                EVSettings.System.PREFERRED_REFRESH_RATE, defaultRefreshRate);
         int index = mListPreference.findIndexOfValue(
                 String.format(Locale.US, "%.02f", currentValue));
         if (index < 0) index = 0;
@@ -92,8 +92,8 @@ public class PeakRefreshRatePreferenceController extends BasePreferenceControlle
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        Settings.System.putFloat(mContext.getContentResolver(), PEAK_REFRESH_RATE,
-                Float.parseFloat(newValue.toString()));
+        EVSettings.System.putFloat(mContext.getContentResolver(),
+                EVSettings.System.PREFERRED_REFRESH_RATE, Float.parseFloat(newValue.toString()));
         updateState(preference);
         return true;
     }
