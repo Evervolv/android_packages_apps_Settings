@@ -28,6 +28,7 @@ import android.hardware.fingerprint.FingerprintSensorPropertiesInternal;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -121,6 +122,9 @@ public class FingerprintEnrollIntroduction extends BiometricEnrollIntroduction {
         footerLink.setMovementMethod(LinkMovementMethod.getInstance());
         footerLink.setText(Html.fromHtml(getString(getFooterLearnMore()),
                 Html.FROM_HTML_MODE_LEGACY));
+        if (TextUtils.isEmpty(footerLink.getText())) {
+            findViewById(R.id.learn_more).setVisibility(View.GONE);
+        }
 
         if (mCanAssumeUdfps) {
             footerMessage6.setVisibility(View.VISIBLE);
