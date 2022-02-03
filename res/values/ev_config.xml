@@ -24,4 +24,7 @@
 
     <!-- Whether mainline module version should be shown or not. -->
     <bool name="config_show_mainline_module_version">false</bool>
+
+    <!-- Indicates whether device has a front facing fingerprint sensor (not udfps). -->
+    <bool name="config_is_front_facing_fps" translatable="false">false</bool>
 </resources>
