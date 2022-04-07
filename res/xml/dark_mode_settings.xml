@@ -18,6 +18,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:evervolv="http://schemas.android.com/apk/res/evervolv.platform"
     xmlns:settings="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:title="@string/dark_ui_mode"
     settings:keywords="@string/keywords_dark_ui_mode">
 
@@ -25,6 +26,10 @@
         android:key="dark_ui_top_intro"
         android:title="@string/dark_ui_text"
         settings:searchable="false"/>
+        
+   <com.android.settingslib.widget.IllustrationPreference
+        android:key="dark_illustration"
+        app:lottie_rawRes="@raw/darkmode"/>
 
     <com.android.settingslib.widget.MainSwitchPreference
         android:key="dark_ui_activated"
