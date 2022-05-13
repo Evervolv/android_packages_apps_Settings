@@ -22,6 +22,8 @@ import com.android.settings.core.BasePreferenceController;
 
 import com.google.common.primitives.Ints;
 
+import evervolv.hardware.HardwareManager;
+
 public class ColorModePreferenceController extends BasePreferenceController {
 
     public ColorModePreferenceController(Context context, String key) {
@@ -35,7 +37,9 @@ public class ColorModePreferenceController extends BasePreferenceController {
         return mContext.getSystemService(ColorDisplayManager.class)
                 .isDeviceColorManaged()
                 && availableColorModes.length > 0
-                && !ColorDisplayManager.areAccessibilityTransformsEnabled(mContext) ?
+                && !ColorDisplayManager.areAccessibilityTransformsEnabled(mContext)
+                && !HardwareManager.getInstance(mContext).
+                            isSupported(HardwareManager.FEATURE_DISPLAY_MODES) ?
                 AVAILABLE : DISABLED_FOR_USER;
     }
 
