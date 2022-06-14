@@ -124,7 +124,7 @@ public class NetworkSelectSettings extends DashboardFragment {
         mSatelliteManager = getSatelliteManager(context);
         mCarrierConfigManager = getCarrierConfigManager(context);
         mNetworkScanHelper = new NetworkScanHelper(
-                mTelephonyManager, mCallback, mNetworkScanExecutor);
+                context, mTelephonyManager, mCallback, mNetworkScanExecutor);
         PersistableBundle bundle = mCarrierConfigManager.getConfigForSubId(mSubId,
                 CarrierConfigManager.KEY_SHOW_4G_FOR_LTE_DATA_ICON_BOOL,
                 CarrierConfigManager.KEY_REMOVE_SATELLITE_PLMN_IN_MANUAL_NETWORK_SCAN_BOOL);
