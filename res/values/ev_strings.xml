@@ -192,4 +192,13 @@
     <!-- Sound & display settings screen, accelerometer-based rotation check box label -->
     <string name="auto_rotate_lockscreen_title">Auto-rotate lock screen</string>
     <string name="auto_rotate_lockscreen_summary">Allow the lock screen to switch between portrait and landscape</string>
+
+    <!-- Preference and settings suggestion title text for screen off UDFPS (phone) [CHAR LIMIT=60]-->
+    <string name="ambient_display_screen_off_udfps_title" product="default">Long press on fingerprint sensor to unlock phone</string>
+    <!-- Preference and settings suggestion title text for screen off UDFPS  (tablet) [CHAR LIMIT=60]-->
+    <string name="ambient_display_screen_off_udfps_title" product="tablet">Long press on fingerprint sensor to unlock tablet</string>
+    <!-- Preference and settings suggestion title text for screen off UDFPS  (device) [CHAR LIMIT=60]-->
+    <string name="ambient_display_screen_off_udfps_title" product="device">Long press on fingerprint sensor to unlock device</string>
+    <!-- Summary text for screen off UDFPS [CHAR LIMIT=NONE]-->
+    <string name="ambient_display_screen_off_udfps_summary">To wake up your screen and unlock, long press your under-display fingerprint sensor.</string>
 </resources>
