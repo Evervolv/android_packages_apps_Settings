@@ -33,6 +33,11 @@
         android:title="@string/auto_rotate_settings_primary_switch_title"
         settings:controller="com.android.settings.display.AutoRotatePreferenceController"/>
 
+    <com.evervolv.internal.parts.PartsPreference
+        android:key="rotation"
+        settings:replacesKey="auto_rotate_switch"
+        settings:requiresFeature="android.hardware.sensor.accelerometer" />
+
     <com.android.settingslib.widget.BannerMessagePreference
         android:key="face_rotate_permission"
         android:title="@string/adaptive_sleep_title_no_permission"
