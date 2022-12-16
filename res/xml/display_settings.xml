@@ -105,10 +105,13 @@
             settings:controller="com.android.settings.display.ColorModePreferenceController"
             settings:keywords="@string/keywords_color_mode"/>
 
-        <com.evervolv.internal.parts.PartsPreference
+        <Preference
             android:key="display_mode"
-            settings:requiresConfig="@*evervolv.platform:bool/config_enableLiveDisplay"
-            settings:requiresFeature="hardware:FEATURE_DISPLAY_MODES" />
+            android:title="@string/color_mode_title"
+            settings:keywords="@string/keywords_color_mode"
+            settings:controller="com.android.settings.display.DisplayModePreferenceController">
+            <intent android:action="com.evervolv.toolbox.DISPLAY_MODE_PICKER"/>
+        </Preference>
 
         <!-- Color enhancement -->
         <SwitchPreference
