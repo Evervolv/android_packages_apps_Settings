@@ -22,29 +22,49 @@ import com.android.settings.core.BasePreferenceController;
 
 import com.google.common.primitives.Ints;
 
-import evervolv.hardware.HardwareManager;
+import evervolv.hardware.LiveDisplayConfig;
+import evervolv.hardware.LiveDisplayManager;
 
 public class ColorModePreferenceController extends BasePreferenceController {
 
+    private LiveDisplayManager mLiveDisplayManager;
+    private LiveDisplayConfig mConfig;
+    private boolean mLiveDisplayEnabled;
+
     public ColorModePreferenceController(Context context, String key) {
         super(context, key);
+
+        mLiveDisplayManager = LiveDisplayManager.getInstance(context);
+        mConfig = mLiveDisplayManager.getConfig();
+        mLiveDisplayEnabled = false;
+        if (!mContext.getResources().getBoolean(
+                com.evervolv.platform.internal.R.bool.config_enableLiveDisplay)) {
+            mLiveDisplayEnabled = mConfig.hasFeature(LiveDisplayManager.FEATURE_DISPLAY_MODES);
+        }
     }
 
     @Override
     public int getAvailabilityStatus() {
+        if (mLiveDisplayEnabled) {
+            return CONDITIONALLY_UNAVAILABLE;
+        }
+
         final int[] availableColorModes = mContext.getResources().getIntArray(
                 com.android.internal.R.array.config_availableColorModes);
         return mContext.getSystemService(ColorDisplayManager.class)
                 .isDeviceColorManaged()
                 && availableColorModes.length > 0
                 && !ColorDisplayManager.areAccessibilityTransformsEnabled(mContext)
-                && !HardwareManager.getInstance(mContext).
-                            isSupported(HardwareManager.FEATURE_DISPLAY_MODES) ?
+                && !mLiveDisplayEnabled ?
                 AVAILABLE : DISABLED_FOR_USER;
     }
 
     @Override
     public CharSequence getSummary() {
+        if (mLiveDisplayEnabled) {
+            return mContext.getText(com.android.settings.R.string.summary_empty);
+        }
+
         final int[] availableColorModes = mContext.getResources().getIntArray(
                 com.android.internal.R.array.config_availableColorModes);
         final String[] availableVendorColorModes = mContext.getResources().getStringArray(

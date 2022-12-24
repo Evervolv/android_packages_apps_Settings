@@ -20,8 +20,8 @@ import androidx.preference.Preference;
 import com.android.settings.R;
 import com.android.settings.core.TogglePreferenceController;
 
-import evervolv.hardware.LiveDisplayManager;
 import evervolv.hardware.LiveDisplayConfig;
+import evervolv.hardware.LiveDisplayManager;
 
 public class DcDimmingPreferenceController extends TogglePreferenceController implements
         Preference.OnPreferenceChangeListener {
@@ -57,11 +57,11 @@ public class DcDimmingPreferenceController extends TogglePreferenceController im
 
     @Override
     public boolean isChecked() {
-        return mLiveDisplayManager.isAntiFlickerEnabled();
+        return mLiveDisplayManager.getFeature(LiveDisplayManager.FEATURE_ANTI_FLICKER);
     }
 
     @Override
     public boolean setChecked(boolean isChecked) {
-        return mLiveDisplayManager.setAntiFlickerEnabled(isChecked);
+        return mLiveDisplayManager.setFeature(LiveDisplayManager.FEATURE_ANTI_FLICKER, isChecked);
     }
 }

@@ -58,11 +58,11 @@ public class AutomaticOutdoorModeController extends TogglePreferenceController i
 
     @Override
     public boolean isChecked() {
-        return mLiveDisplayManager.isAutomaticOutdoorModeEnabled();
+        return mLiveDisplayManager.getFeature(LiveDisplayManager.MODE_OUTDOOR);
     }
 
     @Override
     public boolean setChecked(boolean isChecked) {
-        return mLiveDisplayManager.setAutomaticOutdoorModeEnabled(isChecked);
+        return mLiveDisplayManager.setFeature(LiveDisplayManager.MODE_OUTDOOR, isChecked);
     }
 }

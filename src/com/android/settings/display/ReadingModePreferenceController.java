@@ -20,16 +20,19 @@ import androidx.preference.Preference;
 import com.android.settings.R;
 import com.android.settings.core.TogglePreferenceController;
 
-import evervolv.hardware.HardwareManager;
+import evervolv.hardware.LiveDisplayConfig;
+import evervolv.hardware.LiveDisplayManager;
 
 public class ReadingModePreferenceController extends TogglePreferenceController implements
         Preference.OnPreferenceChangeListener {
 
-    private final HardwareManager mHardware;
+    private LiveDisplayManager mLiveDisplayManager;
+    private LiveDisplayConfig mConfig;
 
     public ReadingModePreferenceController(Context context, String key) {
         super(context, key);
-        mHardware = HardwareManager.getInstance(context);
+        mLiveDisplayManager = LiveDisplayManager.getInstance(context);
+        mConfig = mLiveDisplayManager.getConfig();
     }
 
     @Override
@@ -39,7 +42,11 @@ public class ReadingModePreferenceController extends TogglePreferenceController 
 
     @Override
     public int getAvailabilityStatus() {
-        return mHardware.isSupported(HardwareManager.FEATURE_READING_ENHANCEMENT)
+        if (!mContext.getResources().getBoolean(
+                com.evervolv.platform.internal.R.bool.config_enableLiveDisplay)) {
+            return CONDITIONALLY_UNAVAILABLE;
+        }
+        return mConfig.hasFeature(LiveDisplayManager.FEATURE_READING_ENHANCEMENT)
                 ? AVAILABLE : UNSUPPORTED_ON_DEVICE;
     }
 
@@ -50,11 +57,11 @@ public class ReadingModePreferenceController extends TogglePreferenceController 
 
     @Override
     public boolean isChecked() {
-        return mHardware.get(HardwareManager.FEATURE_READING_ENHANCEMENT);
+        return mLiveDisplayManager.getFeature(LiveDisplayManager.FEATURE_READING_ENHANCEMENT);
     }
 
     @Override
     public boolean setChecked(boolean isChecked) {
-        return mHardware.set(HardwareManager.FEATURE_READING_ENHANCEMENT, isChecked);
+        return mLiveDisplayManager.setFeature(LiveDisplayManager.FEATURE_READING_ENHANCEMENT, isChecked);
     }
 }

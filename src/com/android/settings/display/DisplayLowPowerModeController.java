@@ -57,11 +57,11 @@ public class DisplayLowPowerModeController extends TogglePreferenceController im
 
     @Override
     public boolean isChecked() {
-        return mLiveDisplayManager.isCABCEnabled();
+        return mLiveDisplayManager.getFeature(LiveDisplayManager.FEATURE_CABC);
     }
 
     @Override
     public boolean setChecked(boolean isChecked) {
-        return mLiveDisplayManager.setCABCEnabled(isChecked);
+        return mLiveDisplayManager.setFeature(LiveDisplayManager.FEATURE_CABC, isChecked);
     }
 }

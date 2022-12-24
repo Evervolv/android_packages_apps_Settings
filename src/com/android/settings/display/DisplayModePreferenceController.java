@@ -18,33 +18,40 @@ import android.content.Context;
 import com.android.settings.core.BasePreferenceController;
 
 import com.evervolv.internal.util.ResourceUtils;
+
 import evervolv.hardware.DisplayMode;
-import evervolv.hardware.HardwareManager;
+import evervolv.hardware.LiveDisplayConfig;
+import evervolv.hardware.LiveDisplayManager;
 
 public class DisplayModePreferenceController extends BasePreferenceController {
 
     private static final String COLOR_PROFILE_TITLE = "live_display_color_profile_%s_title";
 
-    private HardwareManager mHardware;
+    private LiveDisplayManager mLiveDisplayManager;
+    private LiveDisplayConfig mConfig;
 
     public DisplayModePreferenceController(Context context, String key) {
         super(context, key);
-        mHardware = HardwareManager.getInstance(context);
+        mLiveDisplayManager = LiveDisplayManager.getInstance(context);
+        mConfig = mLiveDisplayManager.getConfig();
     }
 
     @Override
     public int getAvailabilityStatus() {
-        final int[] availableColorModes = mContext.getResources().getIntArray(
-                com.android.internal.R.array.config_availableColorModes);
-        return availableColorModes.length <= 0
-                && mHardware.isSupported(HardwareManager.FEATURE_DISPLAY_MODES) ?
-                AVAILABLE : DISABLED_FOR_USER;
+        if (!mContext.getResources().getBoolean(
+                com.evervolv.platform.internal.R.bool.config_enableLiveDisplay)) {
+            return CONDITIONALLY_UNAVAILABLE;
+        }
+        return mConfig.hasFeature(LiveDisplayManager.FEATURE_DISPLAY_MODES)
+                ? AVAILABLE : UNSUPPORTED_ON_DEVICE;
     }
 
     @Override
     public CharSequence getSummary() {
-        final DisplayMode currentMode = mHardware.getCurrentDisplayMode() != null
-                    ? mHardware.getCurrentDisplayMode() : mHardware.getDefaultDisplayMode();
+        DisplayMode currentMode = mLiveDisplayManager.getCurrentDisplayMode();
+        if (currentMode != null) {
+            currentMode = mLiveDisplayManager.getDefaultDisplayMode();
+        }
         return ResourceUtils.getLocalizedString(
                 mContext.getResources(), currentMode.name, COLOR_PROFILE_TITLE);
     }

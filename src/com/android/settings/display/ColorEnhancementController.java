@@ -57,11 +57,11 @@ public class ColorEnhancementController extends TogglePreferenceController imple
 
     @Override
     public boolean isChecked() {
-        return mLiveDisplayManager.isColorEnhancementEnabled();
+        return mLiveDisplayManager.getFeature(LiveDisplayManager.FEATURE_COLOR_ENHANCEMENT);
     }
 
     @Override
     public boolean setChecked(boolean isChecked) {
-        return mLiveDisplayManager.setColorEnhancementEnabled(isChecked);
+        return mLiveDisplayManager.setFeature(LiveDisplayManager.FEATURE_COLOR_ENHANCEMENT, isChecked);
     }
 }
