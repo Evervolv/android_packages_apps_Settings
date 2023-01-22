@@ -58,6 +58,11 @@
         settings:controller="com.android.settings.fuelgauge.batterytip.BatteryManagerPreferenceController"
         settings:keywords="@string/keywords_battery_adaptive_preferences" />
 
+    <!-- Charging control -->
+    <com.evervolv.internal.parts.PartsPreference
+        android:key="charging_control"
+        settings:requiresFeature="com.evervolv.health" />
+
     <SwitchPreference
         android:key="battery_percentage"
         android:title="@string/battery_percentage"
