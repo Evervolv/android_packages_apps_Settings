@@ -66,6 +66,10 @@
             android:title="@string/smart_battery_manager_title"
             settings:controller="com.android.settings.fuelgauge.batterytip.BatteryManagerPreferenceController"
             settings:keywords="@string/keywords_battery_adaptive_preferences" />
+
+        <!-- Charging control -->
+        <com.evervolv.internal.parts.PartsPreference
+            android:key="charging_control" />
     </PreferenceCategory>
 
     <com.evervolv.internal.parts.PartsPreference
