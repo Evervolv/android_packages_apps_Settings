@@ -383,8 +383,8 @@ public class FingerprintSettings extends SubSettings {
                     activity, DevicePolicyManager.KEYGUARD_DISABLE_FINGERPRINT, mUserId);
             final Intent helpIntent = HelpUtils.getHelpIntent(
                     activity, getString(getHelpResource()), activity.getClass().getName());
-            final View.OnClickListener learnMoreClickListener = (v) ->
-                    activity.startActivityForResult(helpIntent, 0);
+            final View.OnClickListener learnMoreClickListener = helpIntent != null ? (v) ->
+                    activity.startActivityForResult(helpIntent, 0) : null;
 
             mFooterColumns.clear();
             if (admin != null) {
