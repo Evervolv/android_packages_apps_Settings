@@ -692,4 +692,7 @@
 
     <!-- Whether the given language capitalizes nouns -->
     <bool name="language_capitalizes_nouns">false</bool>
+
+    <!-- Whether to show a preference item for safety information in About phone -->
+    <bool name="config_show_safety_info">false</bool>
 </resources>
