@@ -19,6 +19,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.provider.Settings;
 
+import com.android.settings.R;
 import com.android.settings.core.PreferenceControllerMixin;
 import com.android.settingslib.core.AbstractPreferenceController;
 
@@ -34,7 +35,8 @@ public class RegulatoryInfoPreferenceController extends AbstractPreferenceContro
 
     @Override
     public boolean isAvailable() {
-        return !mContext.getPackageManager().queryIntentActivities(INTENT_PROBE, 0).isEmpty();
+        return mContext.getResources().getBoolean(R.bool.config_show_regulatory_info)
+                && !mContext.getPackageManager().queryIntentActivities(INTENT_PROBE, 0).isEmpty();
     }
 
     @Override
