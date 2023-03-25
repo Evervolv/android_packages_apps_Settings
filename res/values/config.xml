@@ -349,6 +349,9 @@
          Fetch resource from overlay package directly if this is set. -->
     <string name="config_regulatory_info_overlay_package_name" translatable="false" />
 
+    <!-- Whether to show a preference item for safety information in About phone -->
+    <bool name="config_show_safety_info">false</bool>
+
     <!-- Whether to show a preference item for mobile plan -->
     <bool name="config_show_mobile_plan">true</bool>
 
