@@ -22,6 +22,7 @@ import android.text.TextUtils;
 
 import androidx.preference.Preference;
 
+import com.android.settings.R;
 import com.android.settings.core.PreferenceControllerMixin;
 import com.android.settingslib.core.AbstractPreferenceController;
 
@@ -40,7 +41,8 @@ public class SafetyInfoPreferenceController extends AbstractPreferenceController
 
     @Override
     public boolean isAvailable() {
-        return !mPackageManager.queryIntentActivities(INTENT_PROBE, 0).isEmpty();
+        return mContext.getResources().getBoolean(R.bool.config_show_safety_info)
+                && !mPackageManager.queryIntentActivities(INTENT_PROBE, 0).isEmpty();
     }
 
     @Override
