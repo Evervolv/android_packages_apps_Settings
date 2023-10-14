@@ -205,4 +205,9 @@
     <string name="lid_behavior_none">None</string>
     <string name="lid_behavior_lock">Lock/Unlock</string>
     <string name="lid_behavior_sleep">Sleep/Wake</string>
+
+    <!-- Title shown for menu item that launches biometric settings. [CHAR LIMIT=66] -->
+    <string name="security_settings_multi_biometric_preference_title">Biometric Unlock</string>
+    <!-- Title shown for work menu item that launches biometric settings. [CHAR LIMIT=66] -->
+    <string name="security_settings_work_multi_biometric_preference_title">Biometric Unlock for work</string>
 </resources>
