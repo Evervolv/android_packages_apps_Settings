@@ -20,6 +20,9 @@ import androidx.annotation.VisibleForTesting;
 
 import com.android.settings.core.BasePreferenceController;
 
+import evervolv.hardware.LiveDisplayConfig;
+import evervolv.hardware.LiveDisplayManager;
+
 public class ColorModePreferenceController extends BasePreferenceController {
 
     public ColorModePreferenceController(Context context, String key) {
@@ -28,6 +31,13 @@ public class ColorModePreferenceController extends BasePreferenceController {
 
     @Override
     public int getAvailabilityStatus() {
+        final LiveDisplayConfig displayConfig = LiveDisplayManager.getInstance(mContext).getConfig();
+        if (mContext.getResources().getBoolean(
+                com.evervolv.platform.internal.R.bool.config_enableLiveDisplay)
+                && displayConfig.hasFeature(LiveDisplayManager.FEATURE_DISPLAY_MODES)) {
+            return CONDITIONALLY_UNAVAILABLE;
+        }
+
         final int[] availableColorModes = mContext.getResources().getIntArray(
                 com.android.internal.R.array.config_availableColorModes);
         return mContext.getSystemService(ColorDisplayManager.class)

@@ -27,13 +27,8 @@ public class DisplayModePreferenceController extends BasePreferenceController {
 
     private static final String COLOR_PROFILE_TITLE = "live_display_color_profile_%s_title";
 
-    private LiveDisplayManager mLiveDisplayManager;
-    private LiveDisplayConfig mConfig;
-
     public DisplayModePreferenceController(Context context, String key) {
         super(context, key);
-        mLiveDisplayManager = LiveDisplayManager.getInstance(context);
-        mConfig = mLiveDisplayManager.getConfig();
     }
 
     @Override
@@ -42,19 +37,17 @@ public class DisplayModePreferenceController extends BasePreferenceController {
                 com.evervolv.platform.internal.R.bool.config_enableLiveDisplay)) {
             return CONDITIONALLY_UNAVAILABLE;
         }
-
-        final int[] availableColorModes = mContext.getResources().getIntArray(
-                com.android.internal.R.array.config_availableColorModes);
-        return !mConfig.hasFeature(LiveDisplayManager.FEATURE_DISPLAY_MODES)
-                || availableColorModes.length > 0 ?
-                DISABLED_FOR_USER : AVAILABLE;
+        final LiveDisplayConfig displayConfig = LiveDisplayManager.getInstance(mContext).getConfig();
+        return displayConfig.hasFeature(LiveDisplayManager.FEATURE_DISPLAY_MODES) ?
+                AVAILABLE : DISABLED_FOR_USER;
     }
 
     @Override
     public CharSequence getSummary() {
-        DisplayMode currentMode = mLiveDisplayManager.getCurrentDisplayMode();
+        final LiveDisplayManager manager = LiveDisplayManager.getInstance(mContext);
+        DisplayMode currentMode = manager.getCurrentDisplayMode();
         if (currentMode != null) {
-            currentMode = mLiveDisplayManager.getDefaultDisplayMode();
+            currentMode = manager.getDefaultDisplayMode();
         }
         return ResourceUtils.getLocalizedString(
                 mContext.getResources(), currentMode.name, COLOR_PROFILE_TITLE);
