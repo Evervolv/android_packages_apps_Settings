@@ -103,6 +103,11 @@
         settings:isPreferenceVisible="@bool/config_show_data_saver"
         android:fragment="com.android.settings.datausage.DataSaverSummary"/>
 
+    <com.evervolv.internal.parts.PartsPreference
+        android:key="network_traffic"
+        android:icon="@drawable/ic_network_traffic"
+        android:order="11" />
+
     <com.android.settings.vpn2.VpnInfoPreference
         android:fragment="com.android.settings.vpn2.VpnSettings"
         android:key="vpn_settings"
