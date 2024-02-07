@@ -159,15 +159,4 @@
     <!-- AdGuard Private DNS -->
     <string name="private_dns_mode_adguard" translatable="false">AdGuard DNS</string>
     <string name="private_dns_hostname_adguard" translatable="false">dns.adguard-dns.com</string>
-
-    <!-- Edge light -->
-    <string name="keywords_edge_light_display">notification, notifications, edge, light, colour, color</string>
-    <string name="edge_light_title">Edge light notification</string>
-    <string name="edge_light_main_switch_title">Use Edge light</string>
-    <string name="edge_light_summary">Display an animation along the edges of the screen when pulsing</string>
-    <string name="edge_light_always_trigger_on_pulse_title">Always trigger on pulse</string>
-    <string name="edge_light_always_trigger_on_pulse_summary">Whether to show edge light whenever ambient display is shown and not just for notifications</string>
-    <string name="edge_light_repeat_animation_title">Repeat animation</string>
-    <string name="edge_light_repeat_animation_summary_on">Repeat until timeout</string>
-    <string name="edge_light_repeat_animation_summary_off">Show only once</string>
 </resources>

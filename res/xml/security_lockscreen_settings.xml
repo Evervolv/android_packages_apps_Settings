@@ -128,13 +128,6 @@
             settings:searchable="false"
             settings:controller="com.android.settings.gestures.ScreenOffUdfpsPreferenceController" />
 
-        <!-- Horizon Light Settings -->
-        <Preference
-            android:key="edge_light_settings"
-            android:title="@string/edge_light_title"
-            android:summary="@string/edge_light_summary"
-            android:fragment="com.android.settings.display.EdgeLightSettings" />
-
         <SwitchPreference
             android:key="ambient_display_notification"
             android:title="@string/doze_title"
