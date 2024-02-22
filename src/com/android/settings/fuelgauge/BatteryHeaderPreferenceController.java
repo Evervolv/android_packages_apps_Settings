@@ -20,6 +20,7 @@ import static com.android.settings.fuelgauge.BatteryBroadcastReceiver.BatteryUpd
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.BatteryManager;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -31,6 +32,7 @@ import androidx.preference.PreferenceScreen;
 
 import com.android.settings.core.BasePreferenceController;
 import com.android.settings.core.PreferenceControllerMixin;
+import com.android.settings.R;
 import com.android.settingslib.Utils;
 import com.android.settingslib.widget.UsageProgressBarPreference;
 
@@ -108,10 +110,22 @@ public class BatteryHeaderPreferenceController extends BasePreferenceController
         mBatteryUsageProgressBarPreference.setUsageSummary(
                 formatBatteryPercentageText(batteryLevel));
         mBatteryUsageProgressBarPreference.setPercent(batteryLevel, BATTERY_MAX_LEVEL);
+
+        final int chargeCounterUah =
+                batteryBroadcast.getIntExtra(BatteryManager.EXTRA_CHARGE_COUNTER, -1);
+        if (chargeCounterUah != -1) {
+            int chargeCounter = chargeCounterUah / 1_000;
+            mBatteryUsageProgressBarPreference.setTotalSummary(
+                    formatBatteryChargeCounterText(chargeCounter));
+        }
     }
 
     private CharSequence formatBatteryPercentageText(int batteryLevel) {
         return com.android.settings.Utils.formatPercentage(batteryLevel);
+    }
+
+    private CharSequence formatBatteryChargeCounterText(int chargeCounter) {
+        return mContext.getString(R.string.battery_charge_counter_summary, chargeCounter);
     }
 }
 // LINT.ThenChange(BatteryHeaderPreference.kt)
