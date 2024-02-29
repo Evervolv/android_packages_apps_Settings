@@ -200,6 +200,16 @@
             android:summary="@string/live_display_low_power_summary"
             settings:controller="com.android.settings.display.DisplayLowPowerModeController"/>
 
+        <!-- Lid event behavior-->
+        <ListPreference
+            android:key="lid_behavior"
+            android:title="@string/lid_behavior_title"
+            android:summary="@string/lid_behavior_summary"
+            android:entries="@array/lid_behavior_entries"
+            android:entryValues="@array/lid_behavior_values"
+            android:dialogTitle="@string/lid_behavior_title"
+            settings:controller="com.android.settings.display.LidBehaviorPreferenceController" />
+
         <SwitchPreferenceCompat
             android:key="show_operator_name"
             android:title="@string/show_operator_name_title"
