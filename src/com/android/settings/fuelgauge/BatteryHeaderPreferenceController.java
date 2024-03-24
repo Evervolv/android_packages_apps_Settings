@@ -113,7 +113,7 @@ public class BatteryHeaderPreferenceController extends BasePreferenceController
 
         final int chargeCounterUah =
                 batteryBroadcast.getIntExtra(BatteryManager.EXTRA_CHARGE_COUNTER, -1);
-        if (chargeCounterUah != -1) {
+        if (chargeCounterUah > 0) {
             int chargeCounter = chargeCounterUah / 1_000;
             mBatteryUsageProgressBarPreference.setTotalSummary(
                     formatBatteryChargeCounterText(chargeCounter));
