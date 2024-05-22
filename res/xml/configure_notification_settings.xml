@@ -234,5 +234,9 @@
             android:summary="@string/notification_assistant_summary"
             settings:controller="com.android.settings.notification.NotificationAssistantPreferenceController"/>
 
+        <!-- Edge lights -->
+        <com.evervolv.internal.parts.PartsPreference
+            android:key="notifications_edge_light" />
+
     </PreferenceCategory>
 </PreferenceScreen>
