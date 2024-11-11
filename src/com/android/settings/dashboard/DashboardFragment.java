@@ -78,13 +78,21 @@ public abstract class DashboardFragment extends SettingsPreferenceFragment
     private static final long TIMEOUT_MILLIS = 50L;
 
     private static final List<String> ACCOUNT_INJECTED_KEYS = Arrays.asList(
-        "dashboard_tile_pref_com.google.android.gms.backup.component.BackupOrRestoreSettingsActivity",
-        "top_level_google"
+        "dashboard_tile_pref_com.google.android.gms.backup.component.BackupOrRestoreSettingsActivity"
     );
 
     private static final List<String> SECURITY_PRIVACY_INJECTED_KEYS = Arrays.asList(
-        "top_level_wellbeing"
+        "top_level_wellbeing",
+        "top_level_google"
     );
+
+    private static final ArrayMap<String, Integer> KEY_ORDER = new ArrayMap<>();
+    static {
+        // We have "Passwords, passkeys & accounts with order "-10" above
+        KEY_ORDER.put("top_level_wellbeing", -5);
+        KEY_ORDER.put("top_level_google", 0);
+        // We have "Safety & emergency with order "10" below
+    }
 
     @VisibleForTesting
     final ArrayMap<String, List<DynamicDataObserver>> mDashboardTilePrefKeys = new ArrayMap<>();
@@ -98,6 +106,7 @@ public abstract class DashboardFragment extends SettingsPreferenceFragment
     private DashboardTilePlaceholderPreferenceController mPlaceholderPreferenceController;
     private boolean mListeningToCategoryChange;
     private List<String> mSuppressInjectedTileKeys;
+    private boolean mReorderInjectedTiles;
 
     @Override
     public void onAttach(Context context) {
@@ -106,6 +115,8 @@ public abstract class DashboardFragment extends SettingsPreferenceFragment
                 R.array.config_suppress_injected_tile_keys));
         mDashboardFeatureProvider =
                 FeatureFactory.getFeatureFactory().getDashboardFeatureProvider();
+        mReorderInjectedTiles = context.getResources().getBoolean(
+                R.bool.config_reorder_injected_tiles);
 
         if (!isCatalystEnabled()) {
             // Load preference controllers from code
@@ -572,12 +583,20 @@ public abstract class DashboardFragment extends SettingsPreferenceFragment
                 observers = mDashboardFeatureProvider.bindPreferenceToTileAndGetObservers(
                         getActivity(), this, forceRoundedIcons, preference, tile, key,
                         mPlaceholderPreferenceController.getOrder());
+                // Order the prefs within their respective category
+                if (mReorderInjectedTiles && KEY_ORDER.containsKey(key)) {
+                    preference.setOrder(KEY_ORDER.get(key));
+                }
             } else {
                 // Don't have this key, add it.
                 final Preference pref = createPreference(tile);
                 observers = mDashboardFeatureProvider.bindPreferenceToTileAndGetObservers(
                         getActivity(), this, forceRoundedIcons, pref, tile, key,
                         mPlaceholderPreferenceController.getOrder());
+                // Order the prefs within their respective category
+                if (mReorderInjectedTiles && KEY_ORDER.containsKey(key)) {
+                    pref.setOrder(KEY_ORDER.get(key));
+                }
                 if (Flags.dynamicInjectionCategory()) {
                     if (tile.hasGroupKey()) {
                         Preference group = screen.findPreference(tile.getGroupKey());
@@ -598,6 +617,10 @@ public abstract class DashboardFragment extends SettingsPreferenceFragment
                         group = screen.findPreference("top_level_account_category");
                     } else if (SECURITY_PRIVACY_INJECTED_KEYS.contains(key)) {
                         group = screen.findPreference("top_level_security_privacy_category");
+                    }
+                    // Order the prefs within their respective category
+                    if (mReorderInjectedTiles && KEY_ORDER.containsKey(key)) {
+                        pref.setOrder(KEY_ORDER.get(key));
                     }
                     if (group instanceof PreferenceCategory) {
                         ((PreferenceCategory) group).addPreference(pref);
