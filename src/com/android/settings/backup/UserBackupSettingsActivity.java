@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2017 The Android Open Source Project
+ * Copyright (C) 2024 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +29,7 @@ import androidx.fragment.app.FragmentManager;
 
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.utils.InsetUtils;
 import com.android.settingslib.search.Indexable;
 import com.android.settingslib.search.SearchIndexable;
 import com.android.settingslib.search.SearchIndexableRaw;
@@ -83,6 +85,9 @@ public class UserBackupSettingsActivity extends FragmentActivity implements Inde
             if (Log.isLoggable(TAG, Log.DEBUG)) {
                 Log.d(TAG, "Manufacturer provided backup settings, showing the preference screen");
             }
+
+            InsetUtils.applyWindowInsetsListener(findViewById(android.R.id.content));
+
             // mFragmentManager can be set by {@link #setFragmentManager()} for testing
             if (mFragmentManager == null) {
                 mFragmentManager = getSupportFragmentManager();
