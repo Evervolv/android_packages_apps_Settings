@@ -670,7 +670,7 @@ public class FingerprintSettings extends SubSettings {
             // This needs to be after setting ids, otherwise
             // |mRequireScreenOnToAuthPreferenceController.isChecked| is always checking the primary
             // user instead of the user with |mUserId|.
-            if (!isUdfps() || (screenOffUnlockUdfps() && isUltrasnoicUdfps())) {
+            if (!isUdfps() || (screenOffUnlockUdfps() && isUdfps())) {
                 scrollToPreference(fpPrefKey);
                 addFingerprintUnlockCategory();
             }
@@ -737,7 +737,7 @@ public class FingerprintSettings extends SubSettings {
                             restToUnlockPreference.getOnPreferenceChangeListener());
                 }
                 setupFingerprintUnlockCategoryPreferencesForScreenOnToAuth();
-            } else if (screenOffUnlockUdfps() && isUltrasnoicUdfps()) {
+            } else if (screenOffUnlockUdfps() && isUdfps()) {
                 setupFingerprintUnlockCategoryPreferencesForScreenOffUnlock();
             }
             updateFingerprintUnlockCategoryVisibility();
@@ -785,7 +785,7 @@ public class FingerprintSettings extends SubSettings {
 
         private void updatePreferencesAfterFingerprintRemoved() {
             updateAddPreference();
-            if (!isUdfps() || (screenOffUnlockUdfps() && isUltrasnoicUdfps())) {
+            if (!isUdfps() || (screenOffUnlockUdfps() && isUdfps())) {
                 updateFingerprintUnlockCategoryVisibility();
             }
             updatePreferences();
@@ -1029,7 +1029,7 @@ public class FingerprintSettings extends SubSettings {
                     }
 
                 }
-            } else if (screenOffUnlockUdfps() && isUltrasnoicUdfps()) {
+            } else if (screenOffUnlockUdfps() && isUdfps()) {
                 for (AbstractPreferenceController controller : controllers) {
                     if (controller.getPreferenceKey() == KEY_FINGERPRINT_UNLOCK_CATEGORY) {
                         mFingerprintUnlockCategoryPreferenceController =
