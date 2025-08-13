@@ -70,6 +70,14 @@
         <!-- Charging control -->
         <com.evervolv.internal.parts.PartsPreference
             android:key="charging_control" />
+
+        <ListPreference
+            android:entries="@*evervolv.platform:array/charging_speed_entries"
+            android:entryValues="@*evervolv.platform:array/charging_speed_values"
+            android:key="charging_speed"
+            android:summary="%s"
+            android:title="@*evervolv.platform:string/charging_speed"
+            settings:controller="com.android.settings.fuelgauge.ChargingSpeedPreferenceController" />
     </PreferenceCategory>
 
     <com.evervolv.internal.parts.PartsPreference
